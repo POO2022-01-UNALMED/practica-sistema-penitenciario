@@ -11,6 +11,34 @@ public class Trabajo {
 	private List<Reo> reos;
 	private List<Guardia> guardias;
 	private List<String> historialTrabajo;
+	
+	
+	
+	public List<Reo> getReos() {
+		return reos;
+	}
+	public void setReos(List<Reo> reos) {
+		this.reos = reos;
+	}
+	public List<Guardia> getGuardias() {
+		return guardias;
+	}
+	public void setGuardias(List<Guardia> guardias) {
+		this.guardias = guardias;
+	}
+	public List<String> getHistorialTrabajo() {
+		return historialTrabajo;
+	}
+	public void setHistorialTrabajo(List<String> historialTrabajo) {
+		this.historialTrabajo = historialTrabajo;
+	}
+	public int getCapacidad() {
+		return capacidad;
+	}
+	
+	
+	
+	
 
 	
 }

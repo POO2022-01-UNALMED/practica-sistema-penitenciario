@@ -12,4 +12,5 @@ public class Celda {
 	private List<Reo> reosPertenecientes;
 	private List<String> historialCelda;
 	
+	
 }

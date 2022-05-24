@@ -14,6 +14,17 @@ public class Patio {
 	private List<Guardia> guardias;
 	private List<String> historialPatio;
 
+	public Patio(int capacidad, String nombre, int prueba, List<Reo> reos, List<Guardia> guardias,
+			List<String> historialPatio) {
+		super();
+		this.capacidad = capacidad;
+		this.nombre = nombre;
+		this.prueba = prueba;
+		this.reos = reos;
+		this.guardias = guardias;
+		this.historialPatio = historialPatio;
+	}
+	
 	public int getPrueba() {
 		return prueba;
 	}

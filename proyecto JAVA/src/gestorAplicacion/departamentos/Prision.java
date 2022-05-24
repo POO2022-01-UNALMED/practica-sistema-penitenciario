@@ -18,13 +18,23 @@ public class Prision {
 	private static int prisionesCreadas=0;
 	//Falta aun mucho, discutir sobre si se a�ade a Alcaide o aqu� muchas cosas
 
+	public Prision(int numCeldas, int numPatios, int numGuardias, int numReos, int numBuses, boolean genero,
+			String localizacion, String nombre) {
+		super();
+		this.numCeldas = numCeldas;
+		this.numPatios = numPatios;
+		this.numGuardias = numGuardias;
+		this.numReos = numReos;
+		this.numBuses = numBuses;
+		this.genero = genero;
+		this.localizacion = localizacion;
+		this.nombre = nombre;
+	}
 	
-	
-
 	public int getNumGuardias() {
 		return numGuardias;
 	}
-	
+
 	public void setNumGuardias(int numGuardias) {
 		this.numGuardias = numGuardias;
 	}

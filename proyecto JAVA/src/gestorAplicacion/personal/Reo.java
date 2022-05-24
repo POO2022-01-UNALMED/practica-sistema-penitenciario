@@ -14,9 +14,8 @@ public class Reo {
 	private Prision prision;
 	private Trabajo trabajo;
 	// a�adir un enum?
-	
-
 	private List<String> historialReo;
+
 	public Reo(String nombre, int codigo, boolean genero, int condena, Prision prision, Trabajo trabajo,
 			List<String> historialReo) {
 		super();
@@ -28,41 +27,49 @@ public class Reo {
 		this.trabajo = trabajo;
 		this.historialReo = historialReo;
 	}
+	
 	public int getCondena() {
 		return condena;
 	}
+	
 	public void setCondena(int condena) {
 		this.condena = condena;
 	}
+	
 	public Prision getPrision() {
 		return prision;
 	}
+	
 	public void setPrision(Prision prision) {
 		this.prision = prision;
 	}
+	
 	public Trabajo getTrabajo() {
 		return trabajo;
 	}
+	
 	public void setTrabajo(Trabajo trabajo) {
 		this.trabajo = trabajo;
 	}
+	
 	public List<String> getHistorialReo() {
 		return historialReo;
 	}
+	
 	public void setHistorialReo(List<String> historialReo) {
 		this.historialReo = historialReo;
 	}
+	
 	public String getNombre() {
 		return nombre;
 	}
+	
 	public int getCodigo() {
 		return codigo;
 	}
+	
 	public boolean isGenero() {
 		return Genero;
 	}
-	
-	
-	
 	
 }

@@ -18,6 +18,8 @@ public class Prision {
 	private static int prisionesCreadas=0;
 	//Falta aun mucho, discutir sobre si se a�ade a Alcaide o aqu� muchas cosas
 
+	
+	
 
 	public int getNumGuardias() {
 		return numGuardias;

@@ -7,7 +7,7 @@ import gestorAplicacion.departamentos.*;
 
 public class Guardia{
 	
-	private enum Rango {bachiller, carcelero, oficial};
+	public enum Rango {bachiller, carcelero, oficial};
 	
 	private final String nombre;
 	private final int codigo;
@@ -46,6 +46,18 @@ public class Guardia{
 	}
 
 	
+	public void meterReoCelda(Reo reo, Celda celda) {
+		if (this.rango == Rango.bachiller || reo.getCelda() != null) {
+			break;
+		}
+		else {
+			celda.asignarReo(reo);
+			reo.setCelda(celda);
+		}
+				
+	}
+	
+	
 	public Prision getPrision() {
 		return prision;
 	}
@@ -83,6 +95,7 @@ public class Guardia{
 	//public void setHistorialGuardia(ArrayList<String> historialGuardia) {
 	//	this.historialGuardia = historialGuardia;
 	//}
+	
 	
 	
 	

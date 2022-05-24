@@ -12,7 +12,9 @@ public class Reo {
 	private final boolean genero; //Tomaremos que 1 sea hombre, 0 mujer.
 	private int condena;
 	private Prision prision;
+	private Celda celda;
 	private Trabajo trabajo;
+	
 	// a�adir un enum?
 	
 	private ArrayList<String> historialReo = new ArrayList<String>();
@@ -34,14 +36,17 @@ public class Reo {
 		
 	}
 
-	public Reo(String nombre, int codigo, boolean genero, int condena, Prision prision, Trabajo trabajo) {
+	public Reo(String nombre, int codigo, boolean genero, int condena, Prision prision, Celda celda) {
 		
 		this(nombre, codigo, genero, condena, prision);
-		this.trabajo = trabajo;
+		this.celda = celda;
 		
 	}
 
-	
+	public Reo(String nombre, int codigo, boolean genero, int condena, Prision prision, Celda celda, Trabajo trabajo) {
+		this(nombre, codigo, genero, condena, prision, celda);
+		this.trabajo = trabajo;
+	}
 
 	public int getCondena() {
 		return condena;
@@ -87,6 +92,14 @@ public class Reo {
 		return genero;
 	}
 	
+	public Celda getCelda() {
+		return celda;
+	}
+
+	public void setCelda(Celda celda) {
+		this.celda = celda;
+	}
+
 	public ArrayList<String> getHistorialReo() {
 		return historialReo;
 	}

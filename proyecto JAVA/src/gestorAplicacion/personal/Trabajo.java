@@ -7,43 +7,39 @@ import gestorAplicacion.departamentos.*;
 
 public class Trabajo {
 	
-	private final int capacidad;
-	private List<Reo> reos;
-	private List<Guardia> guardias;
-	private List<String> historialTrabajo;
+	private enum Dificultad {facil, normal, dificil};
 	
-	public Trabajo(int capacidad, List<Reo> reos, List<Guardia> guardias, List<String> historialTrabajo) {
-		super();
-		this.capacidad = capacidad;
-		this.reos = reos;
-		this.guardias = guardias;
-		this.historialTrabajo = historialTrabajo;
+	private final String nombre;
+	private final Dificultad dificultad;
+	private ArrayList<Reo> reos = new ArrayList<Reo>();
+	private ArrayList<Guardia> guardias = new ArrayList<Guardia>();
+	private ArrayList<String> historialTrabajo = new ArrayList<String>();
+	
+	public Trabajo(String nombre, Dificultad dificultad) {
+		this.nombre = nombre;
+		this.dificultad = dificultad;
 	}
-	public List<Reo> getReos() {
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public Dificultad getDificultad() {
+		return dificultad;
+	}
+
+	public ArrayList<Reo> getReos() {
 		return reos;
 	}
-	public void setReos(List<Reo> reos) {
-		this.reos = reos;
-	}
-	public List<Guardia> getGuardias() {
+
+	public ArrayList<Guardia> getGuardias() {
 		return guardias;
 	}
-	public void setGuardias(List<Guardia> guardias) {
-		this.guardias = guardias;
-	}
-	public List<String> getHistorialTrabajo() {
+
+	public ArrayList<String> getHistorialTrabajo() {
 		return historialTrabajo;
 	}
-	public void setHistorialTrabajo(List<String> historialTrabajo) {
-		this.historialTrabajo = historialTrabajo;
-	}
-	public int getCapacidad() {
-		return capacidad;
-	}
 	
 	
-	
-	
-
 	
 }

@@ -5,55 +5,87 @@ import java.util.ArrayList;
 import gestorAplicacion.bienes.*;
 import gestorAplicacion.departamentos.*;
 
-public class Guardia {
+public class Guardia{
 	
 	private enum Rango {bachiller, carcelero, oficial};
-	private String nombre;
-	private int codigo;
-	private Rango rango;
-	private Prision prision;
-	private List<String> historialGuardia;
 	
-	public Guardia(String nombre, int codigo, Rango rango, Prision prision, List<String> historialGuardia) {
-		super();
+	private final String nombre;
+	private final int codigo;
+	private Prision prision;
+	private Rango rango;
+	private ArrayList<String> historialGuardia = new ArrayList<String>();
+	
+	public Guardia(String nombre, int codigo) {
+		
 		this.nombre = nombre;
 		this.codigo = codigo;
-		this.rango = rango;
+		
+	}
+
+	public Guardia(String nombre, int codigo, Prision prision) {
+		
+		this(nombre, codigo);
 		this.prision = prision;
-		this.historialGuardia = historialGuardia;
+		
 	}
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public int getCodigo() {
-		return codigo;
-	}
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
-	}
-	public Rango getRango() {
-		return rango;
-	}
-	public void setRango(Rango rango) {
+	
+
+	public Guardia(String nombre, int codigo, Prision prision, Rango rango) {
+		
+		this(nombre, codigo, prision);
 		this.rango = rango;
+		
 	}
+
+	
+	public Guardia(String nombre, int codigo, Rango rango) {
+		
+		this(nombre, codigo);
+		this.rango = rango;
+		
+	}
+
+	
 	public Prision getPrision() {
 		return prision;
 	}
+	
+
 	public void setPrision(Prision prision) {
 		this.prision = prision;
 	}
-	public List<String> getHistorialGuardia() {
-		return historialGuardia;
-	}
-	public void setHistorialGuardia(List<String> historialGuardia) {
-		this.historialGuardia = historialGuardia;
-	}
-	
-	
 	
 
+	public Rango getRango() {
+		return rango;
+	}
+	
+
+	public void setRango(Rango rango) {
+		this.rango = rango;
+	}
+	
+
+
+	public String getNombre() {
+		return nombre;
+	}
+	
+
+	public int getCodigo() {
+		return codigo;
+	}
+	
+	public ArrayList<String> getHistorialGuardia() {
+		return historialGuardia;
+	}
+
+	//public void setHistorialGuardia(ArrayList<String> historialGuardia) {
+	//	this.historialGuardia = historialGuardia;
+	//}
+	
+	
+	
+	
+	
 }

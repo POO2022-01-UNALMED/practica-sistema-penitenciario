@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import gestorAplicacion.personal.*;
 import gestorAplicacion.bienes.*;
 
-public class Patio {
+public abstract class Patio {
 
 	private final int capacidad;
 	private final String nombre;
 	private int prueba;
-	private List<Reo> reos;
-	private List<Guardia> guardias;
-	private List<String> historialPatio;
+	private ArrayList<Reo> reos;
+	private ArrayList<Guardia> guardias;
+	private ArrayList<String> historialPatio;
 
-	public Patio(int capacidad, String nombre, int prueba, List<Reo> reos, List<Guardia> guardias,
-			List<String> historialPatio) {
+	public Patio(int capacidad, String nombre, int prueba, ArrayList<Reo> reos, ArrayList<Guardia> guardias,
+			ArrayList<String> historialPatio) {
 		super();
 		this.capacidad = capacidad;
 		this.nombre = nombre;
@@ -34,20 +34,20 @@ public class Patio {
 	public List<Reo> getReos() {
 		return reos;
 	}
-	public void setReos(List<Reo> reos) {
+	public void setReos(ArrayList<Reo> reos) {
 		this.reos = reos;
 	}
 	public List<Guardia> getGuardias() {
 		return guardias;
 	}
-	public void setGuardias(List<Guardia> guardias) {
+	public void setGuardias(ArrayList<Guardia> guardias) {
 		this.guardias = guardias;
 	}
 	public List<String> getHistorialPatio() {
 		return historialPatio;
 	}
-	public void setHistorialPatio(List<String> historialPatio) {
-		this.historialPatio = historialPatio;
+	public void setHistorialPatio(ArrayList<String> historialPatio) {
+		this.historialPatio.addAll(historialPatio);
 	}
 	public int getCapacidad() {
 		return capacidad;
@@ -55,6 +55,10 @@ public class Patio {
 	public String getNombre() {
 		return nombre;
 	}
+	
+	public abstract void ingresarReos(ArrayList<Reo> reos); //con este metodo se ingresará reos a las clases hijas 
+	
+	public abstract void laborarReo(Reo reo, int horas); // con este metodo se pondrá hacer labores correspondientes a cada reo para que redutca la pena
 
-
+	//public abstract void ingresarGuardias(ArrayList<Guardia> guardia);
 }

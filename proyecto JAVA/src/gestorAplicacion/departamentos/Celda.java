@@ -9,10 +9,10 @@ public class Celda {
 	
 	private final int numCelda;
 	private final int capacidadMax;
-	private List<Reo> reosPertenecientes;
-	private List<String> historialCelda;
+	private ArrayList<Reo> reosPertenecientes;
+	private ArrayList<String> historialCelda;
 	
-	public Celda(int numCelda, int capacidadMax, List<Reo> reosPertenecientes, List<String> historialCelda) {
+	public Celda(int numCelda, int capacidadMax, ArrayList<Reo> reosPertenecientes, ArrayList<String> historialCelda) {
 		super();
 		this.numCelda = numCelda;
 		this.capacidadMax = capacidadMax;
@@ -20,16 +20,16 @@ public class Celda {
 		this.historialCelda = historialCelda;
 	}
 	
-	public List<Reo> getReosPertenecientes() {
+	public ArrayList<Reo> getReosPertenecientes() {
 		return reosPertenecientes;
 	}
-	public void setReosPertenecientes(List<Reo> reosPertenecientes) {
+	public void setReosPertenecientes(ArrayList<Reo> reosPertenecientes) {
 		this.reosPertenecientes = reosPertenecientes;
 	}
-	public List<String> getHistorialCelda() {
+	public ArrayList<String> getHistorialCelda() {
 		return historialCelda;
 	}
-	public void setHistorialCelda(List<String> historialCelda) {
+	public void setHistorialCelda(ArrayList<String> historialCelda) {
 		this.historialCelda = historialCelda;
 	}
 	public int getNumCelda() {

@@ -13,4 +13,25 @@ public class Celda {
 	private List<String> historialCelda;
 	
 	
+	public List<Reo> getReosPertenecientes() {
+		return reosPertenecientes;
+	}
+	public void setReosPertenecientes(List<Reo> reosPertenecientes) {
+		this.reosPertenecientes = reosPertenecientes;
+	}
+	public List<String> getHistorialCelda() {
+		return historialCelda;
+	}
+	public void setHistorialCelda(List<String> historialCelda) {
+		this.historialCelda = historialCelda;
+	}
+	public int getNumCelda() {
+		return numCelda;
+	}
+	public int getCapacidadMax() {
+		return capacidadMax;
+	}
+	
+	
+	
 }

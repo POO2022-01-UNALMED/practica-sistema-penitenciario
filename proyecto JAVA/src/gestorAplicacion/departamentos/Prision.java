@@ -16,7 +16,49 @@ public class Prision {
 	private final String localizacion;
 	private final String nombre;
 	private static int prisionesCreadas=0;
-	
 	//Falta aun mucho, discutir sobre si se añade a Alcaide o aquí muchas cosas
+	
+	
+	public int getNumGuardias() {
+		return numGuardias;
+	}
+	public void setNumGuardias(int numGuardias) {
+		this.numGuardias = numGuardias;
+	}
+	public int getNumReos() {
+		return numReos;
+	}
+	public void setNumReos(int numReos) {
+		this.numReos = numReos;
+	}
+	public int getNumBuses() {
+		return numBuses;
+	}
+	public void setNumBuses(int numBuses) {
+		this.numBuses = numBuses;
+	}
+	public static int getPrisionesCreadas() {
+		return prisionesCreadas;
+	}
+	public static void setPrisionesCreadas(int prisionesCreadas) {
+		Prision.prisionesCreadas = prisionesCreadas;
+	}
+	public int getNumCeldas() {
+		return numCeldas;
+	}
+	public int getNumPatios() {
+		return numPatios;
+	}
+	public boolean isGenero() {
+		return genero;
+	}
+	public String getLocalizacion() {
+		return localizacion;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	
+	
 
 }

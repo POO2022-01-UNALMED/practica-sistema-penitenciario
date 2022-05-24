@@ -12,8 +12,13 @@ public class Trabajo {
 	private List<Guardia> guardias;
 	private List<String> historialTrabajo;
 	
-	
-	
+	public Trabajo(int capacidad, List<Reo> reos, List<Guardia> guardias, List<String> historialTrabajo) {
+		super();
+		this.capacidad = capacidad;
+		this.reos = reos;
+		this.guardias = guardias;
+		this.historialTrabajo = historialTrabajo;
+	}
 	public List<Reo> getReos() {
 		return reos;
 	}

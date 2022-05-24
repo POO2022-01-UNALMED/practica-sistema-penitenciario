@@ -17,6 +17,17 @@ public class Reo {
 	
 
 	private List<String> historialReo;
+	public Reo(String nombre, int codigo, boolean genero, int condena, Prision prision, Trabajo trabajo,
+			List<String> historialReo) {
+		super();
+		this.nombre = nombre;
+		this.codigo = codigo;
+		Genero = genero;
+		this.condena = condena;
+		this.prision = prision;
+		this.trabajo = trabajo;
+		this.historialReo = historialReo;
+	}
 	public int getCondena() {
 		return condena;
 	}

@@ -6,14 +6,14 @@ import gestorAplicacion.personal.*;
 import gestorAplicacion.bienes.*;
 
 public class Patio {
-	
+
 	private final int capacidad;
 	private final String nombre;
 	private int prueba;
 	private List<Reo> reos;
 	private List<Guardia> guardias;
 	private List<String> historialPatio;
-	
+
 	public int getPrueba() {
 		return prueba;
 	}
@@ -44,6 +44,6 @@ public class Patio {
 	public String getNombre() {
 		return nombre;
 	}
-	
-	
+
+
 }

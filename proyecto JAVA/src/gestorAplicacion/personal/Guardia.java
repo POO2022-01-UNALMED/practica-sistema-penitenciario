@@ -14,7 +14,14 @@ public class Guardia {
 	private Prision prision;
 	private List<String> historialGuardia;
 	
-	
+	public Guardia(String nombre, int codigo, Rango rango, Prision prision, List<String> historialGuardia) {
+		super();
+		this.nombre = nombre;
+		this.codigo = codigo;
+		this.rango = rango;
+		this.prision = prision;
+		this.historialGuardia = historialGuardia;
+	}
 	public String getNombre() {
 		return nombre;
 	}

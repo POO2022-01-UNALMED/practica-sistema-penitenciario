@@ -6,7 +6,7 @@ import gestorAplicacion.personal.*;
 import gestorAplicacion.bienes.*;
 
 public class Prision {
-	
+
 	private final int numCeldas;
 	private final int numPatios;
 	private int numGuardias;
@@ -16,9 +16,9 @@ public class Prision {
 	private final String localizacion;
 	private final String nombre;
 	private static int prisionesCreadas=0;
-	//Falta aun mucho, discutir sobre si se añade a Alcaide o aquí muchas cosas
-	
-	
+	//Falta aun mucho, discutir sobre si se aï¿½ade a Alcaide o aquï¿½ muchas cosas
+
+
 	public int getNumGuardias() {
 		return numGuardias;
 	}
@@ -58,7 +58,8 @@ public class Prision {
 	public String getNombre() {
 		return nombre;
 	}
-	
-	
+
+
+
 
 }

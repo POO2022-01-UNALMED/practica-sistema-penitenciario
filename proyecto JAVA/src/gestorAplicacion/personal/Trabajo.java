@@ -9,13 +9,29 @@ public abstract class Trabajo {
 	
 public enum Dificultad {facil, normal, dificil};
 	
-	public abstract final Reo reo;
-	public static final Dificultad dificultad;
+	public Reo reo;
+	public static Dificultad dificultad;
 	public static ArrayList<Reo> reos = new ArrayList<Reo>();
 	public static ArrayList<Guardia> guardias = new ArrayList<Guardia>();
 	public static ArrayList<String> historialTrabajo = new ArrayList<String>();
+	public int horasTrabajadas;
 	
-	public abstract void trabajar();
+	public int trabajar() {
+		int k;
+		
+		if (Trabajo.dificultad == Dificultad.facil) {
+			k = 1;
+		}
+		else if (Trabajo.dificultad == Dificultad.normal){
+			k = 2;
+		}
+		else {
+			k = 3;
+		}
+				
+		return k;
+		
+	}
 	
 	
 

@@ -14,10 +14,22 @@ public class Reo {
 	private Prision prision;
 	private Celda celda;
 	private Trabajo trabajo;
+	private int comportamiento; //El comportamiento subirá trabajando y haciendo actividades de los patios, luego esto determinará cuantos años de condena se reducen
 	
 	// aï¿½adir un enum?
 	
-	private ArrayList<String> historialReo = new ArrayList<String>();
+	private static ArrayList<String> historialReos = new ArrayList<String>();
+	
+	public void trabajar() {
+		if (this.getTrabajo() == null) {
+			return;
+		}
+		else {
+			int k = this.getTrabajo().trabajar();
+			this.sumarComportamiento(k);
+		}
+		
+	}
 	
 	public Reo(String nombre, int codigo, boolean genero, int condena) {
 		
@@ -101,7 +113,23 @@ public class Reo {
 	}
 
 	public ArrayList<String> getHistorialReo() {
-		return historialReo;
+		return historialReos;
+	}
+	
+	public int getComportamiento() {
+		return comportamiento;
+	}
+	
+	public void setComportamiento(int comportamiento) {
+		this.comportamiento = comportamiento;
+	}
+	
+	public void sumarComportamiento(int x) {
+		this.comportamiento += x;
+	}
+	
+	public void restarComportamiento(int x) {
+		this.comportamiento -= x;
 	}
 
 	//public void setHistorialReo(ArrayList<String> historialReo) {

@@ -13,7 +13,7 @@ public class Guardia{
 	private final int codigo;
 	private Prision prision;
 	private Rango rango;
-	private ArrayList<String> historialGuardia = new ArrayList<String>();
+	private static ArrayList<String> historialGuardias = new ArrayList<String>();
 	
 	public Guardia(String nombre, int codigo) {
 		
@@ -48,7 +48,7 @@ public class Guardia{
 	
 	public void meterReoCelda(Reo reo, Celda celda) {
 		if (this.rango == Rango.bachiller || reo.getCelda() != null) {
-			break;
+			return;
 		}
 		else {
 			celda.asignarReo(reo);
@@ -89,7 +89,7 @@ public class Guardia{
 	}
 	
 	public ArrayList<String> getHistorialGuardia() {
-		return historialGuardia;
+		return historialGuardias;
 	}
 
 	//public void setHistorialGuardia(ArrayList<String> historialGuardia) {

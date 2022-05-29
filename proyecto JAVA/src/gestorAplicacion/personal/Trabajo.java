@@ -4,42 +4,54 @@ import java.util.List;
 import java.util.ArrayList;
 import gestorAplicacion.bienes.*;
 import gestorAplicacion.departamentos.*;
-import gestorAplicacion.personal.Trabajo.Dificultad;
 
-public abstract class Trabajo {
+public class Trabajo {
 	
-public enum Dificultad {facil, normal, dificil};
+	private OpcionTrabajo trabajo;
+	private final Reo reo;
+	private int horasTrabajadas;
+	private static ArrayList<Reo> reos = new ArrayList<Reo>();
+	private static ArrayList<Guardia> guardias = new ArrayList<Guardia>();
+	private static ArrayList<String> historialTrabajo = new ArrayList<String>();
 	
-	public Reo reo;
-	public int horasTrabajadas;
-	public static Dificultad dificultad;
-	public static int horasQueLlevaHacerUnTurno;
-	public static ArrayList<Reo> reos = new ArrayList<Reo>();
-	public static ArrayList<Guardia> guardias = new ArrayList<Guardia>();
-	public static ArrayList<String> historialTrabajo = new ArrayList<String>();
-	
-	
-	public int constanteTrabajo() {
-		int k;
+	public Trabajo(Reo reo, OpcionTrabajo trabajo) {
+		this.reo = reo;
+		this.trabajo = trabajo;
+		Trabajo.reos.add(reo);
 		
-		if (this.getDificultad() == Dificultad.facil) {
-			k = 1;
-		}
-		else if (this.getDificultad() == Dificultad.normal){
-			k = 2;
-		}
-		else if (this.getDificultad() == Dificultad.dificil) {
-			k = 3;
-		}
-		else {k=0;}
-				
-		return k;
 	}
 	
-	public abstract Dificultad getDificultad();
-	public abstract int getHorasTrabajadas();
-	public abstract void sumarHorasTrabajadas();
-	public abstract int getHorasQueLlevaHacerUnTurno();
+	public static void asignarTrabajoReo(Reo reo, OpcionTrabajo trabajo) {
+		Trabajo trabajoDelReo = new Trabajo(reo, trabajo);
+		reo.setTrabajo(trabajoDelReo);
+	}
+	
+	public static void renunciarTrabajoReo(Reo reo) {
+		reo.setTrabajo(null);
+		Trabajo.reos.remove(reo);
+	}
+	
+	public int getHorasTrabajadas() {
+		return this.horasTrabajadas;
+	}
+
+	public void sumarHorasTrabajadas() {
+		this.horasTrabajadas += this.getHorasQueLlevaHacerUnTurno();
+		this.reo.sumarHorasTrabajadasTotales(this.getHorasQueLlevaHacerUnTurno());
+	}
+
+	public Dificultad getDificultad() {
+		return this.trabajo.dificultad;
+	}
+	
+	public int getHorasQueLlevaHacerUnTurno() {
+		return this.trabajo.horasQueLlevaHacerUnTurno;
+	}
+	
+	public int constanteTrabajo() {
+		return this.trabajo.constanteDeDificultad;
+	}
+	
 	
 
 }

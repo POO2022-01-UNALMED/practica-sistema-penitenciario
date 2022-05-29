@@ -1,13 +1,15 @@
 package gestorAplicacion.personal;
 
-public enum Rango {bachiller("bachiller"), carcelero("carcelero"), oficial("ficial");	
+public enum Rango {bachiller("bachiller", 1), carcelero("carcelero", 2), oficial("oficial", 3);	
 	
-private String rango;
-private Rango(String rang) {
+public final String rango;
+public final int rangoNum;
+private Rango(String rang, int num) {
 	this.rango = rang;
+	this.rangoNum = num;
 }
 
 public String toString() {
 	return rango;
-}
+ }
 }

@@ -34,6 +34,7 @@ public class Alcaide {
 		
 		Guardia g = new Guardia("Andres", 1300, Rango.bachiller);
 		System.out.println("a "+g.getRango());
+		System.out.println("a");
 	}
 
 }

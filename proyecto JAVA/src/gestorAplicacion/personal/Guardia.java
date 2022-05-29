@@ -10,7 +10,7 @@ public class Guardia{
 	private final String nombre;
 	private final int codigo;
 	private Prision prision;
-	private Rango rango;
+	private Rango rango=Rango.bachiller;
 	private static ArrayList<String> historialGuardias = new ArrayList<String>();
 	
 	public Guardia(String nombre, int codigo) {

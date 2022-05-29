@@ -1,5 +1,7 @@
 package gestorAplicacion.personal;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ArrayList;
 import gestorAplicacion.bienes.*;
@@ -26,18 +28,25 @@ public class Reo {
 			return;
 		}
 		else {
-			int ConstTrab = this.getTrabajo().constanteTrabajo();
+			int ConstTrab = this.getTrabajo().getConstanteTrabajo();
 			int HorasDelTurno = this.getTrabajo().getHorasQueLlevaHacerUnTurno();
 			
 			this.getTrabajo().sumarHorasTrabajadas();
 			this.sumarComportamiento(ConstTrab*HorasDelTurno); 
+			
+			//Añade al historial
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+			String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
+			prision.addHistorialTrabajos("El reo: "+this.nombre+", con código: "+this.codigo+", "
+					+ "ha ido a trabajar de "+this.getTrabajo().getNombre()+". "
+					+ "Sumando un total de: "+this.trabajo.getHorasTrabajadas()+" horas trabajadas en este oficio, "
+					+ "y un total de: "+this.horasTrabajadasTotales+" horas trabajadas en total"+Tiempo);
 		}
 		
 	}
 	
 	public Reo(String nombre, int codigo, boolean genero, int condena) {
-		
-		super();
+	
 		this.nombre = nombre;
 		this.codigo = codigo;
 		this.genero = genero;
@@ -50,20 +59,34 @@ public class Reo {
 		this(nombre, codigo, genero, condena);
 		this.prision = prision;
 		
+		//Añade al historial
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
+		prision.addHistorialReos("El reo: "+nombre+", con código: "+codigo+", ha ingreado con "+condena+" años de condena a la prisión: "+prision+Tiempo);
 	}
 
 	public Reo(String nombre, int codigo, boolean genero, int condena, Prision prision, Celda celda) {
-		
 		this(nombre, codigo, genero, condena, prision);
-		this.celda = celda;
+		
+		if(celda.getReosPertenecientes().size()+1 > celda.getCapacidadMax()) {
+			//Añade al historial
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+			String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
+			prision.addHistorialReos("El reo: "+nombre+", con código: "+codigo+", ha ingreado con "+condena+" años de condena a la prisión: "+prision+". No se le pudo asignar celda porque está llena"+Tiempo);
+		}
+		else {
+			this.celda=celda;
+			celda.asignarReo(this);
+			
+			//Añade al historial
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+			String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
+			prision.addHistorialReos("El reo: "+nombre+", con código: "+codigo+", ha ingreado con "+condena+" años de condena a la celda número: "+celda.getNumCelda()+", de la prisión: "+prision+Tiempo);
+		}
+		
 		
 	}
-
-	public Reo(String nombre, int codigo, boolean genero, int condena, Prision prision, Celda celda, Trabajo trabajo) {
-		this(nombre, codigo, genero, condena, prision, celda);
-		this.trabajo = trabajo;
-	}
-
+		
 	public int getCondena() {
 		return condena;
 	}

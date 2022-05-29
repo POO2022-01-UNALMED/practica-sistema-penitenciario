@@ -9,16 +9,10 @@ import gestorAplicacion.personal.Guardia;
 import gestorAplicacion.personal.Reo;
 
 public class Biblioteca extends Patio{
-	int numLibros;
-	String generos;
-	int numEstantes;
 	
-	public Biblioteca(int capacidad, String nombre, ArrayList<Reo> reos, ArrayList<Guardia> guardias,
-			ArrayList<String> historialPatio, int numLibros, String generos, int numEstantes) {
+	public Biblioteca(int capacidad, String nombre, ArrayList<Reo> reos, ArrayList<Guardia> guardias) {
 		super(capacidad, nombre, reos, guardias);
-		this.numLibros = numLibros;
-		this.generos = generos;
-		this.numEstantes = numEstantes;
+
 	}
 	
 	public String ingresarReos(Reo reo) {
@@ -31,7 +25,6 @@ public class Biblioteca extends Patio{
 				
 			}
 			String str2= str1+ dtf.format(LocalDateTime.now())+".";
-			ArrayList<String> a = new ArrayList<String>(); 
 			super.addHistorialPatio("Ingresaste a los reos"+str2);
 			return ("Has ingresado a los reos: "+ str1 +" a estudiar, ojala no se tiren POO" );	
 		}

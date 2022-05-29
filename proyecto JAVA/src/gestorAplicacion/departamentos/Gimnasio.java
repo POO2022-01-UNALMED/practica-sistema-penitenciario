@@ -8,26 +8,15 @@ import gestorAplicacion.personal.Guardia;
 import gestorAplicacion.personal.Reo;
 
 public class Gimnasio extends Patio{
-	int numMancuernas;
 	
 	public Gimnasio(String nombre) {
-		this(100, nombre, new ArrayList<Reo>(), new ArrayList<Guardia>(), 200);
+		this(100, nombre, new ArrayList<Reo>(), new ArrayList<Guardia>());
 		
 	}
 
-	public Gimnasio(int capacidad, String nombre, ArrayList<Reo> reos, ArrayList<Guardia> guardias, int numMancuernas) {
+	public Gimnasio(int capacidad, String nombre, ArrayList<Reo> reos, ArrayList<Guardia> guardias) {
 		super(capacidad, nombre, reos, guardias);
-		this.numMancuernas = numMancuernas;
 	}
-
-	public int getNumMancuernas() {
-		return numMancuernas;
-	}
-
-	public void setNumMancuernas(int numMancuernas) {
-		this.numMancuernas = numMancuernas;
-	}
-	
 
 	public String ingresarReos(Reo reo) {
 		if (getReos().size()+getGuardias().size()+1 <= getCapacidad()) {
@@ -39,7 +28,6 @@ public class Gimnasio extends Patio{
 				
 			}
 			String str2= str1+ dtf.format(LocalDateTime.now())+".";
-			ArrayList<String> a = new ArrayList<String>(); 
 			super.addHistorialPatio("Ingresaste a los reos"+str2);
 			return("Has ingresado a los reos: "+ str1 +" a ejercitarsen, ojala no se vuelvan mas fuertes que los guardias y hagan un motin" );	
 		}
@@ -57,7 +45,6 @@ public class Gimnasio extends Patio{
 				
 			}
 			String str2= str1+ dtf.format(LocalDateTime.now())+".";
-			ArrayList<String> a = new ArrayList<String>(); 
 			super.addHistorialPatio("Ingresaste al "+str2);
 			return("Has ingresado a los guardias: "+ str1 +" a darles trato humanitario a los reos por si intentan hacer un motin" );	
 		}
@@ -71,7 +58,6 @@ public class Gimnasio extends Patio{
 		int redCondena = reo.getCondena() - (1/2)*horas/24 ;
 		reo.setCondena(redCondena);
 		String aviso = "Reduccion de "+k+"a "+reo.getCondena()+"para el reo con codigo"+reo.getCodigo()+ dtf2.format(LocalDateTime.now());
-		ArrayList<String> a = new ArrayList<String>();
 		super.addHistorialPatio(aviso);
 		return ("El reo con codigo "+reo.getCodigo()+"cuyo nombre es"+reo.getNombre()+" ha levantado pesas durante "+horas+
 				" horas, por tanto se le rebaja por cada dos horas de ejercicio una hora de condena.");

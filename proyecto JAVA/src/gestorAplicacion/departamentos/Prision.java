@@ -25,6 +25,10 @@ public class Prision {
 	private ArrayList<String> historialPrision = new ArrayList<String>();
 	
 	
+	public Prision() {
+		this(100, 100, 100, 100, 100, true, "Valle", "Cali");
+	} 
+	
 	public Prision(int numCeldas, int numPatios, int numGuardias, int numReos, int numBuses, boolean genero,
 			String localizacion, String nombre) {
 		super();
@@ -46,20 +50,20 @@ public class Prision {
 		Prision.prisionesCreadas = prisionesCreadas;
 	}
 
-	public static ArrayList<Reo> getReos() {
+	public ArrayList<Reo> getReos() {
 		return reos;
 	}
 
-	public static void setReos(ArrayList<Reo> reos) {
-		Prision.reos = reos;
+	public void setReos(ArrayList<Reo> reos) {
+		this.reos = reos;
 	}
 
-	public static ArrayList<Guardia> getGuardias() {
+	public ArrayList<Guardia> getGuardias() {
 		return guardias;
 	}
 
-	public static void setGuardias(ArrayList<Guardia> guardias) {
-		Prision.guardias = guardias;
+	public void setGuardias(ArrayList<Guardia> guardias) {
+		this.guardias = guardias;
 	}
 
 	public int getNumCeldas() {
@@ -94,10 +98,22 @@ public class Prision {
 		return nombre;
 	}
 	
-	public String historialListas() {
-		ArrayList<String> patioList = Patio.getHistorialPatio();
-		ArrayList<String> celdaList = Patio.getHistorialPatio();
+	public void addHistorialReos(String s) {
+		this.historialReos.add(s);
 	}
+	
+	public void addHistorialGuardias(String s) {
+		this.historialGuardias.add(s);
+	}
+	
+	public void addHistorialTrabajos(String s) {
+		this.historialTrabajos.add(s);
+	}
+	
+	//public String historialListas() {
+	//	ArrayList<String> patioList = Patio.getHistorialPatio();
+	//	ArrayList<String> celdaList = Patio.getHistorialPatio();
+	//}
 	
 	
 	

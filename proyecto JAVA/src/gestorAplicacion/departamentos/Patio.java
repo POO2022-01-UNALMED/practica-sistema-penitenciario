@@ -11,7 +11,7 @@ public abstract class Patio {
 	private final String nombre;
 	private ArrayList<Reo> reos;
 	private ArrayList<Guardia> guardias;
-	private static ArrayList<String> historialPatio = new ArrayList<String>();
+	private ArrayList<String> historialPatio=new ArrayList<String>();
 	
 
 	public Patio(int capacidad, String nombre, ArrayList<Reo> reos, ArrayList<Guardia> guardias) {
@@ -20,6 +20,7 @@ public abstract class Patio {
 		this.nombre = nombre;
 		this.reos = reos;
 		this.guardias = guardias;
+		
 	}
 	
 	public ArrayList<Reo> getReos() {
@@ -34,10 +35,10 @@ public abstract class Patio {
 	public void setGuardias(ArrayList<Guardia> guardias) {
 		this.guardias = guardias;
 	}
-	public static ArrayList<String> getHistorialPatio() {
+	public ArrayList<String> getHistorialPatio() {
 		return historialPatio;
 	}
-	public static void addHistorialPatio(String hist) {
+	public void addHistorialPatio(String hist) {
 		historialPatio.add(hist);
 	}
 	public int getCapacidad() {

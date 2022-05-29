@@ -35,13 +35,13 @@ public class Gimnasio extends Patio{
 			getReos().add(reo);
 			String str1 = "";
 			for (int i = 0; i < getReos().size(); i++) {
-				str1+= getReos().get(i).getNombre()+" con código "+getReos().get(i).getCodigo()+", ";
+				str1+= getReos().get(i).getNombre()+" con codigo "+getReos().get(i).getCodigo()+", ";
 				
 			}
 			String str2= str1+ dtf.format(LocalDateTime.now())+".";
 			ArrayList<String> a = new ArrayList<String>(); 
-			super.setHistorialPatio("Ingresaste a los reos"+str2);
-			return("Has ingresado a los reos: "+ str1 +" a ejercitarsen, ojalá no se vuelvan más fuertes que los guardias y hagan un motin" );	
+			super.addHistorialPatio("Ingresaste a los reos"+str2);
+			return("Has ingresado a los reos: "+ str1 +" a ejercitarsen, ojala no se vuelvan mas fuertes que los guardias y hagan un motin" );	
 		}
 		else {
 			return("Has colocado una cantidad de Reos que excede la capacidad del gimnasio");
@@ -53,13 +53,13 @@ public class Gimnasio extends Patio{
 			getGuardias().add(guardia);
 			String str1 = "";
 			for (int i = 0; i < getGuardias().size(); i++) {
-				str1+= getGuardias().get(i).getRango()+getGuardias().get(i).getNombre()+" con código "+getGuardias().get(i).getCodigo()+", ";
+				str1+= getGuardias().get(i).getRango()+getGuardias().get(i).getNombre()+" con codigo "+getGuardias().get(i).getCodigo()+", ";
 				
 			}
 			String str2= str1+ dtf.format(LocalDateTime.now())+".";
 			ArrayList<String> a = new ArrayList<String>(); 
-			super.setHistorialPatio("Ingresaste al "+str2);
-			return("Has ingresado a los guardias: "+ str1 +" a darles trato humanitario a los reos por si intentan hacer un motín" );	
+			super.addHistorialPatio("Ingresaste al "+str2);
+			return("Has ingresado a los guardias: "+ str1 +" a darles trato humanitario a los reos por si intentan hacer un motin" );	
 		}
 		else {
 			return("Has colocado una cantidad de guardias que excede la capacidad del gimnasio");
@@ -70,10 +70,10 @@ public class Gimnasio extends Patio{
 		int k = reo.getCondena();
 		int redCondena = reo.getCondena() - (1/2)*horas/24 ;
 		reo.setCondena(redCondena);
-		String aviso = "Reducción de "+k+"a "+reo.getCondena()+"para el reo con código"+reo.getCodigo()+ dtf2.format(LocalDateTime.now());
+		String aviso = "Reduccion de "+k+"a "+reo.getCondena()+"para el reo con codigo"+reo.getCodigo()+ dtf2.format(LocalDateTime.now());
 		ArrayList<String> a = new ArrayList<String>();
-		super.setHistorialPatio(aviso);
-		return ("El reo con código "+reo.getCodigo()+"cuyo nombre es"+reo.getNombre()+" ha levantado pesas durante "+horas+
+		super.addHistorialPatio(aviso);
+		return ("El reo con codigo "+reo.getCodigo()+"cuyo nombre es"+reo.getNombre()+" ha levantado pesas durante "+horas+
 				" horas, por tanto se le rebaja por cada dos horas de ejercicio una hora de condena.");
 	}
 	

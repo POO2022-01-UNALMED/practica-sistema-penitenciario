@@ -37,7 +37,7 @@ public abstract class Patio {
 	public static ArrayList<String> getHistorialPatio() {
 		return historialPatio;
 	}
-	public static void setHistorialPatio(String hist) {
+	public static void addHistorialPatio(String hist) {
 		historialPatio.add(hist);
 	}
 	public int getCapacidad() {

@@ -26,13 +26,13 @@ public class Biblioteca extends Patio{
 			getReos().add(reo);
 			String str1 = "";
 			for (int i = 0; i < getReos().size(); i++) {
-				str1+= getReos().get(i).getNombre()+"con código "+getReos().get(i).getCodigo()+", ";
+				str1+= getReos().get(i).getNombre()+"con codigo "+getReos().get(i).getCodigo()+", ";
 				
 			}
 			String str2= str1+ dtf.format(LocalDateTime.now())+".";
 			ArrayList<String> a = new ArrayList<String>(); 
-			super.setHistorialPatio("Ingresaste a los reos"+str2);
-			return ("Has ingresado a los reos: "+ str1 +" a estudiar, ojalá no se tiren POO" );	
+			super.addHistorialPatio("Ingresaste a los reos"+str2);
+			return ("Has ingresado a los reos: "+ str1 +" a estudiar, ojala no se tiren POO" );	
 		}
 		else{
 			return("Has colocado una cantidad de Reos que excede la capacidad de la biblioteca");
@@ -46,12 +46,12 @@ public class Biblioteca extends Patio{
 			getGuardias().add(guardia);
 			String str1 = "";
 			for (int i = 0; i < getGuardias().size(); i++) {
-				str1+= getGuardias().get(i).getNombre()+" con código "+getGuardias().get(i).getCodigo()+", ";
+				str1+= getGuardias().get(i).getNombre()+" con codigo "+getGuardias().get(i).getCodigo()+", ";
 				
 			}
 			String str2= str1+ dtf.format(LocalDateTime.now())+".";
 			ArrayList<String> a = new ArrayList<String>(); 
-			super.setHistorialPatio("Ingresaste al "+str2);
+			super.addHistorialPatio("Ingresaste al "+str2);
 			return("Has ingresado a los guardias: "+ str1 +" a cuidar a los reos por si les da un derrame estudiando POO" );	
 		}
 		else{
@@ -65,9 +65,9 @@ public class Biblioteca extends Patio{
 		reo.setCondena(redCondena);
 		String aviso = "Reducción de "+k+"a "+reo.getCondena()+"para el reo con código"+reo.getCodigo()+ dtf2.format(LocalDateTime.now());
 		ArrayList<String> a = new ArrayList<String>();
-		super.setHistorialPatio(aviso);
-		return ("El reo con código "+reo.getCodigo()+"cuyo nombre es"+reo.getNombre()+" ha estudiado POO durante "+horas+
-				", por tanto esta pobre alma será recompensada con una reducción de condena.");
+		super.addHistorialPatio(aviso);
+		return ("El reo con codigo "+reo.getCodigo()+"cuyo nombre es"+reo.getNombre()+" ha estudiado POO durante "+horas+
+				", por tanto esta pobre alma será recompensada con una reduccion de condena.");
 		
 	}
 	

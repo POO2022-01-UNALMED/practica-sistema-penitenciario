@@ -12,46 +12,63 @@ public class Biblioteca extends Patio{
 	String generos;
 	int numEstantes;
 	
-	public Biblioteca(int capacidad, String nombre, int prueba, ArrayList<Reo> reos, ArrayList<Guardia> guardias,
+	public Biblioteca(int capacidad, String nombre, ArrayList<Reo> reos, ArrayList<Guardia> guardias,
 			ArrayList<String> historialPatio, int numLibros, String generos, int numEstantes) {
-		super(capacidad, nombre, prueba, reos, guardias, historialPatio);
+		super(capacidad, nombre, reos, guardias);
 		this.numLibros = numLibros;
 		this.generos = generos;
 		this.numEstantes = numEstantes;
 	}
 	
-	public void ingresarReos(ArrayList<Reo> reos) {
-		if (reos.size() <= getCapacidad()) {
+	public String ingresarReos(Reo reo) {
+		if (getReos().size()+getGuardias().size()+1 <= getCapacidad()) {
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-			setReos(reos);
-			String str1 = "Se ha ingresado los reos: ";
-			for (int i = 0; i < reos.size(); i++) {
-				str1+= reos.get(i).getNombre()+"con código "+reos.get(i).getCodigo()+", ";
+			getReos().add(reo);
+			String str1 = "";
+			for (int i = 0; i < getReos().size(); i++) {
+				str1+= getReos().get(i).getNombre()+"con código "+getReos().get(i).getCodigo()+", ";
 				
 			}
 			String str2= str1+ dtf.format(LocalDateTime.now())+".";
 			ArrayList<String> a = new ArrayList<String>(); 
-			a.add(str2);
-			super.setHistorialPatio(a);
-			System.out.println("Has ingresado a los reos"+ str1 +" a estudiar, ojalá no se tiren POO" );	
+			super.setHistorialPatio("Ingresaste a los reos"+str2);
+			return ("Has ingresado a los reos: "+ str1 +" a estudiar, ojalá no se tiren POO" );	
 		}
-		else {
-			System.out.println("Has colocado una cantidad de Reos que excede la capacidad de la biblioteca");
+		else{
+			return("Has colocado una cantidad de Reos que excede la capacidad de la biblioteca");
 		}
 		
 		
 	}
-	public void laborarReo(Reo reo, int horas) {
+	public String ingresarGuardias(Guardia guardia) {
+		if (getReos().size()+getGuardias().size()+1 <= getCapacidad()) {
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+			getGuardias().add(guardia);
+			String str1 = "";
+			for (int i = 0; i < getGuardias().size(); i++) {
+				str1+= getGuardias().get(i).getNombre()+" con código "+getGuardias().get(i).getCodigo()+", ";
+				
+			}
+			String str2= str1+ dtf.format(LocalDateTime.now())+".";
+			ArrayList<String> a = new ArrayList<String>(); 
+			super.setHistorialPatio("Ingresaste al "+str2);
+			return("Has ingresado a los guardias: "+ str1 +" a cuidar a los reos por si les da un derrame estudiando POO" );	
+		}
+		else{
+			return("Has colocado una cantidad de guardias que excede la capacidad del gimnasio");
+		}
+	}
+	public String laborarReo(Reo reo, int horas) {
 		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		int k = reo.getCondena();
 		int redCondena = reo.getCondena() - horas/24 ;
 		reo.setCondena(redCondena);
-		System.out.println("El reo con código "+reo.getCodigo()+"cuyo nombre es"+reo.getNombre()+" ha estudiado POO durante "+horas+
-				", por tanto esta pobre alma será recompensada con una reducción de condena.");
 		String aviso = "Reducción de "+k+"a "+reo.getCondena()+"para el reo con código"+reo.getCodigo()+ dtf2.format(LocalDateTime.now());
 		ArrayList<String> a = new ArrayList<String>();
-		a.add(aviso);
-		super.setHistorialPatio(a);
+		super.setHistorialPatio(aviso);
+		return ("El reo con código "+reo.getCodigo()+"cuyo nombre es"+reo.getNombre()+" ha estudiado POO durante "+horas+
+				", por tanto esta pobre alma será recompensada con una reducción de condena.");
+		
 	}
 	
 	

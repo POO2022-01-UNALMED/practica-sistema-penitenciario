@@ -14,6 +14,7 @@ public class Reo {
 	private Prision prision;
 	private Celda celda;
 	private Trabajo trabajo;
+	private int horasTrabajadasTotales;
 	private int comportamiento; //El comportamiento subirá trabajando y haciendo actividades de los patios, luego esto determinará cuantos años de condena se reducen
 	
 	// aï¿½adir un enum?
@@ -25,8 +26,11 @@ public class Reo {
 			return;
 		}
 		else {
-			int k = this.getTrabajo().trabajar();
-			this.sumarComportamiento(k);
+			int ConstTrab = this.getTrabajo().constanteTrabajo();
+			int HorasDelTurno = this.getTrabajo().getHorasQueLlevaHacerUnTurno();
+			
+			this.getTrabajo().sumarHorasTrabajadas();
+			this.sumarComportamiento(ConstTrab*HorasDelTurno); 
 		}
 		
 	}
@@ -130,6 +134,14 @@ public class Reo {
 	
 	public void restarComportamiento(int x) {
 		this.comportamiento -= x;
+	}
+	
+	public void sumarHorasTrabajadasTotales(int x) {
+		this.horasTrabajadasTotales += x;
+	}
+	
+	public int getHorasTrabajadasTotales() {
+		return this.horasTrabajadasTotales;
 	}
 
 	//public void setHistorialReo(ArrayList<String> historialReo) {

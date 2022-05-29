@@ -14,16 +14,26 @@ public class Alcaide {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Reo r = new Reo("Mauri", 1200, false, 32);
-		Barrendero.asignarTrabajoReo(r);
-		System.out.println(r.getTrabajo());
+//		Reo r = new Reo("Mauri", 1200, false, 32);
+//		Barrendero.asignarTrabajoReo(r);
+//		System.out.println(r.getTrabajo());
+//		
+//		Reo r2 = new Reo("enner", 1201, false, 19);
+//		Barrendero.asignarTrabajoReo(r2);
+//		System.out.println(r2.getTrabajo());
+//		
+//		r.trabajar();
+//		Barrendero.renunciarTrabajoReo(r);
+//		Barrendero.asignarTrabajoReo(r);
+//		System.out.println(r.getComportamiento());
+//
+//		r.trabajar();
+//		System.out.println(r.getComportamiento());
+//		System.out.println(r.getTrabajo().getHorasTrabajadas());
+//		System.out.println(r.getTrabajo().getHorasQueLlevaHacerUnTurno());
 		
-		Reo r2 = new Reo("enner", 1201, false, 19);
-		Barrendero.asignarTrabajoReo(r2);
-		System.out.println(r2.getTrabajo());
-		
-		r.trabajar();
-		System.out.println(r.getComportamiento());
+		Guardia g = new Guardia("Andres", 1300, Rango.bachiller);
+		System.out.println("a "+g.getRango());
 	}
 
 }

@@ -1,14 +1,12 @@
 package gestorAplicacion.personal;
-
+import gestorAplicacion.personal.*;
 import java.util.List;
 import java.util.ArrayList;
 import gestorAplicacion.bienes.*;
 import gestorAplicacion.departamentos.*;
 
 public class Guardia{
-	
-	public enum Rango {bachiller, carcelero, oficial};
-	
+
 	private final String nombre;
 	private final int codigo;
 	private Prision prision;
@@ -51,7 +49,7 @@ public class Guardia{
 			return;
 		}
 		else {
-			celda.asignarReo(reo);
+			//celda.asignarReo(reo);
 			reo.setCelda(celda);
 		}
 				

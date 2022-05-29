@@ -10,12 +10,8 @@ import gestorAplicacion.personal.Reo;
 public class Gimnasio extends Patio{
 	
 	public Gimnasio(String nombre) {
-		this(100, nombre, new ArrayList<Reo>(), new ArrayList<Guardia>());
+		super(20, nombre, new ArrayList<Reo>(), new ArrayList<Guardia>());
 		
-	}
-
-	public Gimnasio(int capacidad, String nombre, ArrayList<Reo> reos, ArrayList<Guardia> guardias) {
-		super(capacidad, nombre, reos, guardias);
 	}
 
 	public String ingresarReos(Reo reo) {

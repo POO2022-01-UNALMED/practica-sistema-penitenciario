@@ -10,8 +10,8 @@ import gestorAplicacion.personal.Reo;
 
 public class Biblioteca extends Patio{
 	
-	public Biblioteca(int capacidad, String nombre, ArrayList<Reo> reos, ArrayList<Guardia> guardias) {
-		super(capacidad, nombre, reos, guardias);
+	public Biblioteca(String nombre) {
+		super(100, nombre, new ArrayList<Reo>(), new ArrayList<Guardia>());
 
 	}
 	
@@ -44,7 +44,6 @@ public class Biblioteca extends Patio{
 				
 			}
 			String str2= str1+ dtf.format(LocalDateTime.now())+".";
-			ArrayList<String> a = new ArrayList<String>(); 
 			super.addHistorialPatio("Ingresaste al "+str2);
 			return("Has ingresado a los guardias: "+ str1 +" a cuidar a los reos por si les da un derrame estudiando POO" );	
 		}
@@ -58,7 +57,6 @@ public class Biblioteca extends Patio{
 		int redCondena = reo.getCondena() - horas/24 ;
 		reo.setCondena(redCondena);
 		String aviso = "Reducción de "+k+"a "+reo.getCondena()+"para el reo con código"+reo.getCodigo()+ dtf2.format(LocalDateTime.now());
-		ArrayList<String> a = new ArrayList<String>();
 		super.addHistorialPatio(aviso);
 		return ("El reo con codigo "+reo.getCodigo()+"cuyo nombre es"+reo.getNombre()+" ha estudiado POO durante "+horas+
 				", por tanto esta pobre alma será recompensada con una reduccion de condena.");

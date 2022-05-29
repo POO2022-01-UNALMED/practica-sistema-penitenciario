@@ -7,7 +7,7 @@ import gestorAplicacion.bienes.*;
 
 public abstract class Patio {
 
-	private final int capacidad;
+	private final int CAPACIDAD;
 	private final String nombre;
 	private ArrayList<Reo> reos;
 	private ArrayList<Guardia> guardias;
@@ -16,7 +16,7 @@ public abstract class Patio {
 
 	public Patio(int capacidad, String nombre, ArrayList<Reo> reos, ArrayList<Guardia> guardias) {
 		super();
-		this.capacidad = capacidad;
+		this.CAPACIDAD = capacidad;
 		this.nombre = nombre;
 		this.reos = reos;
 		this.guardias = guardias;
@@ -41,7 +41,7 @@ public abstract class Patio {
 		historialPatio.add(hist);
 	}
 	public int getCapacidad() {
-		return capacidad;
+		return CAPACIDAD;
 	}
 	public String getNombre() {
 		return nombre;

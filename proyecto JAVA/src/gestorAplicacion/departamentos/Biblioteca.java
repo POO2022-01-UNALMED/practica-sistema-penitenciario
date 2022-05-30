@@ -73,7 +73,12 @@ public class Biblioteca extends Patio{
 		
 	}
 
-	
+	public int getCantidadReos() {
+		return getReos().size();
+	}
+	public int getCantidadGuardias() {
+		return getGuardias().size();
+	}
 	
 
 	

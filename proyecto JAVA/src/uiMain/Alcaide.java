@@ -1,6 +1,9 @@
 package uiMain;
 
 import java.util.List;
+
+import java.lang.reflect.Method; 
+import java.lang.reflect.Modifier; 
 import java.util.ArrayList;
 import java.util.Scanner;
 import gestorAplicacion.bienes.*;
@@ -43,6 +46,24 @@ public class Alcaide {
 													// dicho método tiene establecido que retornará el entero 1, por otro lado en gimnasio dicho método retornará el tamaño del vector reos
 													// por ligadura dinámica se tendrá que este último es el que se ejecuta y como solo se ha ingresado un reo entonces este necesariamnete 
 													// nos retornará 1.
+		biblio1.ingresarGuardias((Guardia)persona1); //ingresamos a persona1 vista como Guardia
+		System.out.println(biblio1.getCantidadGuardias()); //Nuevamente, el método getCantidadGuardias() deberá retornar en Patio el valor idéntico a 0, pero al ser definido en Biblioteca
+													// entonces por ligadura dinámica retornará la cnatidad de guardias existentes en biblio1
+		
+		//-------------------------- Evaluacion uso de constante-------------------------------
+		
+		Bus bus1 = new Bus("ACM1PT", ascaban); // ACM1PT es una constante ya que será la placa del bus
+		//bus1.placa = ""; // si intentamos cambiar la placa nos generará un error ya que es final
+		
+		//
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		

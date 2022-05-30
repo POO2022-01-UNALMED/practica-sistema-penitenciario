@@ -9,12 +9,12 @@ import java.util.ArrayList;
 
 public class Bus {
 	
-	private final int placa;
+	public final String placa;
 	private Prision prision;
 	private ArrayList<String> historialBus;
 	private static int busesCreados=0;
 	
-	public Bus(int placa, Prision prision) {
+	public Bus(String placa, Prision prision) {
 		super();
 		this.placa = placa;
 		this.prision = prision;
@@ -45,7 +45,7 @@ public class Bus {
 		Bus.busesCreados = busesCreados;
 	}
 
-	public int getPlaca() {
+	public String getPlaca() {
 		return placa;
 	}
 	

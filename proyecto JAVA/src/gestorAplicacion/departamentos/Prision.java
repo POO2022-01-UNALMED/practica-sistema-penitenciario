@@ -30,8 +30,8 @@ public class Prision {
 	private String historialPrision;
 	
 	
-	public Prision() {
-		this(100, 100, 100, 100, 100, true, "Valle", "Cali");
+	public Prision(String nombre) {
+		this(100, 100, 100, 1000, 10, true, "Antioquia", nombre);
 	} 
 	
 	public Prision(int numCeldas, int numPatios, int numGuardias, int numReos, int numBuses, boolean genero,

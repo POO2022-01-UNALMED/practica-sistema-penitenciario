@@ -70,12 +70,7 @@ public class Biblioteca extends Patio{
 				", por tanto esta pobre alma será recompensada con una reduccion de condena.");
 		
 	}
-	
-	
-	
-	
-	
-	
+
 	
 	
 

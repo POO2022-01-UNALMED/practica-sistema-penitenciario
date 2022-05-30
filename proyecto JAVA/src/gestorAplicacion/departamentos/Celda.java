@@ -41,7 +41,7 @@ public class Celda {
 		if (this.reosPertenecientes.size()+1 <= 2) {
 			DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			this.reosPertenecientes.add(reo);
-			reo.setCelda(this);
+			//reo.setCelda(this);
 			String str1 = "Haz añadido al reo con codigo: "+reo.getCodigo()+" a la celda numero "+ this.NUMCELDA;
 			addHistorialCelda(str1+" "+dtf2.format(LocalDateTime.now()));
 			return str1;
@@ -60,6 +60,13 @@ public class Celda {
 		else {
 			return null;
 		}
+	}
+	public String historialCELDA() {
+		String strfinal = "";
+		for (int i = 0 ; i< this.historialCelda.size(); i++) {
+			strfinal += this.historialCelda.get(i)+"\n";
+		}
+		return strfinal;
 	}
 	
 	

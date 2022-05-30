@@ -144,7 +144,7 @@ public class Prision {
 			b.add(bip);
 		}
 		for (int i = 0; i < b.size();i++) {
-			this.historialPrision += b.get(i).getHistorialPatio()+"\n";
+			this.historialPrision += b.get(i).historialPATIO()+"\n";
 		}
 		this.historialPrision+= "//////////////GIMNASIOS///////////////\n";
 		return b;
@@ -159,7 +159,7 @@ public class Prision {
 			b.add(gim);
 		}
 		for (int i = 0; i < b.size();i++) {
-			this.historialPrision += b.get(i).getHistorialPatio()+"\n";
+			this.historialPrision += b.get(i).historialPATIO()+"\n";
 		}
 		this.historialPrision+= "//////////////CELDAS///////////////\n";
 		return b;
@@ -175,7 +175,7 @@ public class Prision {
 			b.add(cel);
 		}
 		for (int i = 0; i < b.size();i++) {
-			this.historialPrision += b.get(i).getHistorialCelda()+"\n";
+			this.historialPrision += b.get(i).historialCELDA()+"\n";
 		}
 		this.historialPrision+= "///////////GUARDIAS Y REOS////////////\n";
 		return b;

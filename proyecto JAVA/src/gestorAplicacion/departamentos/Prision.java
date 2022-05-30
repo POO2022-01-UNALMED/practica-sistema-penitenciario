@@ -114,24 +114,15 @@ public class Prision {
 	public ArrayList<String> getHistorialReos(){
 		return this.historialReos;
 	}
-	public void setHistorialReos(String s){
-		this.historialReos.add(s);
-		
-	}
+	
 	public ArrayList<String> getHistorialGuardias(){
 		return this.historialGuardias;
 	}
-	public void setHistorialGuardias(String s){
-		this.historialGuardias.add(s);
-		
-	}
+
 	public ArrayList<String> getHistorialTrabajos(){
 		return this.historialTrabajos;
 	}
-	public void setHistorialTrabajos(String s){
-		this.historialTrabajos.add(s);
-		
-	}
+
 	
 	
 	public void addHistorialReos(String s) {

@@ -10,14 +10,16 @@ import java.time.LocalDateTime;
 public class Celda {
 	
 	private final int NUMCELDA;
+	private final Prision prision;
 	private ArrayList<Reo> reosPertenecientes= new ArrayList<Reo>();
 	private ArrayList<String> historialCelda = new ArrayList<String>();
 	
-	public Celda(int numCelda) {
+	public Celda(int numCelda, Prision prision) {
 		super();
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		this.NUMCELDA = numCelda;
-		addHistorialCelda("Anadiste la celda: "+this.NUMCELDA+". "+dtf.format(LocalDateTime.now()));
+		this.prision = prision;
+		addHistorialCelda("Anadiste la celda: "+this.NUMCELDA+" en la prision: "+prision.getNombre()+". "+dtf.format(LocalDateTime.now()));
 		
 	}
 	
@@ -42,8 +44,9 @@ public class Celda {
 			DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			this.reosPertenecientes.add(reo);
 			//reo.setCelda(this);
-			String str1 = "Haz anadido al reo con codigo: "+reo.getCodigo()+" a la celda número: "+ this.NUMCELDA;
-			addHistorialCelda(str1+" "+dtf2.format(LocalDateTime.now()));
+			String str1 = "Haz anadido al reo con codigo: "+reo.getCodigo()+" a la celda nï¿½mero: "+ this.NUMCELDA;
+			addHistorialCelda(str1+" "+dtf2.format(LocalDateTime.now())+"\n");
+			this.prision.addHistoriaPrision(historialCelda.get(historialCelda.size()-1));
 			return str1;
 		}
 		else {
@@ -57,8 +60,8 @@ public class Celda {
 			//reo.setCelda(null);
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
-			addHistorialCelda("Se ha quitado al reo con código: "+reo.getCodigo()+" de la celda número: "+this.NUMCELDA+Tiempo);
-			
+			addHistorialCelda("Se ha quitado al reo con cï¿½digo: "+reo.getCodigo()+" de la celda nï¿½mero: "+this.NUMCELDA+Tiempo+"\n");
+			this.prision.addHistoriaPrision(historialCelda.get(historialCelda.size()-1));
 			return reo;
 			
 			

@@ -27,10 +27,10 @@ public class Guardia implements Persona{
 		this(nombre, codigo);
 		this.prision = prision;
 		
-		//Añade al historial
+		//Aï¿½ade al historial
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
-		prision.addHistorialGuardias("El bachiller "+nombre+", con código: "+codigo+", ha sido trasladado a la prisión: "+prision.getNombre()+Tiempo);
+		prision.addHistorialGuardias("El bachiller "+nombre+", con cï¿½digo: "+codigo+", ha sido trasladado a la prisiï¿½n: "+prision.getNombre()+Tiempo);
 		
 	}
 	
@@ -43,7 +43,7 @@ public class Guardia implements Persona{
 		
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
-		prision.addHistorialGuardias("El "+rango.getRango()+" "+nombre+", con código: "+codigo+", ha sido trasladado a la prisión: "+prision.getNombre()+Tiempo);
+		prision.addHistorialGuardias("El "+rango.getRango()+" "+nombre+", con cï¿½digo: "+codigo+", ha sido trasladado a la prisiï¿½n: "+prision.getNombre()+Tiempo);
 		
 	}
 
@@ -54,7 +54,6 @@ public class Guardia implements Persona{
 		this.rango = rango;
 		
 	}
-
 	public void promocionarGuardia() {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
@@ -62,12 +61,12 @@ public class Guardia implements Persona{
 		if(this.getRango()==Rango.bachiller) {
 			this.setRango(Rango.carcelero);
 			
-			prision.addHistorialGuardias("El guardia "+this.nombre+", con código: "+this.codigo+" ha sido promocionado a: "+this.rango.getRango()+Tiempo);
+			prision.addHistorialGuardias("El guardia "+this.nombre+", con cï¿½digo: "+this.codigo+" ha sido promocionado a: "+this.rango.getRango()+Tiempo);
 		}
 		else if(this.getRango()==Rango.carcelero) {
 			this.setRango(Rango.oficial);
 			
-			prision.addHistorialGuardias("El guardia "+this.nombre+", con código: "+this.codigo+" ha sido promocionado a: "+this.rango.getRango()+Tiempo);
+			prision.addHistorialGuardias("El guardia "+this.nombre+", con cï¿½digo: "+this.codigo+" ha sido promocionado a: "+this.rango.getRango()+Tiempo);
 		}
 		else {
 			prision.addHistorialGuardias("El guardia "+this.nombre+" no pudo ser promocionado"+Tiempo);
@@ -82,20 +81,20 @@ public class Guardia implements Persona{
 		
 		if (this.rango == Rango.bachiller) {
 			
-			prision.addHistorialGuardias("El bachiller "+this.nombre+", de código: "+this.codigo+", ha intentado meter el reo de código: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero no tiene los permisos para realizar esta acción"+Tiempo);
+			prision.addHistorialGuardias("El bachiller "+this.nombre+", de cï¿½digo: "+this.codigo+", ha intentado meter el reo de cï¿½digo: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero no tiene los permisos para realizar esta acciï¿½n"+Tiempo);
 			return;
 		}
 		else if(reo.getCelda() != null) {
-			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+", ha intentado meter al reo de código: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero este ya está en una celda"+Tiempo);
+			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+", ha intentado meter al reo de cï¿½digo: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero este ya estï¿½ en una celda"+Tiempo);
 		}
 		else if(celda.getReosPertenecientes().size()+1 <= 2){
 			//celda.asignarReo(reo);
 			reo.setCelda(celda);
             
-			prision.addHistorialGuardias("El reo de código: "+reo.getCodigo()+", ha sido ingresado a la celda número "+celda.getNumCelda()+" por el "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+Tiempo);	
+			prision.addHistorialGuardias("El reo de cï¿½digo: "+reo.getCodigo()+", ha sido ingresado a la celda nï¿½mero "+celda.getNumCelda()+" por el "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+Tiempo);	
 		}
 		else {
-			prision.addHistorialGuardias("El reo de código: "+reo.getCodigo()+", no puede ser ingresado a la celda número "+celda.getNumCelda()+" por el "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+", pues está llena"+Tiempo);	
+			prision.addHistorialGuardias("El reo de cï¿½digo: "+reo.getCodigo()+", no puede ser ingresado a la celda nï¿½mero "+celda.getNumCelda()+" por el "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+", pues estï¿½ llena"+Tiempo);	
 		}
 				
 	}
@@ -105,15 +104,15 @@ public class Guardia implements Persona{
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
 		
 		if (this.rango == Rango.bachiller) {
-			prision.addHistorialGuardias("El bachiller "+this.nombre+" ha intentado sacar el reo de código: "+reo.getCodigo()+" de una celda pero no tiene los permisos para realizar esta acción"+Tiempo);
+			prision.addHistorialGuardias("El bachiller "+this.nombre+" ha intentado sacar el reo de cï¿½digo: "+reo.getCodigo()+" de una celda pero no tiene los permisos para realizar esta acciï¿½n"+Tiempo);
 		}
 		else if(reo.getCelda() == null) {
-			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado sacar al reo de código: "+reo.getCodigo()+" de su celda pero este no tiene una asignada en el momento"+Tiempo);
+			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha intentado sacar al reo de cï¿½digo: "+reo.getCodigo()+" de su celda pero este no tiene una asignada en el momento"+Tiempo);
 		}
 		else{
 			reo.getCelda().sacarReo(reo);
 			reo.setCelda(null);
-			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha sacado al reo de código: "+reo.getCodigo()+" de su celda"+Tiempo);
+			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha sacado al reo de cï¿½digo: "+reo.getCodigo()+" de su celda"+Tiempo);
 		}
 	}
 	
@@ -122,18 +121,18 @@ public class Guardia implements Persona{
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
 		
 		if(reo.getPatio() !=null) {
-			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado meter al reo de código: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+", pero este ya está en un patio"+Tiempo);
-			prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado meter al reo de código: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+", pero este ya está en un patio"+Tiempo);
+			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha intentado meter al reo de cï¿½digo: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+", pero este ya estï¿½ en un patio"+Tiempo);
+			prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha intentado meter al reo de cï¿½digo: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+", pero este ya estï¿½ en un patio"+Tiempo);
 		}
 		else if(patio.getReos().size()+1 <= patio.getCapacidad()){
 				patio.ingresarReos(reo);
 				reo.setPatio(patio);
-				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha movido al reo de código: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+Tiempo);
-				prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha movido al reo de código: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+Tiempo);
+				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha movido al reo de cï¿½digo: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+Tiempo);
+				prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha movido al reo de cï¿½digo: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+Tiempo);
 		}
 		else {
-				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado mover al reo de código: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+" pero este patio está lleno"+Tiempo);
-				prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado mover al reo de código: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+" pero este patio está lleno"+Tiempo);
+				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha intentado mover al reo de cï¿½digo: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+" pero este patio estï¿½ lleno"+Tiempo);
+				prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha intentado mover al reo de cï¿½digo: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+" pero este patio estï¿½ lleno"+Tiempo);
 		}
 	}
 	
@@ -142,18 +141,18 @@ public class Guardia implements Persona{
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
 		
 		if(reo.getPatio() !=null) {
-			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado meter al reo de código: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+", pero este ya está en un patio"+Tiempo);
-			prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado meter al reo de código: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+", pero este ya está en un patio"+Tiempo);
+			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha intentado meter al reo de cï¿½digo: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+", pero este ya estï¿½ en un patio"+Tiempo);
+			prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha intentado meter al reo de cï¿½digo: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+", pero este ya estï¿½ en un patio"+Tiempo);
 		}
 		else if(patio.getReos().size()+1 <= patio.getCapacidad()){
 				patio.ingresarReos(reo);
 				reo.setPatio(patio);
-				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha movido al reo de código: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+Tiempo);
-				prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha movido al reo de código: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+Tiempo);
+				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha movido al reo de cï¿½digo: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+Tiempo);
+				prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha movido al reo de cï¿½digo: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+Tiempo);
 		}
 		else {
-				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado mover al reo de código: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+" pero este patio está lleno"+Tiempo);
-				prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado mover al reo de código: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+" pero este patio está lleno"+Tiempo);
+				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha intentado mover al reo de cï¿½digo: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+" pero este patio estï¿½ lleno"+Tiempo);
+				prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha intentado mover al reo de cï¿½digo: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+" pero este patio estï¿½ lleno"+Tiempo);
 		}
 	}
 	
@@ -162,14 +161,14 @@ public class Guardia implements Persona{
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
 		
 		if(reo.getPatio() == null) {
-			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado sacar al reo de código: "+reo.getCodigo()+" de su patio pero este no tiene uno asignado en el momento"+Tiempo);
-			prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado sacar al reo de código: "+reo.getCodigo()+" de su patio pero este no tiene uno asignado en el momento"+Tiempo);
+			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha intentado sacar al reo de cï¿½digo: "+reo.getCodigo()+" de su patio pero este no tiene uno asignado en el momento"+Tiempo);
+			prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha intentado sacar al reo de cï¿½digo: "+reo.getCodigo()+" de su patio pero este no tiene uno asignado en el momento"+Tiempo);
 		}
 		else{
 			reo.getPatio().sacarReos(reo);
 			reo.setPatio(null);
-			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha sacado al reo de código: "+reo.getCodigo()+" de su patio"+Tiempo);
-			prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha sacado al reo de código: "+reo.getCodigo()+" de su patio"+Tiempo);
+			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha sacado al reo de cï¿½digo: "+reo.getCodigo()+" de su patio"+Tiempo);
+			prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de cï¿½digo: "+this.codigo+" ha sacado al reo de cï¿½digo: "+reo.getCodigo()+" de su patio"+Tiempo);
 		}
 	}
 	
@@ -179,20 +178,20 @@ public class Guardia implements Persona{
 	
 
 	public void setPrision(Prision prision) {
-		//Añade al historial
+		//Aï¿½ade al historial
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
 		
 		if(this.getPrision() != null) {
-			this.prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+" con código "+this.codigo+", ha salido de la prisión: "+this.prision.getNombre()+", y será trasladado a: "+prision.getNombre()+Tiempo);
-			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+" con código "+this.codigo+", ha salido de la prisión: "+this.prision.getNombre()+", y será trasladado a: "+prision.getNombre()+Tiempo);
+			this.prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+" con cï¿½digo "+this.codigo+", ha salido de la prisiï¿½n: "+this.prision.getNombre()+", y serï¿½ trasladado a: "+prision.getNombre()+Tiempo);
+			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+" con cï¿½digo "+this.codigo+", ha salido de la prisiï¿½n: "+this.prision.getNombre()+", y serï¿½ trasladado a: "+prision.getNombre()+Tiempo);
 			this.prision.getGuardias().remove(this);
 			this.prision = prision;
 			prision.addGuardias(this);			
 		}else {
 			this.prision=prision;
 			prision.addGuardias(this);
-			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+" con código "+this.codigo+", ha ingresado a la prision: "+prision.getNombre()+Tiempo);
+			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+" con cï¿½digo "+this.codigo+", ha ingresado a la prision: "+prision.getNombre()+Tiempo);
 		}
 	}
 	

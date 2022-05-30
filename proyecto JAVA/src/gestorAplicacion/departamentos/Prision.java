@@ -48,7 +48,7 @@ public class Prision {
 		
 		historialPrision = "Bienvenido alcaide a su nuevo sistema carcelario totalmente virtual, ¡Jamás ser alcaide había sido tan fácil!.\n"
 				+ "Procederemos a crear la prisión "+this.getNombre()+" como lo ordenó. "+dtf.format(LocalDateTime.now())+"\n"
-				+"////////////////CREANDO BIBLIOTECAS///////////////////\n";
+				+"////////////////CREANDO INSTALACIONES///////////////////\n"+"\n";
 		this.bibliotecas = generarBibliotecas();
 		this.gimnasios = generarGims();
 		this.celdas =generarCeldas();
@@ -129,27 +129,36 @@ public class Prision {
 	
 	public void addHistorialReos(String s) {
 		this.historialReos.add(s);
+		int ult = historialReos.size()-1;
+		String stringReos = this.historialReos.get(ult)+"\n";
+		this.historialPrision+=stringReos;
+		
+		
 	}
 	
 	public void addHistorialGuardias(String s) {
 		this.historialGuardias.add(s);
+		int ult = historialGuardias.size()-1;
+		String stringGuardias = this.historialGuardias.get(ult)+"\n";
+		this.historialPrision+=stringGuardias;
 	}
 	
 	public void addHistorialTrabajos(String s) {
 		this.historialTrabajos.add(s);
+		
 	}
 	private ArrayList<Biblioteca> generarBibliotecas() {
 		double numbiblio = ceil(this.numReos/1000);
 		ArrayList<Biblioteca> b = new ArrayList<Biblioteca>();
 		for (int i = 0; i <numbiblio; i++) {
 			int k = i+1;
-			Biblioteca bip = new Biblioteca("biblioteca "+k+" de "+this.getNombre());
+			Biblioteca bip = new Biblioteca("biblioteca "+k+" de "+this.getNombre(), this);
 			b.add(bip);
 		}
 		for (int i = 0; i < b.size();i++) {
 			this.historialPrision += b.get(i).historialPATIO()+"\n";
 		}
-		this.historialPrision+= "//////////////GIMNASIOS///////////////\n";
+		this.historialPrision+= "\n";
 		return b;
 		
 	}
@@ -165,7 +174,7 @@ public class Prision {
 		for (int i = 0; i < b.size();i++) {
 			this.historialPrision += b.get(i).historialPATIO()+"\n";
 		}
-		this.historialPrision+= "//////////////CELDAS///////////////\n";
+		this.historialPrision+= "\n";
 		return b;
 		
 		
@@ -175,19 +184,22 @@ public class Prision {
 		double numceldas = ceil(this.numReos/2);
 		ArrayList<Celda> b = new ArrayList<Celda>();
 		for (int i = 0; i <numceldas; i++) {
-			Celda cel = new Celda(i);
+			Celda cel = new Celda(i, this);
 			b.add(cel);
 		}
 		for (int i = 0; i < b.size();i++) {
 			this.historialPrision += b.get(i).historialCELDA()+"\n";
 		}
-		this.historialPrision+= "///////////GUARDIAS Y REOS////////////\n";
+		this.historialPrision+= "///////////Bitacora de movimientos realizados en la prision///////////\n"+"\n";
 		return b;
 		
 	}
 	
-	public String historialPrision() {
+	public String getHistorialPrision() {
 		return this.historialPrision;
+	}
+	public void addHistoriaPrision(String s) {
+		this.historialPrision+=s;
 	}
 	
 	

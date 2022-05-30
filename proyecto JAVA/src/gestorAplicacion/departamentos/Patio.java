@@ -48,6 +48,14 @@ public abstract class Patio {
 		return nombre;
 	}
 	
+	public int getCantidadReos() {
+		return 0;
+	}
+	
+	public int getCantidadGuardias() {
+		return 0;
+	}
+	
 	public abstract String ingresarReos(Reo reo); //con este metodo se ingresará reos a las clases hijas 
 	
 	public abstract String sacarReos(Reo reo);

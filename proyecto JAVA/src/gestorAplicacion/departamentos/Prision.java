@@ -68,16 +68,16 @@ public class Prision {
 		return reos;
 	}
 
-	public void setReos(ArrayList<Reo> reos) {
-		this.reos = reos;
+	public void addReos(Reo reo) {
+		this.reos.add(reo);
 	}
 
 	public ArrayList<Guardia> getGuardias() {
 		return guardias;
 	}
 
-	public void setGuardias(ArrayList<Guardia> guardias) {
-		this.guardias = guardias;
+	public void addGuardias(Guardia guardia) {
+		this.guardias.add(guardia);
 	}
 
 	public int getNumCeldas() {

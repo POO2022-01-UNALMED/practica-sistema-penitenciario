@@ -82,20 +82,20 @@ public class Guardia{
 		
 		if (this.rango == Rango.bachiller) {
 			
-			prision.addHistorialGuardias("El bachiller "+this.nombre+", de código: "+this.codigo+"ha intentado meter el reo de código: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+" pero no tiene los permisos para realizar esta acción"+Tiempo);
+			prision.addHistorialGuardias("El bachiller "+this.nombre+", de código: "+this.codigo+", ha intentado meter el reo de código: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero no tiene los permisos para realizar esta acción"+Tiempo);
 			return;
 		}
 		else if(reo.getCelda() != null) {
-			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado meter al reo de código: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero este ya está en una celda"+Tiempo);
+			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+", ha intentado meter al reo de código: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero este ya está en una celda"+Tiempo);
 		}
 		else if(celda.getReosPertenecientes().size()+1 <= 2){
-			celda.asignarReo(reo);
+			//celda.asignarReo(reo);
 			reo.setCelda(celda);
             
-			prision.addHistorialGuardias("El reo de código: "+reo.getCodigo()+" ha sido ingresado a la celda número "+celda.getNumCelda()+" por el "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+Tiempo);	
+			prision.addHistorialGuardias("El reo de código: "+reo.getCodigo()+", ha sido ingresado a la celda número "+celda.getNumCelda()+" por el "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+Tiempo);	
 		}
 		else {
-			prision.addHistorialGuardias("El reo de código: "+reo.getCodigo()+" no puede ser ingresado a la celda número "+celda.getNumCelda()+" por el "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+", pues está llena"+Tiempo);	
+			prision.addHistorialGuardias("El reo de código: "+reo.getCodigo()+", no puede ser ingresado a la celda número "+celda.getNumCelda()+" por el "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+", pues está llena"+Tiempo);	
 		}
 				
 	}
@@ -164,15 +164,15 @@ public class Guardia{
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
 		
 		if(this.getPrision() != null) {
-			this.prision.addHistorialGuardias("El "+this.rango.getRango()+this.nombre+" con código "+this.codigo+" ha salido de la prisión: "+this.prision.getNombre()+", y será trasladado a: "+prision.getNombre()+Tiempo);
-			prision.addHistorialGuardias("El "+this.rango.getRango()+this.nombre+" con código "+this.codigo+" ha salido de la prisión: "+this.prision.getNombre()+", y será trasladado a: "+prision.getNombre()+Tiempo);
+			this.prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+" con código "+this.codigo+", ha salido de la prisión: "+this.prision.getNombre()+", y será trasladado a: "+prision.getNombre()+Tiempo);
+			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+" con código "+this.codigo+", ha salido de la prisión: "+this.prision.getNombre()+", y será trasladado a: "+prision.getNombre()+Tiempo);
 			this.prision.getGuardias().remove(this);
 			this.prision = prision;
 			prision.addGuardias(this);			
 		}else {
 			this.prision=prision;
 			prision.addGuardias(this);
-			prision.addHistorialGuardias("El "+this.rango.getRango()+this.nombre+" con código "+this.codigo+" ha ingresado a la prision: "+prision.getNombre()+Tiempo);
+			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+" con código "+this.codigo+", ha ingresado a la prision: "+prision.getNombre()+Tiempo);
 		}
 	}
 	

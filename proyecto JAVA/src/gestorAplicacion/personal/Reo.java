@@ -63,7 +63,7 @@ public class Reo {
 		//Añade al historial
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
-		prision.addHistorialReos("El reo: "+nombre+", con código: "+codigo+", ha ingreado con "+condena+" años de condena a la prisión: "+prision+Tiempo);
+		prision.addHistorialReos("El reo: "+nombre+", con código: "+codigo+", ha ingreado con "+condena+" años de condena a la prisión: "+prision.getNombre()+Tiempo);
 		prision.addReos(this);
 	}
 
@@ -119,7 +119,7 @@ public class Reo {
 		}else {
 			this.prision=prision;
 			prision.addReos(this);
-			prision.addHistorialReos("El reo: "+this.nombre+", con código: "+this.codigo+"ha ingresado a la prision: "+prision.getNombre()+Tiempo);
+			prision.addHistorialReos("El reo: "+this.nombre+", con código: "+this.codigo+" ha ingresado a la prision: "+prision.getNombre()+Tiempo);
 		}
 		
 		

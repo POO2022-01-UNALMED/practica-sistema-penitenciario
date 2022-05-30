@@ -3,22 +3,22 @@ package gestorAplicacion.bienes;
 import gestorAplicacion.personal.*;
 import gestorAplicacion.departamentos.*;
 import java.util.List;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Bus {
 	
 	private final int placa;
-	private final int capacidad;
 	private Prision prision;
-	private List<String> historialBus;
+	private ArrayList<String> historialBus;
 	private static int busesCreados=0;
 	
-	public Bus(int placa, int capacidad, Prision prision, List<String> historialBus) {
+	public Bus(int placa, Prision prision) {
 		super();
 		this.placa = placa;
-		this.capacidad = capacidad;
 		this.prision = prision;
-		this.historialBus = historialBus;
+		this.historialBus = new ArrayList<String>();
 	}
 
 	public Prision getPrision() {
@@ -33,8 +33,8 @@ public class Bus {
 		return historialBus;
 	}
 
-	public void setHistorialBus(List<String> historialBus) {
-		this.historialBus = historialBus;
+	public void addHistorialBus(String s) {
+		this.historialBus.add(s);
 	}
 
 	public static int getBusesCreados() {
@@ -48,9 +48,25 @@ public class Bus {
 	public int getPlaca() {
 		return placa;
 	}
-
-	public int getCapacidad() {
-		return capacidad;
+	
+	public String llevarReos(ArrayList<Reo> reos, ArrayList<Guardia> guardias, Prision prisionDestino ) {
+		if (reos.size()+guardias.size() <= 30){
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+			String streo = "";
+			String stgua = "";
+			String nombre = reos.get(0).getNombre();
+			for (int i = 0; i< reos.size(); i++) {
+				reos.get(i).setPrision(prisionDestino);
+				streo += "nombre: "+ reos.get(i).getNombre() + " cuyo código es: "+reos.get(i).getCodigo();
+				guardias.get(i).setPrision(prisionDestino);
+				stgua += "nombre: "+ guardias.get(i).getNombre() + " cuyo código es: "+guardias.get(i).getCodigo();
+				
+			}
+			return "Has enviado a los reos "+streo+" de "+nombre+" con destino a la prisión "+prisionDestino.getNombre()+" cuyos guardias son: "+stgua+"."+ dtf.format(LocalDateTime.now());
+		}
+		else {
+			return "Error, numero de reos y guardias superior a la capacidad del bus";
+		}
 	}
 	
 	

@@ -31,6 +31,10 @@ public class Gimnasio extends Patio{
 			return("Has colocado una cantidad de Reos que excede la capacidad del gimnasio");
 		}
 	}
+	public String sacarReos(Reo reo) {
+		getReos().remove(getReos().indexOf(reo));
+		return "Has sacado al reo "+ reo.getNombre()+" con codigo "+reo.getCodigo()+" del gimnasio con nombre "+this.getNombre();
+	}
 	public String ingresarGuardias(Guardia guardia) {
 		if (getReos().size()+getGuardias().size()+1 <= getCapacidad()) {
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -47,6 +51,10 @@ public class Gimnasio extends Patio{
 		else {
 			return("Has colocado una cantidad de guardias que excede la capacidad del gimnasio");
 		}
+	}
+	public String sacarGuardias(Guardia guardia) {
+		getGuardias().remove(getGuardias().indexOf(guardia));
+		return "Has sacado al guardia "+ guardia.getNombre()+" con codigo "+guardia.getCodigo()+" del gimnasio con nombre "+this.getNombre();
 	}
 	public String laborarReo(Reo reo, int horas) {
 		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");

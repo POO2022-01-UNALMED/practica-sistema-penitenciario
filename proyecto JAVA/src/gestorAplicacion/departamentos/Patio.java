@@ -50,8 +50,12 @@ public abstract class Patio {
 	
 	public abstract String ingresarReos(Reo reo); //con este metodo se ingresará reos a las clases hijas 
 	
+	public abstract String sacarReos(Reo reo);
+	
 
 	public abstract String ingresarGuardias(Guardia guardia); //con este metodo se ingresará reos a las clases hijas 
+	
+	public abstract String sacarGuardias(Guardia guardia);
 	
 	
 	public abstract String laborarReo(Reo reo, int horas); // con este metodo se pondrá hacer labores correspondientes a cada reo para que redutca la pena

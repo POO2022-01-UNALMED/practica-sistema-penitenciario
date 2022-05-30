@@ -52,6 +52,7 @@ public class Prision {
 		this.bibliotecas = generarBibliotecas();
 		this.gimnasios = generarGims();
 		this.celdas =generarCeldas();
+		prisionesCreadas++;
 	}
 
 	public static int getPrisionesCreadas() {

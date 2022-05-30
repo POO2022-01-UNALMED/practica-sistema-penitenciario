@@ -171,8 +171,12 @@ public class Reo {
 		//Añade al historial
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
-				
-		if(celda.getReosPertenecientes().size()+1<=2){
+		if	(celda == null) {
+			this.prision.addHistorialReos("El reo: "+this.nombre+", con código: "+this.codigo+" ha sido sacado de la celda número: "+this.celda.getNumCelda()+Tiempo);
+			this.celda=null;
+			return;
+		}
+		else if(celda.getReosPertenecientes().size()+1<=2){
 			if(this.getCelda()!=null) {
 					this.getCelda().sacarReo(this);
 					celda.asignarReo(this);

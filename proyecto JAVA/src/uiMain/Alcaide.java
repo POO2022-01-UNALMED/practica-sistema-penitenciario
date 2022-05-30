@@ -10,11 +10,6 @@ import gestorAplicacion.personal.*;
 public class Alcaide {
 
 	public static void main(String[] args) {
-<<<<<<< Updated upstream
-		
-		Prision ascaban = new Prision("ascaban");
-		System.out.println(ascaban.historialPrision());
-=======
 		
 		Prision cali = new Prision("Cali");
 		Prision manizales = new Prision("Manizales");
@@ -40,7 +35,8 @@ public class Alcaide {
 		g1.meterReoCelda(r1, celda);
 		g2.meterReoCelda(r2, celda);
 		g1.meterReoCelda(r3, celda);
-		
+		g2.sacarReoCelda(r1);
+		g2.meterReoCelda(r3, celda);
 		
 		
 		
@@ -53,8 +49,11 @@ public class Alcaide {
 		for (int i = 0; i < cali.getHistorialReos().size(); i++) {
 			System.out.println(cali.getHistorialReos().get(i));
 		}
+		System.out.println("\\\\\\\\\\\\\\\\\\\\\\\\");
+		for (int i = 0; i < celda.getHistorialCelda().size(); i++) {
+			System.out.println(celda.getHistorialCelda().get(i));
+		}
 //	}
->>>>>>> Stashed changes
 	}
 
 }

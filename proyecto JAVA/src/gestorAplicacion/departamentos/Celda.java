@@ -42,7 +42,7 @@ public class Celda {
 			DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			this.reosPertenecientes.add(reo);
 			//reo.setCelda(this);
-			String str1 = "Haz aÃ±adido al reo con codigo: "+reo.getCodigo()+" a la celda numero "+ this.NUMCELDA;
+			String str1 = "Haz anadido al reo con codigo: "+reo.getCodigo()+" a la celda número: "+ this.NUMCELDA;
 			addHistorialCelda(str1+" "+dtf2.format(LocalDateTime.now()));
 			return str1;
 		}
@@ -54,8 +54,15 @@ public class Celda {
 	public Reo sacarReo(Reo reo) {
 		if (this.reosPertenecientes.contains(reo)) {
 			this.reosPertenecientes.remove(this.reosPertenecientes.indexOf(reo));
-			reo.setCelda(null);
+			//reo.setCelda(null);
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+			String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
+			addHistorialCelda("Se ha quitado al reo con código: "+reo.getCodigo()+" de la celda número: "+this.NUMCELDA+Tiempo);
+			
 			return reo;
+			
+			
+			
 		}
 		else {
 			return null;

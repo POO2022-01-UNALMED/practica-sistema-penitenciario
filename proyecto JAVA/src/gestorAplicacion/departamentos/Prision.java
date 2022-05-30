@@ -169,7 +169,7 @@ public class Prision {
 		
 	}
 	
-	public String historialListas() {
+	public String historialPrision() {
 		return this.historialPrision;
 	}
 	

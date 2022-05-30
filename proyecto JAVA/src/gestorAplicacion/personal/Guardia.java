@@ -88,7 +88,7 @@ public class Guardia{
 		else if(reo.getCelda() != null) {
 			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado meter al reo de código: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero este ya está en una celda"+Tiempo);
 		}
-		else if(celda.getReosPertenecientes().size()+1 <= celda.getCapacidadMax()){
+		else if(celda.getReosPertenecientes().size()+1 <= 2){
 			celda.asignarReo(reo);
 			reo.setCelda(celda);
             
@@ -112,6 +112,24 @@ public class Guardia{
 		}
 		else{
 			reo.getCelda().sacarReo(reo);
+			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha sacado al reo de código: "+reo.getCodigo()+" de su celda"+Tiempo);
+		}
+	}
+	
+	public void meterReoPatio(Reo reo, Patio patio) {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
+		
+		if(reo.getPatio() !=null) {
+				reo.getPatio().sacarReos(reo);
+				patio.ingresarReos(reo);
+				reo.setPatio(patio);
+				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha movido al reo de código: "+reo.getCodigo()+" al patio: "+reo.getPatio().getNombre()+Tiempo);
+		}
+		else {
+				reo.setPatio(patio);
+				reo.getPatio().ingresarReos(reo);
+				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha movido al reo de código: "+reo.getCodigo()+" al patio: "+reo.getPatio().getNombre()+Tiempo);
 		}
 	}
 	
@@ -121,12 +139,21 @@ public class Guardia{
 	
 
 	public void setPrision(Prision prision) {
-		this.prision = prision;
-		
 		//Añade al historial
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
-		prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+" ha sido trasladado a la prisión: "+prision+Tiempo);
+		
+		if(this.getPrision() != null) {
+			this.prision.addHistorialGuardias("El "+this.rango.getRango()+this.nombre+" con código "+this.codigo+" ha salido de la prisión: "+this.prision.getNombre()+", y será trasladado a: "+prision.getNombre()+Tiempo);
+			prision.addHistorialGuardias("El "+this.rango.getRango()+this.nombre+" con código "+this.codigo+" ha salido de la prisión: "+this.prision.getNombre()+", y será trasladado a: "+prision.getNombre()+Tiempo);
+			this.prision.getGuardias().remove(this);
+			this.prision = prision;
+			prision.addGuardias(this);			
+		}else {
+			this.prision=prision;
+			prision.addGuardias(this);
+			prision.addHistorialGuardias("El "+this.rango.getRango()+this.nombre+" con código "+this.codigo+" ha ingresado a la prision: "+prision.getNombre()+Tiempo);
+		}
 	}
 	
 

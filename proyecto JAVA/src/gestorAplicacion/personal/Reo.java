@@ -16,6 +16,7 @@ public class Reo {
 	private Prision prision;
 	private Celda celda;
 	private Trabajo trabajo;
+	private Patio patio;
 	private int horasTrabajadasTotales;
 	private int comportamiento; //El comportamiento subirá trabajando y haciendo actividades de los patios, luego esto determinará cuantos años de condena se reducen
 	
@@ -171,15 +172,17 @@ public class Reo {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
 				
-		if(celda.getReosPertenecientes().size()+1>2){
+		if(celda.getReosPertenecientes().size()+1<=2){
 			if(this.getCelda()!=null) {
 					this.getCelda().sacarReo(this);
 					celda.asignarReo(this);
+					this.celda=celda;
 					this.prision.addHistorialReos("El reo: "+this.nombre+", con código: "+this.codigo+" ha sido trasladado a la celda número: "+this.celda.getNumCelda()+Tiempo);
 			}
 				
 			else {
 				celda.asignarReo(this);
+				this.celda=celda;
 				this.prision.addHistorialReos("El reo: "+this.nombre+", con código: "+this.codigo+" ha sido trasladado a la celda número: "+this.celda.getNumCelda()+Tiempo);
 			}
 		}
@@ -214,6 +217,14 @@ public class Reo {
 	
 	public int getHorasTrabajadasTotales() {
 		return this.horasTrabajadasTotales;
+	}
+	
+	public void setPatio(Patio patio) {
+		this.patio=patio;
+	}
+	
+	public Patio getPatio() {
+		return patio;
 	}
 
 	//public void setHistorialReo(ArrayList<String> historialReo) {

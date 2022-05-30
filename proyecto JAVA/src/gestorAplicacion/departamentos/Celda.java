@@ -34,7 +34,7 @@ public class Celda {
 		historialCelda.add(hist);
 	}
 	public int getNumCelda() {
-		return NUMCELDA;
+		return this.NUMCELDA;
 	}
 	
 	public String asignarReo(Reo reo) {

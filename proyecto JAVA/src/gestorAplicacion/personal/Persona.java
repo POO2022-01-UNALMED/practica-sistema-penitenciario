@@ -1,5 +1,6 @@
 package gestorAplicacion.personal;
 
+
 import gestorAplicacion.departamentos.Prision;
 
 public interface Persona {

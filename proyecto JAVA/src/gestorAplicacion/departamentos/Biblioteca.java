@@ -12,6 +12,7 @@ public class Biblioteca extends Patio{
 	
 	public Biblioteca(String nombre) {
 		super(100, nombre, new ArrayList<Reo>(), new ArrayList<Guardia>());
+		super.addHistorialPatio("Has creado una biblioteca cuyo nombre es "+ nombre);
 
 	}
 	

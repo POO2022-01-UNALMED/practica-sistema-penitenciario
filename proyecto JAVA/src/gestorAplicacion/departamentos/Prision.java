@@ -12,9 +12,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Prision {
 	
-	
-	private final int numCeldas;
-	private final int numPatios;
+
 	private final int numGuardias;
 	private final int numReos;
 	private final int numBuses;
@@ -28,18 +26,19 @@ public class Prision {
 	private ArrayList<String> historialGuardias = new ArrayList<String>();
 	private ArrayList<String> historialTrabajos = new ArrayList<String>();
 	private String historialPrision;
+	private ArrayList<Biblioteca> bibliotecas;
+	private ArrayList<Gimnasio> gimnasios;
+	private ArrayList<Celda> celdas;
 	
 	
 	public Prision(String nombre) {
-		this(100, 100, 100, 1000, 10, true, "Antioquia", nombre);
+		this(100, 1000, 10, true, "Antioquia", nombre);
 	} 
 	
-	public Prision(int numCeldas, int numPatios, int numGuardias, int numReos, int numBuses, boolean genero,
+	public Prision(int numGuardias, int numReos, int numBuses, boolean genero,
 			String localizacion, String nombre) {
 		super();
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-		this.numCeldas = numCeldas;
-		this.numPatios = numPatios;
 		this.numGuardias = numGuardias;
 		this.numReos = numReos;
 		this.numBuses = numBuses;
@@ -50,10 +49,9 @@ public class Prision {
 		historialPrision = "Bienvenido alcaide a su nuevo sistema carcelario totalmente virtual, ¡Jamás ser alcaide había sido tan fácil!.\n"
 				+ "Procederemos a crear la prisión "+this.getNombre()+" como lo ordenó. "+dtf.format(LocalDateTime.now())+"\n"
 				+"////////////////CREANDO BIBLIOTECAS///////////////////\n";
-		generarBibliotecas();
-		generarGims();
-		generarCeldas();
-		//generarBuses();
+		this.bibliotecas = generarBibliotecas();
+		this.gimnasios = generarGims();
+		this.celdas =generarCeldas();
 	}
 
 	public static int getPrisionesCreadas() {
@@ -78,14 +76,6 @@ public class Prision {
 
 	public void addGuardias(Guardia guardia) {
 		this.guardias.add(guardia);
-	}
-
-	public int getNumCeldas() {
-		return numCeldas;
-	}
-
-	public int getNumPatios() {
-		return numPatios;
 	}
 
 	public int getNumGuardias() {
@@ -122,6 +112,17 @@ public class Prision {
 	public ArrayList<String> getHistorialTrabajos(){
 		return this.historialTrabajos;
 	}
+	public ArrayList<Biblioteca> getBibliotecas(){
+		return this.bibliotecas;
+	}
+	public ArrayList<Gimnasio> getGimnasios(){
+		return this.gimnasios;
+	}
+
+	public ArrayList<Celda> getCeldas(){
+		return this.celdas;
+	}
+
 
 	
 	
@@ -140,7 +141,8 @@ public class Prision {
 		double numbiblio = ceil(this.numReos/1000);
 		ArrayList<Biblioteca> b = new ArrayList<Biblioteca>();
 		for (int i = 0; i <numbiblio; i++) {
-			Biblioteca bip = new Biblioteca("biblioteca "+i+1+" de "+this.getNombre());
+			int k = i+1;
+			Biblioteca bip = new Biblioteca("biblioteca "+k+" de "+this.getNombre());
 			b.add(bip);
 		}
 		for (int i = 0; i < b.size();i++) {
@@ -155,7 +157,8 @@ public class Prision {
 		double numgim = ceil(this.numReos/200);
 		ArrayList<Gimnasio> b = new ArrayList<Gimnasio>();
 		for (int i = 0; i <numgim; i++) {
-			Gimnasio gim = new Gimnasio("Gimnasio "+i+1+" de "+this.getNombre());
+			int k = i+1;
+			Gimnasio gim = new Gimnasio("Gimnasio "+k+" de "+this.getNombre());
 			b.add(gim);
 		}
 		for (int i = 0; i < b.size();i++) {
@@ -185,6 +188,7 @@ public class Prision {
 	public String historialPrision() {
 		return this.historialPrision;
 	}
+	
 	
 	
 	

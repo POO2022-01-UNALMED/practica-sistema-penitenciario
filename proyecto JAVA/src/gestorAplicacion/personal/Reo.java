@@ -68,7 +68,7 @@ public class Reo {
 	public Reo(String nombre, int codigo, boolean genero, int condena, Prision prision, Celda celda) {
 		this(nombre, codigo, genero, condena, prision);
 		
-		if(celda.getReosPertenecientes().size()+1 > celda.getCapacidadMax()) {
+		if(celda.getReosPertenecientes().size()+1 > 2) {
 			//Añade al historial
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";

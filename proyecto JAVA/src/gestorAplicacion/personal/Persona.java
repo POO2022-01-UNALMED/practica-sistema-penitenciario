@@ -7,5 +7,5 @@ public interface Persona {
 	public int getCodigo();
 	public void setPrision(Prision prision);
 	public Prision getPrision();
-	
+	//
 }

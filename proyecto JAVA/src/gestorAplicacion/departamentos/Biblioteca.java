@@ -50,7 +50,7 @@ public class Biblioteca extends Patio{
 			return("Has ingresado al guardia: "+ str1 +" a cuidar a los reos por si les da un derrame estudiando POO" );	
 		}
 		else{
-			return("Has colocado una cantidad de guardias que excede la capacidad del gimnasio");
+			return("Has colocado una cantidad de guardias que excede la capacidad del biblioteca");
 		}
 	}
 	public String sacarGuardias(Guardia guardia) {

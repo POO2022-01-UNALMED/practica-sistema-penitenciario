@@ -168,7 +168,7 @@ public class Prision {
 		ArrayList<Gimnasio> b = new ArrayList<Gimnasio>();
 		for (int i = 0; i <numgim; i++) {
 			int k = i+1;
-			Gimnasio gim = new Gimnasio("Gimnasio "+k+" de "+this.getNombre());
+			Gimnasio gim = new Gimnasio("Gimnasio "+k+" de "+this.getNombre(), this);
 			b.add(gim);
 		}
 		for (int i = 0; i < b.size();i++) {

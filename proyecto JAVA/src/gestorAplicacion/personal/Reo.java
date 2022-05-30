@@ -63,6 +63,7 @@ public class Reo {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
 		prision.addHistorialReos("El reo: "+nombre+", con código: "+codigo+", ha ingreado con "+condena+" años de condena a la prisión: "+prision+Tiempo);
+		prision.addReos(this);
 	}
 
 	public Reo(String nombre, int codigo, boolean genero, int condena, Prision prision, Celda celda) {
@@ -72,7 +73,8 @@ public class Reo {
 			//Añade al historial
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
-			prision.addHistorialReos("El reo: "+nombre+", con código: "+codigo+", ha ingreado con "+condena+" años de condena a la prisión: "+prision+". No se le pudo asignar celda porque está llena"+Tiempo);
+			prision.addHistorialReos("El reo: "+nombre+", con código: "+codigo+" no se le pudo asignar celda porque está llena"+Tiempo);
+	
 		}
 		else {
 			this.celda=celda;
@@ -81,7 +83,7 @@ public class Reo {
 			//Añade al historial
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
-			prision.addHistorialReos("El reo: "+nombre+", con código: "+codigo+", ha ingreado con "+condena+" años de condena a la celda número: "+celda.getNumCelda()+", de la prisión: "+prision+Tiempo);
+			prision.addHistorialReos("El reo: "+nombre+", con código: "+codigo+", ha ingreado a la celda número: "+celda.getNumCelda()+Tiempo);
 		}
 		
 		
@@ -103,7 +105,23 @@ public class Reo {
 	
 
 	public void setPrision(Prision prision) {
-		this.prision = prision;
+		//Añade al historial
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
+		
+		if(this.getPrision() != null) {
+			this.prision.addHistorialReos("El reo: "+this.nombre+", con código: "+this.codigo+" ha salido de la prisión: "+this.prision.getNombre()+", y será trasladado a: "+prision.getNombre()+Tiempo);
+			prision.addHistorialReos("El reo: "+this.nombre+", con código: "+this.codigo+" ha salido de la prisión: "+this.prision.getNombre()+", y será trasladado a: "+prision.getNombre()+Tiempo);
+			this.prision.getReos().remove(this);
+			this.prision = prision;
+			prision.addReos(this);			
+		}else {
+			this.prision=prision;
+			prision.addReos(this);
+			prision.addHistorialReos("El reo: "+this.nombre+", con código: "+this.codigo+"ha ingresado a la prision: "+prision.getNombre()+Tiempo);
+		}
+		
+		
 	}
 	
 
@@ -113,7 +131,20 @@ public class Reo {
 	
 
 	public void setTrabajo(Trabajo trabajo) {
-		this.trabajo = trabajo;
+		//Añade al historial
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
+		
+		if (this.getPrision() != null) {
+			this.trabajo = trabajo;
+			
+			this.prision.addHistorialReos("El reo: "+this.nombre+", con código: "+this.codigo+"ha ingresado al trabajo de "+this.trabajo.getNombre()+Tiempo);
+		}
+		else {
+			this.prision.addHistorialReos("El reo: "+this.nombre+", con código: "+this.codigo+"no puedo ingresar al trabajo de "+this.trabajo.getNombre()+" porque no tiene asignada una prisión"+Tiempo);
+		}
+		
+		
 	}
 	
 
@@ -136,7 +167,25 @@ public class Reo {
 	}
 
 	public void setCelda(Celda celda) {
-		this.celda = celda;
+		//Añade al historial
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
+				
+		if(celda.getReosPertenecientes().size()+1>2){
+			if(this.getCelda()!=null) {
+					this.getCelda().sacarReo(this);
+					celda.asignarReo(this);
+					this.prision.addHistorialReos("El reo: "+this.nombre+", con código: "+this.codigo+" ha sido trasladado a la celda número: "+this.celda.getNumCelda()+Tiempo);
+			}
+				
+			else {
+				celda.asignarReo(this);
+				this.prision.addHistorialReos("El reo: "+this.nombre+", con código: "+this.codigo+" ha sido trasladado a la celda número: "+this.celda.getNumCelda()+Tiempo);
+			}
+		}
+		else {
+			this.prision.addHistorialReos("El reo: "+this.nombre+", con código: "+this.codigo+" no se puede trasladas a esta celda porque está llena"+Tiempo);
+		}
 	}
 
 	public ArrayList<String> getHistorialReo() {

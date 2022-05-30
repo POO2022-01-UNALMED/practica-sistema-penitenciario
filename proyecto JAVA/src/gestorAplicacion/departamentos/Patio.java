@@ -58,7 +58,7 @@ public abstract class Patio {
 	public abstract String sacarGuardias(Guardia guardia);
 	
 	
-	public abstract String laborarReo(Reo reo, int horas); // con este metodo se pondrá hacer labores correspondientes a cada reo para que redutca la pena
+	protected abstract String laborarReo(Reo reo, int horas); // con este metodo se pondrá hacer labores correspondientes a cada reo para que redutca la pena
 	
 	public String historialPATIO() {
 		String strfinal = "";

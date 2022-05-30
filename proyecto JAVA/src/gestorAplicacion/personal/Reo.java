@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import gestorAplicacion.bienes.*;
 import gestorAplicacion.departamentos.*;
 
-public class Reo {
+public class Reo implements Persona{
 
 	private final String nombre;
 	private final int codigo;
@@ -44,6 +44,24 @@ public class Reo {
 					+ "y un total de: "+this.horasTrabajadasTotales+" horas trabajadas en total"+Tiempo);
 		}
 		
+	}
+	
+	public String recrear(Biblioteca biblioteca, int horas) {
+		if(this.patio instanceof Biblioteca && this.patio == biblioteca) {
+			return ((Biblioteca)patio).laborarReo(this, horas);
+		}
+		else {
+			return "El reo no puede puede recrearse en otro patio que no sea de él";
+		}
+	}
+	
+	public String recrear(Gimnasio gimnasio, int horas) {
+		if(this.patio instanceof Gimnasio && this.patio == gimnasio) {
+			return ((Gimnasio)patio).laborarReo(this, horas);
+		}
+		else {
+			return "El reo no puede puede recrearse en otro patio que no sea de él";
+		}
 	}
 	
 	public Reo(String nombre, int codigo, boolean genero, int condena) {
@@ -124,7 +142,7 @@ public class Reo {
 		
 		
 	}
-	
+
 
 	public Trabajo getTrabajo() {
 		return trabajo;

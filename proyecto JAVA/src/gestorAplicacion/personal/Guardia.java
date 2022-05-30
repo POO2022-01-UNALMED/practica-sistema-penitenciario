@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import gestorAplicacion.bienes.*;
 import gestorAplicacion.departamentos.*;
 
-public class Guardia{
+public class Guardia implements Persona{
 
 	private final String nombre;
 	private final int codigo;
@@ -117,23 +117,43 @@ public class Guardia{
 		}
 	}
 	
-	public void meterReoPatio(Reo reo, Patio patio) {
+	public void meterReoPatio(Reo reo, Biblioteca patio) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
 		
 		if(reo.getPatio() !=null) {
-			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado meter al reo de código: "+reo.getCodigo()+" al patio: "+reo.getPatio().getNombre()+", pero este ya está en un patio"+Tiempo);
-			prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado meter al reo de código: "+reo.getCodigo()+" al patio: "+reo.getPatio().getNombre()+", pero este ya está en un patio"+Tiempo);
+			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado meter al reo de código: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+", pero este ya está en un patio"+Tiempo);
+			prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado meter al reo de código: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+", pero este ya está en un patio"+Tiempo);
 		}
 		else if(patio.getReos().size()+1 <= patio.getCapacidad()){
 				patio.ingresarReos(reo);
 				reo.setPatio(patio);
-				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha movido al reo de código: "+reo.getCodigo()+" al patio: "+reo.getPatio().getNombre()+Tiempo);
-				prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha movido al reo de código: "+reo.getCodigo()+" al patio: "+reo.getPatio().getNombre()+Tiempo);
+				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha movido al reo de código: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+Tiempo);
+				prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha movido al reo de código: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+Tiempo);
 		}
 		else {
-				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado mover al reo de código: "+reo.getCodigo()+" al patio: "+reo.getPatio().getNombre()+" pero este patio está lleno"+Tiempo);
-				prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado mover al reo de código: "+reo.getCodigo()+" al patio: "+reo.getPatio().getNombre()+" pero este patio está lleno"+Tiempo);
+				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado mover al reo de código: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+" pero este patio está lleno"+Tiempo);
+				prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado mover al reo de código: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+" pero este patio está lleno"+Tiempo);
+		}
+	}
+	
+	public void meterReoPatio(Reo reo, Gimnasio patio) {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
+		
+		if(reo.getPatio() !=null) {
+			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado meter al reo de código: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+", pero este ya está en un patio"+Tiempo);
+			prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado meter al reo de código: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+", pero este ya está en un patio"+Tiempo);
+		}
+		else if(patio.getReos().size()+1 <= patio.getCapacidad()){
+				patio.ingresarReos(reo);
+				reo.setPatio(patio);
+				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha movido al reo de código: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+Tiempo);
+				prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha movido al reo de código: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+Tiempo);
+		}
+		else {
+				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado mover al reo de código: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+" pero este patio está lleno"+Tiempo);
+				prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de código: "+this.codigo+" ha intentado mover al reo de código: "+reo.getCodigo()+" al gimnasio: "+reo.getPatio().getNombre()+" pero este patio está lleno"+Tiempo);
 		}
 	}
 	

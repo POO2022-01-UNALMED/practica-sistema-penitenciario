@@ -19,6 +19,7 @@ public class Bus {
 		this.placa = placa;
 		this.prision = prision;
 		this.historialBus = new ArrayList<String>();
+		prision.getBuses().add(this);
 	}
 
 	public Prision getPrision() {

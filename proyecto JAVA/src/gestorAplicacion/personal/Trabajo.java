@@ -37,6 +37,7 @@ public class Trabajo{
 	
 	public static void renunciarTrabajoReo(Reo reo) {
 		String NombreDeTrabajoARenunciar = reo.getTrabajo().getNombre();
+		reo.getPrision().getTrabajos().remove(reo.getTrabajo());
 		reo.setTrabajo(null);
 		Trabajo.reos.remove(reo);
 		

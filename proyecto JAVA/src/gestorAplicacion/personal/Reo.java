@@ -19,11 +19,34 @@ public class Reo implements Persona{
 	private Patio patio;
 	private int horasTrabajadasTotales;
 	private int comportamiento; //El comportamiento subirá trabajando y haciendo actividades de los patios, luego esto determinará cuantos años de condena se reducen
+	private static ArrayList<Reo> reosTotales = new ArrayList<Reo>();
 	
 	// aï¿½adir un enum?
 	
 	private static ArrayList<String> historialReos = new ArrayList<String>();
 	
+	
+	
+	public static ArrayList<Reo> getReosTotales() {
+		return reosTotales;
+	}
+
+	public static void setReosTotales(ArrayList<Reo> reosTotales) {
+		Reo.reosTotales = reosTotales;
+	}
+
+	public static ArrayList<String> getHistorialReos() {
+		return historialReos;
+	}
+
+	public static void setHistorialReos(ArrayList<String> historialReos) {
+		Reo.historialReos = historialReos;
+	}
+
+	public void setHorasTrabajadasTotales(int horasTrabajadasTotales) {
+		this.horasTrabajadasTotales = horasTrabajadasTotales;
+	}
+
 	public void trabajar() {
 		if (this.getTrabajo() == null) {
 			return;
@@ -70,6 +93,7 @@ public class Reo implements Persona{
 		this.codigo = codigo;
 		this.genero = genero;
 		this.condena = condena;
+		reosTotales.add(this);
 		
 	}
 
@@ -158,7 +182,7 @@ public class Reo implements Persona{
 			this.trabajo=trabajo;
 			//ya se removio de la lista de prision en la clase Trabajo
 			this.prision.addHistorialReos("El reo: "+this.nombre+", con código: "+this.codigo+"ha renunciado a su trabajo"+Tiempo);
-			return;
+			return	;
 		}
 		if (this.getPrision() != null) {
 			this.trabajo = trabajo;

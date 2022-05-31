@@ -14,11 +14,13 @@ public class Guardia implements Persona{
 	private Prision prision;
 	private Rango rango=Rango.bachiller;
 	private static ArrayList<String> historialGuardias = new ArrayList<String>();
+	private static ArrayList<Guardia> guardiasTotales = new ArrayList<Guardia>();
 	
 	public Guardia(String nombre, int codigo) {
 		
 		this.nombre = nombre;
 		this.codigo = codigo;
+		guardiasTotales.add(this);
 		
 	}
 

@@ -14,13 +14,14 @@ public class Trabajo{
 	private int horasTrabajadas;
 	private static ArrayList<Reo> reos = new ArrayList<Reo>();
 	private static ArrayList<Guardia> guardias = new ArrayList<Guardia>();
+	private static ArrayList<Trabajo> trabajosTotales = new ArrayList<Trabajo>();
 	//private static ArrayList<String> historialTrabajo = new ArrayList<String>();
 	
 	private Trabajo(Reo reo, OpcionTrabajo trabajo) {
 		this.reo = reo;
 		this.trabajo = trabajo;
 		Trabajo.reos.add(reo);
-		
+		trabajosTotales.add(this);
 	}
 	
 	public static void asignarTrabajoReo(Reo reo, OpcionTrabajo trabajo) {
@@ -37,9 +38,11 @@ public class Trabajo{
 	
 	public static void renunciarTrabajoReo(Reo reo) {
 		String NombreDeTrabajoARenunciar = reo.getTrabajo().getNombre();
+		trabajosTotales.remove(reo.getTrabajo());
 		reo.getPrision().getTrabajos().remove(reo.getTrabajo());
 		reo.setTrabajo(null);
 		Trabajo.reos.remove(reo);
+		
 		
 		//Añade al historial
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");

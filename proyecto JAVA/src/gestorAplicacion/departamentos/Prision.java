@@ -36,16 +36,17 @@ public class Prision{
 	private ArrayList<Bus> buses= new ArrayList<Bus>();
 	private static ArrayList<Prision> prisiones= new ArrayList<Prision>();
 	
-	public Prision() {
-		Deserializador.deserializar(this);
-	}
+//	public Prision() {
+//		Deserializador.deserializar(this);	
+//	}
 	
 	public Prision(String nombre) {
 		this(1000, "Antioquia", nombre);
+		prisiones.add(this);
+		prisionesCreadas++;
 	} 
 	
-	public Prision(int numReos,
-			String localizacion, String nombre) {
+	public Prision(int numReos, String localizacion, String nombre) {
 		super();
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		this.numReos = numReos;
@@ -59,6 +60,7 @@ public class Prision{
 		this.gimnasios = generarGims();
 		this.celdas =generarCeldas();
 		prisionesCreadas++;
+		prisiones.add(this);
 	}
 	
 	public static ArrayList<Prision> getPrisiones(){
@@ -256,6 +258,7 @@ public class Prision{
 		Prision.prisiones = prisiones;
 	}
 	
+	public static void add
 	
 	
 }

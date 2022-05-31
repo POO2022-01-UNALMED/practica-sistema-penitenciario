@@ -80,7 +80,7 @@ public class Alcaide {
 			switch(opcion) {
 				case 1: moverReos(prisionerosFA, guardiasFA,torreOscura, azkaban, listaBusesTorreOscura); break;
 				case 2: verHistorial(azkaban); break;
-				case 3: reducirCondena(andres); break;
+				case 3: reducirCondena(andres, azkaban); break;
 				case 4: recrearReo(genner,azkaban.getBibliotecas().get(0), 10); break;
 				case 5: trabajarReo(andres, OpcionTrabajo.Barrendero); break;
 				case 6: break;
@@ -99,7 +99,27 @@ public class Alcaide {
 		System.out.println(prision.getHistorialPrision());
 		
 	}
-	static void reducirCondena(Reo reo){
+	static void reducirCondena(Reo reo, Prision prision){
+		if (reo.getCondena() <= 0) {
+			if (reo.getPatio() != null) {
+				System.out.println(reo.getPatio().sacarReos(reo));
+			}
+			prision.getReos().remove(prision.getReos().indexOf(reo));
+			System.out.println("El reo con nombre: "+ reo.getNombre()+" y cuyo codigo es " + reo.getCodigo()
+			+" ha tenido un buen comportamiento durante su estadía en prision y por tanto queda liberado.");
+		}
+		else if (reo.getTrabajo() != null) {
+			System.out.println(reo.getComportamiento());
+			float a = reo.getComportamiento();
+			float b = 2;
+			float k = reo.getCondena()- a/b;
+			reo.setCondena(k);
+			System.out.println("Ahora la condena del reo "+reo.getNombre()+" será "+reo.getCondena());
+			reo.setComportamiento(0);
+		}
+		else {
+			System.out.println("El reo "+reo.getNombre()+" no tiene trabajo, asignele uno");
+		}
 	}
 	static void recrearReo(Reo reo,Biblioteca biblioteca, int horas){
 		System.out.println(reo.recrear(biblioteca, 10));
@@ -108,7 +128,9 @@ public class Alcaide {
 		System.out.println(reo.recrear(gimnasio, 10));
 	}
 	static void trabajarReo(Reo reo, OpcionTrabajo op){
-			System.out.println(Trabajo.asignarTrabajoReo(reo, op));
+			Trabajo.asignarTrabajoReo(reo, op);
+			System.out.println(reo.trabajar());
+			
 		}
 		
 		

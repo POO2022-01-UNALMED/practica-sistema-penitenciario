@@ -14,7 +14,7 @@ public class Reo implements Persona, Serializable{
 	private final String nombre;
 	private final int codigo;
 	private final boolean genero; //Tomaremos que 1 sea hombre, 0 mujer.
-	private int condena;
+	private float condena;
 	private Prision prision;
 	private Celda celda;
 	private Trabajo trabajo;
@@ -63,11 +63,11 @@ public class Reo implements Persona, Serializable{
 			//A�ade al historial
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
-			prision.addHistorialTrabajos("El reo: "+this.nombre+", con c�digo: "+this.codigo+", "
+			prision.addHistorialTrabajos("El reo: "+this.nombre+", con codigo: "+this.codigo+", "
 					+ "ha ido a trabajar de "+this.getTrabajo().getNombre()+". "
 					+ "Sumando un total de: "+this.trabajo.getHorasTrabajadas()+" horas trabajadas en este oficio, "
 					+ "y un total de: "+this.horasTrabajadasTotales+" horas trabajadas en total"+Tiempo);
-			return "El reo: "+this.nombre+", con c�digo: "+this.codigo+", "
+			return "El reo: "+this.nombre+", con codigo: "+this.codigo+", "
 			+ "ha ido a trabajar de "+this.getTrabajo().getNombre()+". "
 			+ "Sumando un total de: "+this.trabajo.getHorasTrabajadas()+" horas trabajadas en este oficio, "
 			+ "y un total de: "+this.horasTrabajadasTotales+" horas trabajadas en total"+Tiempo;
@@ -138,12 +138,12 @@ public class Reo implements Persona, Serializable{
 		
 	}
 		
-	public int getCondena() {
+	public float getCondena() {
 		return condena;
 	}
 	
 
-	public void setCondena(int condena) {
+	public void setCondena(float condena) {
 		this.condena = condena;
 	}
 	

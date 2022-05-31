@@ -68,8 +68,8 @@ public class Biblioteca extends Patio implements Serializable{
 	}
 	public String laborarReo(Reo reo, int horas) {
 		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-		int k = reo.getCondena();
-		int redCondena = 24*365*reo.getCondena() - horas/24 ;
+		float k = reo.getCondena();
+		float redCondena = 24*365*reo.getCondena() - horas/24 ;
 		reo.setCondena(redCondena);
 		String aviso = "Reducción de "+k+" a "+reo.getCondena()+"para el reo con código "+reo.getCodigo()+" "+ dtf2.format(LocalDateTime.now())+"\n";
 		super.addHistorialPatio(aviso);

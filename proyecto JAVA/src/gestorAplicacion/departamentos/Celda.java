@@ -20,6 +20,7 @@ public class Celda {
 		this.NUMCELDA = numCelda;
 		this.prision = prision;
 		addHistorialCelda("Anadiste la celda: "+this.NUMCELDA+" en la prision: "+prision.getNombre()+". "+dtf.format(LocalDateTime.now()));
+		prision.getCeldas().add(this);
 		
 	}
 	

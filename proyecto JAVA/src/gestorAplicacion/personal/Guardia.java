@@ -28,6 +28,7 @@ public class Guardia implements Persona{
 		
 		this(nombre, codigo);
 		this.prision = prision;
+		prision.getGuardias().add(this);
 		
 		//A�ade al historial
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -189,7 +190,7 @@ public class Guardia implements Persona{
 			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+" con c�digo "+this.codigo+", ha salido de la prisi�n: "+this.prision.getNombre()+", y ser� trasladado a: "+prision.getNombre()+Tiempo);
 			this.prision.getGuardias().remove(this);
 			this.prision = prision;
-			prision.addGuardias(this);			
+			prision.addGuardias(this);	
 		}else {
 			this.prision=prision;
 			prision.addGuardias(this);

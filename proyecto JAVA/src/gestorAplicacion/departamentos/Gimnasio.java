@@ -14,6 +14,7 @@ public class Gimnasio extends Patio{
 		super(20, nombre, new ArrayList<Reo>(), new ArrayList<Guardia>());
 		this.prision = prision;
 		super.addHistorialPatio("Has creado un gimnasio cuyo nombre es "+ nombre);
+		prision.getGimnasios().add(this);
 	}
 
 	public String ingresarReos(Reo reo) {

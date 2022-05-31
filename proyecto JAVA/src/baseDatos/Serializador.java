@@ -65,13 +65,13 @@ public class Serializador {
 }
 
 
-
+//
 
 
 //public class Serializador {
 //	private static File rutaTemp = new File("src/baseDatos/temp");
 //	
-//	 //Esto se encagar de serializar las listas que están creadas en la clase Alcaide
+//	 //Esto se encagar de serializar las listas que estï¿½n creadas en la clase Alcaide
 //	public static void serializador(Prision prision) {
 //		FileOutputStream fos;
 //		ObjectOutputStream oos;

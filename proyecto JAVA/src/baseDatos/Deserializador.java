@@ -69,9 +69,10 @@ public class Deserializador {
 	}
 }
 
+//
 
 //public class Deserializador {
-//	//aquí definimos la ruta que contiene temp
+//	//aquï¿½ definimos la ruta que contiene temp
 //	private static File rutaTemp = new File("src/baseDatos/temp");
 //	//carga las listas de objetos que hay almacenados
 //	public static void deserializar(Prision prision) {
@@ -155,7 +156,7 @@ public class Deserializador {
 //					fis = new FileInputStream(file);
 //					ois = new ObjectInputStream(fis);
 //					
-//					Prision.setPrisiones((ArrayList<Prision>)ois.readObject());//Tal vez esto dañe la vaina
+//					Prision.setPrisiones((ArrayList<Prision>)ois.readObject());//Tal vez esto daï¿½e la vaina
 //				} catch(FileNotFoundException e) {
 //					e.printStackTrace();
 //				} catch (IOException e) {

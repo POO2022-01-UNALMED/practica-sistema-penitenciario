@@ -55,11 +55,16 @@ public class Alcaide {
 		faidher.setPrision(torreOscura);
 		alejandro.setPrision(torreOscura);
 		
+		azkaban.getBibliotecas().get(0).ingresarReos(genner);
+		
 		ArrayList<Reo> prisionerosFA = new ArrayList<Reo>(); 
+		prisionerosFA.add(alejandro);
+		prisionerosFA.add(faidher);
 		
 		ArrayList<Guardia> guardiasFA = new ArrayList<Guardia>();
 		guardiasFA.add(julian);
 		guardiasFA.add(oswaldo);
+		
 		
 		int opcion;
 		do {
@@ -73,7 +78,7 @@ public class Alcaide {
 			opcion = (int) readLong();
 			
 			switch(opcion) {
-				case 1: moverReos(prisionerosFA, guardiasFA, azkaban, listaBusesTorreOscura); break;
+				case 1: moverReos(prisionerosFA, guardiasFA,torreOscura, azkaban, listaBusesTorreOscura); break;
 				case 2: verHistorial(azkaban); break;
 				case 3: reducirCondena(andres); break;
 				case 4: recrearReo(genner, azkaban); break;
@@ -84,9 +89,9 @@ public class Alcaide {
 		}while (opcion != 6);
 	
 	}
-	static void moverReos(ArrayList<Reo> reos,ArrayList<Guardia> guardias, Prision p, ArrayList<Bus> buses){
+	static void moverReos(ArrayList<Reo> reos,ArrayList<Guardia> guardias,Prision a, Prision p, ArrayList<Bus> buses){
 	
-		System.out.println(buses.get(0).llevarReos(reos, guardias , p));
+		System.out.println(buses.get(0).llevarReos(reos, guardias,a , p));
 		
 	}
 	static void verHistorial(Prision prision){

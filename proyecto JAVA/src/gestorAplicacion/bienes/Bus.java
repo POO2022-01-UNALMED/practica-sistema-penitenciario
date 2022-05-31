@@ -55,23 +55,30 @@ public class Bus implements Serializable{
 		return placa;
 	}
 	
-	public String llevarReos(ArrayList<Reo> reos, ArrayList<Guardia> guardias, Prision prisionDestino ) {
-		if (reos.size()+guardias.size() <= 30){
-			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-			String streo = "";
-			String stgua = "";
-			String nombre = reos.get(0).getNombre();
-			for (int i = 0; i< reos.size(); i++) {
-				reos.get(i).setPrision(prisionDestino);
-				streo += "nombre: "+ reos.get(i).getNombre() + " cuyo código es: "+reos.get(i).getCodigo();
-				guardias.get(i).setPrision(prisionDestino);
-				stgua += "nombre: "+ guardias.get(i).getNombre() + " cuyo código es: "+guardias.get(i).getCodigo();
-				
-			}
-			return "Has enviado a los reos "+streo+" de "+nombre+" con destino a la prisión "+prisionDestino.getNombre()+" cuyos guardias son: "+stgua+"."+ dtf.format(LocalDateTime.now());
+	//////////// se asume que los reos seleccionados pertenecen todos a una misma instancia de prision
+	public String llevarReos(ArrayList<Reo> reos, ArrayList<Guardia> guardias,Prision prisionOriginal, Prision prisionDestino ) {
+		if (prisionOriginal.getReos().size() == 0 || reos.get(0).getPrision()!= prisionOriginal) {
+			return "No hay reos en la prisión original o los reos que seleccionó NO pertenecen a la prision original";
 		}
 		else {
-			return "Error, numero de reos y guardias superior a la capacidad del bus";
+			if (reos.size()+guardias.size() <= 30){
+				DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+				String streo = "";
+				String stgua = "";
+				//String nombre = reos.get(0).getNombre();
+				for (int i = 0; i< reos.size(); i++) {
+					reos.get(i).setPrision(prisionDestino);
+					streo += "nombre: "+ reos.get(i).getNombre() + " cuyo código es: "+reos.get(i).getCodigo()+ ", ";
+					guardias.get(i).setPrision(prisionDestino);
+					stgua += "nombre: "+ guardias.get(i).getNombre() + " cuyo código es: "+guardias.get(i).getCodigo()+ ", ";
+					
+				}
+				
+				return "Has enviado a los reos "+streo+" con destino a la prisión "+prisionDestino.getNombre()+" cuyos guardias son: "+stgua+"."+ dtf.format(LocalDateTime.now());
+			}
+			else {
+				return "Error, numero de reos y guardias superior a la capacidad del bus";
+			}
 		}
 	}
 

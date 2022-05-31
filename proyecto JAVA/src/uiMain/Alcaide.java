@@ -111,7 +111,7 @@ public class Alcaide {
 		else if (reo.getTrabajo() != null) {
 			System.out.println(reo.getComportamiento());
 			float a = reo.getComportamiento();
-			float b = 2;
+			float b = 200;
 			float k = reo.getCondena()- a/b;
 			reo.setCondena(k);
 			System.out.println("Ahora la condena del reo "+reo.getNombre()+" será "+reo.getCondena());

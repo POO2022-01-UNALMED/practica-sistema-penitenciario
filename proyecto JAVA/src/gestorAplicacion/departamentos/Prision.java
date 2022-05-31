@@ -10,13 +10,16 @@ import static java.lang.Math. *;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Prision {
+import baseDatos.Deserializador;
+import baseDatos.Serializador;
+
+public class Prision{
 	
 
-	private final int numGuardias;
-	private final int numReos;
-	private final int numBuses;
-	private final boolean genero; // 1 hombre, 0 mujer.
+	//private final int numGuardias;
+	public final int numReos;
+	//private final int numBuses;
+	//private final boolean genero; // 1 hombre, 0 mujer.
 	private final String localizacion;
 	private final String nombre;
 	private static int prisionesCreadas;
@@ -26,23 +29,26 @@ public class Prision {
 	private ArrayList<String> historialGuardias = new ArrayList<String>();
 	private ArrayList<String> historialTrabajos = new ArrayList<String>();
 	private String historialPrision;
-	private ArrayList<Biblioteca> bibliotecas;
-	private ArrayList<Gimnasio> gimnasios;
-	private ArrayList<Celda> celdas;
+	private ArrayList<Biblioteca> bibliotecas = new ArrayList<Biblioteca>();
+	private ArrayList<Gimnasio> gimnasios= new ArrayList<Gimnasio>();
+	private ArrayList<Celda> celdas= new ArrayList<Celda>();
+	private ArrayList<Trabajo> trabajos= new ArrayList<Trabajo>();
+	private ArrayList<Bus> buses= new ArrayList<Bus>();
+	private static ArrayList<Prision> prisiones= new ArrayList<Prision>();
 	
+	public Prision() {
+		Deserializador.deserializar(this);
+	}
 	
 	public Prision(String nombre) {
-		this(100, 1000, 10, true, "Antioquia", nombre);
+		this(1000, "Antioquia", nombre);
 	} 
 	
-	public Prision(int numGuardias, int numReos, int numBuses, boolean genero,
+	public Prision(int numReos,
 			String localizacion, String nombre) {
 		super();
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-		this.numGuardias = numGuardias;
 		this.numReos = numReos;
-		this.numBuses = numBuses;
-		this.genero = genero;
 		this.localizacion = localizacion;
 		this.nombre = nombre;
 		
@@ -53,6 +59,18 @@ public class Prision {
 		this.gimnasios = generarGims();
 		this.celdas =generarCeldas();
 		prisionesCreadas++;
+	}
+	
+	public static ArrayList<Prision> getPrisiones(){
+		return prisiones;
+	}
+	
+	public ArrayList<Bus> getBuses(){
+		return buses;
+	}
+	
+	public ArrayList<Trabajo> getTrabajos() {
+		return trabajos;
 	}
 
 	public static int getPrisionesCreadas() {
@@ -79,20 +97,8 @@ public class Prision {
 		this.guardias.add(guardia);
 	}
 
-	public int getNumGuardias() {
-		return numGuardias;
-	}
-
 	public int getNumReos() {
 		return numReos;
-	}
-
-	public int getNumBuses() {
-		return numBuses;
-	}
-
-	public boolean isGenero() {
-		return genero;
 	}
 
 	public String getLocalizacion() {
@@ -201,7 +207,54 @@ public class Prision {
 	public void addHistoriaPrision(String s) {
 		this.historialPrision+=s;
 	}
-	
+
+	public void setReos(ArrayList<Reo> reos) {
+		this.reos = reos;
+	}
+
+	public void setGuardias(ArrayList<Guardia> guardias) {
+		this.guardias = guardias;
+	}
+
+	public void setHistorialReos(ArrayList<String> historialReos) {
+		this.historialReos = historialReos;
+	}
+
+	public void setHistorialGuardias(ArrayList<String> historialGuardias) {
+		this.historialGuardias = historialGuardias;
+	}
+
+	public void setHistorialTrabajos(ArrayList<String> historialTrabajos) {
+		this.historialTrabajos = historialTrabajos;
+	}
+
+	public void setHistorialPrision(String historialPrision) {
+		this.historialPrision = historialPrision;
+	}
+
+	public void setBibliotecas(ArrayList<Biblioteca> bibliotecas) {
+		this.bibliotecas = bibliotecas;
+	}
+
+	public void setGimnasios(ArrayList<Gimnasio> gimnasios) {
+		this.gimnasios = gimnasios;
+	}
+
+	public void setCeldas(ArrayList<Celda> celdas) {
+		this.celdas = celdas;
+	}
+
+	public void setTrabajos(ArrayList<Trabajo> trabajos) {
+		this.trabajos = trabajos;
+	}
+
+	public void setBuses(ArrayList<Bus> buses) {
+		this.buses = buses;
+	}
+
+	public static void setPrisiones(ArrayList<Prision> prisiones) {
+		Prision.prisiones = prisiones;
+	}
 	
 	
 	

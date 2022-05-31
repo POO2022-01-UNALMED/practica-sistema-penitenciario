@@ -154,9 +154,15 @@ public class Reo implements Persona{
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
 		
+		if (trabajo == null) {
+			this.trabajo=trabajo;
+			//ya se removio de la lista de prision en la clase Trabajo
+			this.prision.addHistorialReos("El reo: "+this.nombre+", con código: "+this.codigo+"ha renunciado a su trabajo"+Tiempo);
+			return;
+		}
 		if (this.getPrision() != null) {
 			this.trabajo = trabajo;
-			
+			this.getPrision().getTrabajos().add(trabajo);
 			this.prision.addHistorialReos("El reo: "+this.nombre+", con código: "+this.codigo+"ha ingresado al trabajo de "+this.trabajo.getNombre()+Tiempo);
 		}
 		else {

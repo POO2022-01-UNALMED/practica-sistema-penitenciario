@@ -1,5 +1,6 @@
 package gestorAplicacion.departamentos;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -7,14 +8,18 @@ import java.util.ArrayList;
 import gestorAplicacion.personal.Guardia;
 import gestorAplicacion.personal.Reo;
 
-public class Gimnasio extends Patio{
+public class Gimnasio extends Patio implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	private Prision prision;
+	private static ArrayList<Gimnasio> gimnasiosTotales = new ArrayList<Gimnasio>();
+	
 	public Gimnasio(String nombre, Prision prision) {
 		super(20, nombre, new ArrayList<Reo>(), new ArrayList<Guardia>());
 		this.prision = prision;
 		super.addHistorialPatio("Has creado un gimnasio cuyo nombre es "+ nombre);
 		prision.getGimnasios().add(this);
+		gimnasiosTotales.add(this);
 	}
 
 	public String ingresarReos(Reo reo) {
@@ -76,6 +81,22 @@ public class Gimnasio extends Patio{
 	}
 	public int getCantidadGuardias() {
 		return getGuardias().size();
+	}
+
+	public Prision getPrision() {
+		return prision;
+	}
+
+	public void setPrision(Prision prision) {
+		this.prision = prision;
+	}
+
+	public static ArrayList<Gimnasio> getGimnasiosTotales() {
+		return gimnasiosTotales;
+	}
+
+	public static void setGimnasiosTotales(ArrayList<Gimnasio> gimnasiosTotales) {
+		Gimnasio.gimnasiosTotales = gimnasiosTotales;
 	}
 	
 	

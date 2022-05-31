@@ -1,6 +1,6 @@
 package gestorAplicacion.departamentos;
 
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import gestorAplicacion.personal.*;
 import gestorAplicacion.bienes.*;
@@ -13,9 +13,9 @@ import java.time.format.DateTimeFormatter;
 import baseDatos.Deserializador;
 import baseDatos.Serializador;
 
-public class Prision{
+public class Prision implements Serializable{
 	
-
+	private static final long serialVersionUID = 1L;
 	//private final int numGuardias;
 	public final int numReos;
 	//private final int numBuses;

@@ -1,5 +1,6 @@
 package gestorAplicacion.departamentos;
 
+import java.io.Serializable;
 import java.util.List;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -7,12 +8,14 @@ import gestorAplicacion.personal.*;
 import gestorAplicacion.bienes.*;
 import java.time.LocalDateTime;
 
-public class Celda {
+public class Celda implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	private final int NUMCELDA;
 	private final Prision prision;
 	private ArrayList<Reo> reosPertenecientes= new ArrayList<Reo>();
 	private ArrayList<String> historialCelda = new ArrayList<String>();
+	private static ArrayList<Celda> celdasTotales = new ArrayList<Celda>();
 	
 	public Celda(int numCelda, Prision prision) {
 		super();
@@ -21,6 +24,7 @@ public class Celda {
 		this.prision = prision;
 		addHistorialCelda("Anadiste la celda: "+this.NUMCELDA+" en la prision: "+prision.getNombre()+". "+dtf.format(LocalDateTime.now()));
 		prision.getCeldas().add(this);
+		celdasTotales.add(this);
 		
 	}
 	
@@ -78,6 +82,26 @@ public class Celda {
 			strfinal += this.historialCelda.get(i)+"\n";
 		}
 		return strfinal;
+	}
+
+	public static ArrayList<Celda> getCeldasTotales() {
+		return celdasTotales;
+	}
+
+	public static void setCeldasTotales(ArrayList<Celda> celdasTotales) {
+		Celda.celdasTotales = celdasTotales;
+	}
+
+	public int getNUMCELDA() {
+		return NUMCELDA;
+	}
+
+	public Prision getPrision() {
+		return prision;
+	}
+
+	public void setHistorialCelda(ArrayList<String> historialCelda) {
+		this.historialCelda = historialCelda;
 	}
 	
 	

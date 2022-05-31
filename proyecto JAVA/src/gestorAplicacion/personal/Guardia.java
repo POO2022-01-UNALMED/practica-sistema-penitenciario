@@ -1,4 +1,6 @@
 package gestorAplicacion.personal;
+
+import java.io.Serializable;
 import gestorAplicacion.personal.*;
 import java.util.List;
 import java.time.LocalDateTime;
@@ -7,13 +9,14 @@ import java.util.ArrayList;
 import gestorAplicacion.bienes.*;
 import gestorAplicacion.departamentos.*;
 
-public class Guardia implements Persona{
+public class Guardia implements Persona, Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private final String nombre;
 	private final int codigo;
 	private Prision prision;
 	private Rango rango=Rango.bachiller;
-	private static ArrayList<String> historialGuardias = new ArrayList<String>();
+	//private static ArrayList<String> historialGuardias = new ArrayList<String>();
 	private static ArrayList<Guardia> guardiasTotales = new ArrayList<Guardia>();
 	
 	public Guardia(String nombre, int codigo) {
@@ -219,10 +222,16 @@ public class Guardia implements Persona{
 		return codigo;
 	}
 	
-	public ArrayList<String> getHistorialGuardia() {
-		return historialGuardias;
+
+	public static ArrayList<Guardia> getGuardiasTotales() {
+		return guardiasTotales;
 	}
 
+	public static void setGuardiasTotales(ArrayList<Guardia> guardiasTotales) {
+		Guardia.guardiasTotales = guardiasTotales;
+	}
+
+	
 	//public void setHistorialGuardia(ArrayList<String> historialGuardia) {
 	//	this.historialGuardia = historialGuardia;
 	//}

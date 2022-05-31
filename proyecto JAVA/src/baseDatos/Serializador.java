@@ -8,7 +8,14 @@ import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import gestorAplicacion.bienes.Bus;
+import gestorAplicacion.departamentos.Biblioteca;
+import gestorAplicacion.departamentos.Celda;
+import gestorAplicacion.departamentos.Gimnasio;
 import gestorAplicacion.departamentos.Prision;
+import gestorAplicacion.personal.Reo;
+import gestorAplicacion.personal.Guardia;
+import gestorAplicacion.personal.Trabajo;
 import uiMain.Alcaide;
 
 public class Serializador {
@@ -47,6 +54,13 @@ public class Serializador {
 	 */
 	public static void serializarTodo() {
 		Serializador.serializar(Prision.getPrisiones(), "prisiones");
+		Serializador.serializar(Reo.getReosTotales(), "reos");
+		Serializador.serializar(Guardia.getGuardiasTotales(), "guardias");
+		Serializador.serializar(Trabajo.getTrabajosTotales(), "trabajos");
+		Serializador.serializar(Bus.getBusesTotales(), "buses");
+		Serializador.serializar(Biblioteca.getBibliotecasTotales(), "bibliotecas");
+		Serializador.serializar(Gimnasio.getGimnasiosTotales(), "gimnasios");
+		Serializador.serializar(Celda.getCeldasTotales(), "celdas");
 	}
 }
 

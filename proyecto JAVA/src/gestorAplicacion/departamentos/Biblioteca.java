@@ -1,6 +1,6 @@
 package gestorAplicacion.departamentos;
 
-
+import java.io.Serializable;
 import java.util.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -8,14 +8,18 @@ import java.time.format.DateTimeFormatter;
 import gestorAplicacion.personal.Guardia;
 import gestorAplicacion.personal.Reo;
 
-public class Biblioteca extends Patio{
+public class Biblioteca extends Patio implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	private Prision prision;
+	private static ArrayList<Biblioteca> bibliotecasTotales = new ArrayList<Biblioteca>();
 	
 	public Biblioteca(String nombre, Prision prision) {
 		super(100, nombre, new ArrayList<Reo>(), new ArrayList<Guardia>());
 		this.prision = prision;
 		super.addHistorialPatio("Has creado una biblioteca cuyo nombre es "+ nombre);
 		prision.getBibliotecas().add(this);
+		bibliotecasTotales.add(this);
 
 	}
 	
@@ -80,8 +84,24 @@ public class Biblioteca extends Patio{
 	public int getCantidadGuardias() {
 		return getGuardias().size();
 	}
-	
 
+	public Prision getPrision() {
+		return prision;
+	}
+
+	public void setPrision(Prision prision) {
+		this.prision = prision;
+	}
+
+	public static ArrayList<Biblioteca> getBibliotecasTotales() {
+		return bibliotecasTotales;
+	}
+
+	public static void setBibliotecasTotales(ArrayList<Biblioteca> bibliotecasTotales) {
+		Biblioteca.bibliotecasTotales = bibliotecasTotales;
+	}
+		
+	
 	
 	
 

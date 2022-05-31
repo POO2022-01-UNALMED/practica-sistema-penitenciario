@@ -1,5 +1,6 @@
 package gestorAplicacion.personal;
 
+import java.io.Serializable;
 import java.util.List;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -7,8 +8,9 @@ import java.util.ArrayList;
 import gestorAplicacion.bienes.*;
 import gestorAplicacion.departamentos.*;
 
-public class Trabajo{
+public class Trabajo implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	private OpcionTrabajo trabajo;
 	private final Reo reo;
 	private int horasTrabajadas;
@@ -75,6 +77,46 @@ public class Trabajo{
 	
 	public int getConstanteTrabajo() {
 		return this.trabajo.getConstanteDeDificultad();
+	}
+
+	public OpcionTrabajo getTrabajo() {
+		return trabajo;
+	}
+
+	public void setTrabajo(OpcionTrabajo trabajo) {
+		this.trabajo = trabajo;
+	}
+
+	public static ArrayList<Reo> getReos() {
+		return reos;
+	}
+
+	public static void setReos(ArrayList<Reo> reos) {
+		Trabajo.reos = reos;
+	}
+
+	public static ArrayList<Guardia> getGuardias() {
+		return guardias;
+	}
+
+	public static void setGuardias(ArrayList<Guardia> guardias) {
+		Trabajo.guardias = guardias;
+	}
+
+	public static ArrayList<Trabajo> getTrabajosTotales() {
+		return trabajosTotales;
+	}
+
+	public static void setTrabajosTotales(ArrayList<Trabajo> trabajosTotales) {
+		Trabajo.trabajosTotales = trabajosTotales;
+	}
+
+	public Reo getReo() {
+		return reo;
+	}
+
+	public void setHorasTrabajadas(int horasTrabajadas) {
+		this.horasTrabajadas = horasTrabajadas;
 	}
 
 	

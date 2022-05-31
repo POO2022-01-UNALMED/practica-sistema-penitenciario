@@ -1,5 +1,6 @@
 package gestorAplicacion.personal;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -7,8 +8,9 @@ import java.util.ArrayList;
 import gestorAplicacion.bienes.*;
 import gestorAplicacion.departamentos.*;
 
-public class Reo implements Persona{
+public class Reo implements Persona, Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private final String nombre;
 	private final int codigo;
 	private final boolean genero; //Tomaremos que 1 sea hombre, 0 mujer.

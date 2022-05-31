@@ -11,9 +11,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import gestorAplicacion.personal.*;
-
-import gestorAplicacion.personal.Guardia;
-import gestorAplicacion.personal.Reo;
 import gestorAplicacion.departamentos.*;
 import gestorAplicacion.bienes.*;
 
@@ -63,6 +60,12 @@ public class Deserializador {
 	 */
 	public static void deserializarTodo() {
 		Deserializador.deserializador(Prision.getPrisiones(), "prisiones");
+		Deserializador.deserializador(Reo.getReosTotales(), "reos");
+		Deserializador.deserializador(Guardia.getGuardiasTotales(), "guardias");
+		Deserializador.deserializador(Trabajo.getTrabajosTotales(), "trabajos");
+		Deserializador.deserializador(Bus.getBusesTotales(), "buses");
+		Deserializador.deserializador(Biblioteca.getBibliotecasTotales(), "bibliotecas");
+		Deserializador.deserializador(Gimnasio.getGimnasiosTotales(), "gimnasios");
 	}
 }
 

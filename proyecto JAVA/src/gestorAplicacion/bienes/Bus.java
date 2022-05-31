@@ -1,5 +1,6 @@
 package gestorAplicacion.bienes;
 
+import java.io.Serializable;
 import gestorAplicacion.personal.*;
 import gestorAplicacion.departamentos.*;
 import java.util.List;
@@ -7,12 +8,14 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class Bus {
+public class Bus implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	public final String placa;
 	private Prision prision;
 	private ArrayList<String> historialBus;
 	private static int busesCreados=0;
+	private static ArrayList<Bus> busesTotales = new ArrayList<Bus>();  
 	
 	public Bus(String placa, Prision prision) {
 		super();
@@ -27,7 +30,9 @@ public class Bus {
 	}
 
 	public void setPrision(Prision prision) {
+		this.prision.getBuses().remove(this);
 		this.prision = prision;
+		prision.getBuses().add(this);
 	}
 
 	public List<String> getHistorialBus() {
@@ -68,6 +73,18 @@ public class Bus {
 		else {
 			return "Error, numero de reos y guardias superior a la capacidad del bus";
 		}
+	}
+
+	public static ArrayList<Bus> getBusesTotales() {
+		return busesTotales;
+	}
+
+	public static void setBusesTotales(ArrayList<Bus> busesTotales) {
+		Bus.busesTotales = busesTotales;
+	}
+
+	public void setHistorialBus(ArrayList<String> historialBus) {
+		this.historialBus = historialBus;
 	}
 	
 	

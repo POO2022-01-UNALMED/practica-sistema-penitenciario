@@ -76,7 +76,7 @@ public class Alcaide {
 				case 2: verHistorial(azkaban); break;
 				case 3: reducirCondena(andres); break;
 				case 4: recrearReo(genner, azkaban); break;
-				case 5: trabajarReo(andres); break;
+				case 5: trabajarReo(andres, OpcionTrabajo.Barrendero); break;
 				case 6: break;
 				
 			} 
@@ -100,10 +100,12 @@ public class Alcaide {
 		else if(reo.getPatio() instanceof Gimnasio){System.out.println(reo.recrear((Gimnasio)reo.getPatio(), 10));}
 		
 	}
-	static void trabajarReo(Reo reo){
+	static void trabajarReo(Reo reo, OpcionTrabajo op){
+			System.out.println(Trabajo.asignarTrabajoReo(reo, op));
+		}
+		
+		
 	}
-
-}
 //		
 //		//___________________________________FUNCIONALIDAD 1: HISTORIAL DE LAS PRISIONES_____________________________________________
 //		

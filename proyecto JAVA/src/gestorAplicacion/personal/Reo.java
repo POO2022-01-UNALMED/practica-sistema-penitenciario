@@ -80,7 +80,7 @@ public class Reo implements Persona, Serializable{
 			return ((Biblioteca)patio).laborarReo(this, horas);
 		}
 		else {
-			return "El reo no puede puede recrearse en otro patio que no sea de �l";
+			return "El reo no puede puede recrearse en otro patio que no sea de el";
 		}
 	}
 	
@@ -89,7 +89,7 @@ public class Reo implements Persona, Serializable{
 			return ((Gimnasio)patio).laborarReo(this, horas);
 		}
 		else {
-			return "El reo no puede puede recrearse en otro patio que no sea de �l";
+			return "El reo no puede puede recrearse en otro patio que no sea de el";
 		}
 	}
 	

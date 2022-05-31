@@ -81,7 +81,7 @@ public class Alcaide {
 				case 1: moverReos(prisionerosFA, guardiasFA,torreOscura, azkaban, listaBusesTorreOscura); break;
 				case 2: verHistorial(azkaban); break;
 				case 3: reducirCondena(andres); break;
-				case 4: recrearReo(genner, azkaban); break;
+				case 4: recrearReo(genner,azkaban.getBibliotecas().get(0), 10); break;
 				case 5: trabajarReo(andres, OpcionTrabajo.Barrendero); break;
 				case 6: break;
 				
@@ -101,10 +101,11 @@ public class Alcaide {
 	}
 	static void reducirCondena(Reo reo){
 	}
-	static void recrearReo(Reo reo, Prision prision){
-		if (reo.getPatio() instanceof Biblioteca) {System.out.println(reo.recrear((Biblioteca)reo.getPatio(), 10));}
-		else if(reo.getPatio() instanceof Gimnasio){System.out.println(reo.recrear((Gimnasio)reo.getPatio(), 10));}
-		
+	static void recrearReo(Reo reo,Biblioteca biblioteca, int horas){
+		System.out.println(reo.recrear(biblioteca, 10));
+	}
+	static void recrearReo(Reo reo,Gimnasio gimnasio, int horas){
+		System.out.println(reo.recrear(gimnasio, 10));
 	}
 	static void trabajarReo(Reo reo, OpcionTrabajo op){
 			System.out.println(Trabajo.asignarTrabajoReo(reo, op));

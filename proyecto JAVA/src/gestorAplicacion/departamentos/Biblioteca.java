@@ -28,6 +28,7 @@ public class Biblioteca extends Patio implements Serializable{
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			getReos().add(reo);
 			String str1 = reo.getNombre();
+			reo.setPatio(this);
 			super.addHistorialPatio("Has ingresado al reo: "+ str1 +" a estudiar en la biblioteca: "+this.getNombre()+", ojala no se tiren POO. "+ dtf.format(LocalDateTime.now())+"\n");
 			this.prision.addHistoriaPrision(getHistorialPatio().get(getHistorialPatio().size()-1));
 			return ("Has ingresado al reo: "+ str1 +" a estudiar, ojala no se tiren POO" );	
@@ -73,8 +74,8 @@ public class Biblioteca extends Patio implements Serializable{
 		String aviso = "Reducción de "+k+" a "+reo.getCondena()+"para el reo con código "+reo.getCodigo()+" "+ dtf2.format(LocalDateTime.now())+"\n";
 		super.addHistorialPatio(aviso);
 		this.prision.addHistoriaPrision(getHistorialPatio().get(getHistorialPatio().size()-1));
-		return ("El reo con codigo "+reo.getCodigo()+"cuyo nombre es"+reo.getNombre()+" ha estudiado POO durante "+horas+
-				", por tanto esta pobre alma será recompensada con una reduccion de condena.");
+		return ("El reo con codigo "+reo.getCodigo()+" cuyo nombre es "+reo.getNombre()+" ha estudiado POO durante "+horas+
+				" horas, por tanto esta pobre alma será recompensada con una reduccion de condena.");
 		
 	}
 

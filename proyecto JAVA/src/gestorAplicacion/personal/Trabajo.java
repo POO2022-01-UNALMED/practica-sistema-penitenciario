@@ -24,15 +24,16 @@ public class Trabajo{
 		trabajosTotales.add(this);
 	}
 	
-	public static void asignarTrabajoReo(Reo reo, OpcionTrabajo trabajo) {
+	public static String asignarTrabajoReo(Reo reo, OpcionTrabajo trabajo) {
 		Trabajo trabajoDelReo = new Trabajo(reo, trabajo);
 		reo.setTrabajo(trabajoDelReo);
 		
-		//Añade al historial
+		//Aï¿½ade al historial
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = dtf.format(LocalDateTime.now())+".";
 		
-		reo.getPrision().addHistorialTrabajos("El reo: "+reo.getNombre()+", con código: "+reo.getCodigo()+", se ha inscrito al trabajo: "+trabajo.getNombre()+". "+Tiempo);
+		reo.getPrision().addHistorialTrabajos("El reo: "+reo.getNombre()+", con cï¿½digo: "+reo.getCodigo()+", se ha inscrito al trabajo: "+trabajo.getNombre()+". "+Tiempo);
+		return "El reo: "+reo.getNombre()+", con cï¿½digo: "+reo.getCodigo()+", se ha inscrito al trabajo: "+trabajo.getNombre()+". "+Tiempo;
 		
 	}
 	
@@ -44,11 +45,11 @@ public class Trabajo{
 		Trabajo.reos.remove(reo);
 		
 		
-		//Añade al historial
+		//Aï¿½ade al historial
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = dtf.format(LocalDateTime.now())+".";
 		
-		reo.getPrision().addHistorialTrabajos("El reo: "+reo.getNombre()+", con código: "+reo.getCodigo()+", ha renunciado a su trabajo como: "+NombreDeTrabajoARenunciar+". "+Tiempo);
+		reo.getPrision().addHistorialTrabajos("El reo: "+reo.getNombre()+", con cï¿½digo: "+reo.getCodigo()+", ha renunciado a su trabajo como: "+NombreDeTrabajoARenunciar+". "+Tiempo);
 	}
 	
 	public int getHorasTrabajadas() {

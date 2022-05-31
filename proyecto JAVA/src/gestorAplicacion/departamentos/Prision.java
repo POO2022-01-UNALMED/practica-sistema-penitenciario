@@ -258,7 +258,7 @@ public class Prision{
 		Prision.prisiones = prisiones;
 	}
 	
-	public static void add
+	//public static void add
 	
 	
 }

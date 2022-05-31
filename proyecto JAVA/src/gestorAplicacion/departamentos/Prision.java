@@ -258,8 +258,25 @@ public class Prision{
 		Prision.prisiones = prisiones;
 	}
 	
-	public static void add
+	public void addBibliotecas(Biblioteca b) {
+		bibliotecas.add(b);
+	}
 	
+	public void addGimnasios(Gimnasio g) {
+		gimnasios.add(g);
+	}
+	
+	public void addCeldas(Celda c) {
+		celdas.add(c);
+	}
+	
+	public void addTrabajos(Trabajo t) {
+		trabajos.add(t);
+	}
+	
+	public void addGuardia(Guardia g) {
+		guardias.add(g);
+	}
 	
 }
 	

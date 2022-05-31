@@ -60,7 +60,7 @@ public class Gimnasio extends Patio{
 	public String laborarReo(Reo reo, int horas) {
 		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		int k = reo.getCondena();
-		int redCondena = reo.getCondena() - (1/2)*horas/24 ;
+		int redCondena = 24*365*reo.getCondena() - (1/2)*horas/24 ;
 		reo.setCondena(redCondena);
 		String aviso = "Reducción de "+k+" a "+reo.getCondena()+"para el reo con código "+reo.getCodigo()+" "+ dtf2.format(LocalDateTime.now())+"\n";
 		super.addHistorialPatio(aviso);

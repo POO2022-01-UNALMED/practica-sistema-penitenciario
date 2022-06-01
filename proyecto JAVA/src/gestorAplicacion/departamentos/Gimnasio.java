@@ -27,7 +27,7 @@ public class Gimnasio extends Patio implements Serializable{
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			getReos().add(reo);
 			String str1 = reo.getNombre();
-			super.addHistorialPatio("Has ingresado al reo: "+ str1 +" a ejercitarsen, ojala no se vuelvan mas fuertes que los guardias y hagan un motin, " + dtf.format(LocalDateTime.now())+"\n");
+			super.addHistorialPatio("Has ingresado al reo: "+ str1 +" a ejercitarsen, ojala no se vuelvan mas fuertes que los guardias y hagan un motin. El número actual de reos en el gimnasio "+this.getNombre()+" es de "+this.getCantidadReos() +" "+ dtf.format(LocalDateTime.now())+"\n");
 			this.prision.addHistoriaPrision(getHistorialPatio().get(getHistorialPatio().size()-1));
 			return ("Has ingresado al reo: "+ str1 +" a ejercitarsen, ojala no se vuelvan mas fuertes que los guardias y hagan un motin");	
 		}
@@ -47,7 +47,7 @@ public class Gimnasio extends Patio implements Serializable{
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			getGuardias().add(guardia);
 			String str1 = guardia.getNombre();
-			super.addHistorialPatio("Has ingresado al guardia: "+ str1 +" a darles trato humanitario a los reos por si intentan hacer un motin"+ dtf.format(LocalDateTime.now())+"\n");
+			super.addHistorialPatio("Has ingresado al guardia: "+ str1 +" a darles trato humanitario a los reos por si intentan hacer un motin. El numero actual de guardias en "+this.getNombre()+" es de "+this.getCantidadGuardias()+" "+ dtf.format(LocalDateTime.now())+"\n");
 			this.prision.addHistoriaPrision(getHistorialPatio().get(getHistorialPatio().size()-1));
 			return("Has ingresado al guardia: "+ str1 +" a darles trato humanitario a los reos por si intentan hacer un motin");	
 		}

@@ -40,7 +40,7 @@ public class Alcaide {
 		Guardia david = new Guardia("David", 2003, azkaban, Rango.carcelero);
 		Guardia julian = new Guardia("Julian", 2002, torreOscura, Rango.oficial);
 		Guardia oswaldo = new Guardia("Oswaldo", 2004, torreOscura, Rango.carcelero);
-		Guardia aprendiz = new Guardia("Aprendiz", 2005, torreOscura, Rango.bachiller);
+		//Guardia aprendiz = new Guardia("Aprendiz", 2005, torreOscura, Rango.bachiller);
 		
 		//////////////////////////////LISTADO DE BUSES POR DEFECTO/////////////////////////////////
 		ArrayList<Bus> listaBusesAzkaban = new ArrayList<Bus>();
@@ -60,6 +60,7 @@ public class Alcaide {
 		alejandro.setPrision(torreOscura);
 		
 		azkaban.getBibliotecas().get(0).ingresarReos(genner);
+		azkaban.getGimnasios().get(0).ingresarReos(andres);
 		
 		ArrayList<Reo> prisionerosFA = new ArrayList<Reo>(); 
 		prisionerosFA.add(alejandro);

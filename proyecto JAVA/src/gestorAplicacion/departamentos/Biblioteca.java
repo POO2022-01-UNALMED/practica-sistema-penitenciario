@@ -29,9 +29,9 @@ public class Biblioteca extends Patio implements Serializable{
 			getReos().add(reo);
 			String str1 = reo.getNombre();
 			reo.setPatio(this);
-			super.addHistorialPatio("Has ingresado al reo: "+ str1 +" a estudiar en la biblioteca: "+this.getNombre()+", ojala no se tiren POO. "+ dtf.format(LocalDateTime.now())+"\n");
+			super.addHistorialPatio("Has ingresado al reo: "+ str1 +" a estudiar en la biblioteca: "+this.getNombre()+", ojala no se tiren POO. La cantidad actual de reos en la biblioteca "+this.getNombre()+" es de "+this.getCantidadReos()+" "+ dtf.format(LocalDateTime.now())+"\n");
 			this.prision.addHistoriaPrision(getHistorialPatio().get(getHistorialPatio().size()-1));
-			return ("Has ingresado al reo: "+ str1 +" a estudiar, ojala no se tiren POO" );	
+			return ("Has ingresado al reo: "+ str1 +" a estudiar, ojala no se tiren POO. La cantidad actual de reos en la biblioteca "+this.getNombre()+" es de "+this.getCantidadReos() );	
 		}
 		else{
 			return("Has colocado una cantidad de Reos que excede la capacidad de la biblioteca");
@@ -51,9 +51,9 @@ public class Biblioteca extends Patio implements Serializable{
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			getGuardias().add(guardia);
 			String str1 = guardia.getNombre();
-			super.addHistorialPatio("Has ingresado al guardia: "+ str1 +" a cuidar a los reos por si les da un derrame estudiando POO"+ dtf.format(LocalDateTime.now())+"\n");
+			super.addHistorialPatio("Has ingresado al guardia: "+ str1 +" a cuidar a los reos por si les da un derrame estudiando POO. El numero actual de guardias en "+this.getNombre()+" es de "+this.getCantidadGuardias()+" "+ dtf.format(LocalDateTime.now())+"\n");
 			this.prision.addHistoriaPrision(getHistorialPatio().get(getHistorialPatio().size()-1));
-			return("Has ingresado al guardia: "+ str1 +" a cuidar a los reos por si les da un derrame estudiando POO" );	
+			return("Has ingresado al guardia: "+ str1 +" a cuidar a los reos por si les da un derrame estudiando POO. La cantidad actual de guardias en la biblioteca "+ this.getNombre()+" es de "+this.getCantidadGuardias());	
 		}
 		else{
 			return("Has colocado una cantidad de guardias que excede la capacidad del biblioteca");

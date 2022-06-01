@@ -49,7 +49,7 @@ public class Celda implements Serializable{
 			DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			this.reosPertenecientes.add(reo);
 			//reo.setCelda(this);
-			String str1 = "Haz anadido al reo con codigo: "+reo.getCodigo()+" a la celda n�mero: "+ this.NUMCELDA;
+			String str1 = "Haz anadido al reo con codigo: "+reo.getCodigo()+" cuyo nombre es "+reo.getNombre()+" a la celda numero: "+ this.NUMCELDA;
 			addHistorialCelda(str1+" "+dtf2.format(LocalDateTime.now())+"\n");
 			this.prision.addHistoriaPrision(historialCelda.get(historialCelda.size()-1));
 			return str1;

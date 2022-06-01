@@ -81,26 +81,29 @@ public class Guardia implements Persona, Serializable{
 		
 	}
 	
-	public void meterReoCelda(Reo reo, Celda celda) {
+	public String meterReoCelda(Reo reo, Celda celda) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
 		
 		if (this.rango == Rango.bachiller) {
 			
-			prision.addHistorialGuardias("El bachiller "+this.nombre+", de c�digo: "+this.codigo+", ha intentado meter el reo de c�digo: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero no tiene los permisos para realizar esta acci�n"+Tiempo);
-			return;
+			prision.addHistorialGuardias("El bachiller "+this.nombre+", de c�digo: "+this.codigo+", ha intentado meter el reo de codigo: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero no tiene los permisos para realizar esta accion"+Tiempo);
+			return "El bachiller "+this.nombre+", de c�digo: "+this.codigo+", ha intentado meter el reo de codigo: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero no tiene los permisos para realizar esta accion"+Tiempo;
 		}
 		else if(reo.getCelda() != null) {
-			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de c�digo: "+this.codigo+", ha intentado meter al reo de c�digo: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero este ya est� en una celda"+Tiempo);
+			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de codigo: "+this.codigo+", ha intentado meter al reo de codigo: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero este ya esta en una celda"+Tiempo);
+			return "El "+this.rango.getRango()+" "+this.nombre+", de codigo: "+this.codigo+", ha intentado meter al reo de codigo: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero este ya esta en una celda"+Tiempo;
 		}
 		else if(celda.getReosPertenecientes().size()+1 <= 2){
 			//celda.asignarReo(reo);
 			reo.setCelda(celda);
             
-			prision.addHistorialGuardias("El reo de c�digo: "+reo.getCodigo()+", ha sido ingresado a la celda n�mero "+celda.getNumCelda()+" por el "+this.rango.getRango()+" "+this.nombre+", de c�digo: "+this.codigo+Tiempo);	
+			prision.addHistorialGuardias("El reo de codigo: "+reo.getCodigo()+", ha sido ingresado a la celda numero "+celda.getNumCelda()+" por el "+this.rango.getRango()+" "+this.nombre+", de codigo: "+this.codigo+Tiempo);	
+			return "El reo de codigo: "+reo.getCodigo()+", ha sido ingresado a la celda numero "+celda.getNumCelda()+" por el "+this.rango.getRango()+" "+this.nombre+", de codigo: "+this.codigo+Tiempo;
 		}
 		else {
-			prision.addHistorialGuardias("El reo de c�digo: "+reo.getCodigo()+", no puede ser ingresado a la celda n�mero "+celda.getNumCelda()+" por el "+this.rango.getRango()+" "+this.nombre+", de c�digo: "+this.codigo+", pues est� llena"+Tiempo);	
+			prision.addHistorialGuardias("El reo de codigo: "+reo.getCodigo()+", no puede ser ingresado a la celda numero "+celda.getNumCelda()+" por el "+this.rango.getRango()+" "+this.nombre+", de codigo: "+this.codigo+", pues esta llena"+Tiempo);	
+			return "El reo de codigo: "+reo.getCodigo()+", no puede ser ingresado a la celda numero "+celda.getNumCelda()+" por el "+this.rango.getRango()+" "+this.nombre+", de codigo: "+this.codigo+", pues esta llena"+Tiempo;
 		}
 				
 	}

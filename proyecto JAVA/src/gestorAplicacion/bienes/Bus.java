@@ -69,9 +69,10 @@ public class Bus implements Serializable{
 				for (int i = 0; i< reos.size(); i++) {
 					reos.get(i).setPrision(prisionDestino);
 					streo += "nombre: "+ reos.get(i).getNombre() + " cuyo código es: "+reos.get(i).getCodigo()+ ", ";
-					guardias.get(i).setPrision(prisionDestino);
-					stgua += "nombre: "+ guardias.get(i).getNombre() + " cuyo código es: "+guardias.get(i).getCodigo()+ ", ";
-					
+				}
+				for (int j = 0; j < guardias.size(); j++) {
+					guardias.get(j).setPrision(prisionDestino);
+					stgua += "nombre: "+ guardias.get(j).getNombre() + " cuyo código es: "+guardias.get(j).getCodigo()+ ", ";
 				}
 				
 				return "Has enviado a los reos "+streo+" con destino a la prisión "+prisionDestino.getNombre()+" cuyos guardias son: "+stgua+"."+ dtf.format(LocalDateTime.now());

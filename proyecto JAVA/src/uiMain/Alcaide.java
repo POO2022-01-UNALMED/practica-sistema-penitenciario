@@ -8,6 +8,7 @@ import java.util.Scanner;
 import gestorAplicacion.bienes.*;
 import gestorAplicacion.departamentos.*;
 import gestorAplicacion.personal.*;
+import static java.lang.Math. *;
 
 public class Alcaide {
 	static Scanner sc = new Scanner(System.in);
@@ -21,6 +22,8 @@ public class Alcaide {
 	}
 
 	public static void main(String[] args) {
+		
+		
 		
 		/////////////////////////////PRISIONES POR DEFECTO//////////////////////////////////////
 		Prision azkaban = new Prision("Azkaban");
@@ -36,7 +39,8 @@ public class Alcaide {
 		Guardia jaime = new Guardia("Jaime", 2001, azkaban, Rango.oficial);
 		Guardia david = new Guardia("David", 2003, azkaban, Rango.carcelero);
 		Guardia julian = new Guardia("Julian", 2002, torreOscura, Rango.oficial);
-		Guardia oswaldo = new Guardia("Oswaldo", 2004, torreOscura, Rango.oficial);
+		Guardia oswaldo = new Guardia("Oswaldo", 2004, torreOscura, Rango.carcelero);
+		Guardia aprendiz = new Guardia("Aprendiz", 2005, torreOscura, Rango.bachiller);
 		
 		//////////////////////////////LISTADO DE BUSES POR DEFECTO/////////////////////////////////
 		ArrayList<Bus> listaBusesAzkaban = new ArrayList<Bus>();
@@ -62,10 +66,20 @@ public class Alcaide {
 		prisionerosFA.add(faidher);
 		
 		ArrayList<Guardia> guardiasFA = new ArrayList<Guardia>();
-		guardiasFA.add(julian);
+		//guardiasFA.add(aprendiz);
 		guardiasFA.add(oswaldo);
+		guardiasFA.add(julian);
 		
+//		System.out.println(Prision.getPrisiones().get(0).getNombre());
+//		System.out.println(Prision.getPrisiones().get(1).getNombre());
+//		System.out.println(Prision.getPrisionesCreadas());
+		//Serializador.serializarTodo();
 		
+	//}
+	//}
+//}
+//}
+
 		int opcion;
 		do {
 			System.out.println("Que operación desea realizar?");
@@ -78,7 +92,7 @@ public class Alcaide {
 			opcion = (int) readLong();
 			
 			switch(opcion) {
-				case 1: moverReos(prisionerosFA, guardiasFA,torreOscura, azkaban, listaBusesTorreOscura); break;
+				case 1: moverReos(prisionerosFA, guardiasFA,torreOscura, azkaban, listaBusesTorreOscura, jaime); break;
 				case 2: verHistorial(azkaban); break;
 				case 3: reducirCondena(andres, azkaban); break;
 				case 4: recrearReo(genner,azkaban.getBibliotecas().get(0), 10); break;
@@ -88,12 +102,15 @@ public class Alcaide {
 			} 
 		}while (opcion != 6);
 	
+ }
+//}
+	static void moverReos(ArrayList<Reo> reos,ArrayList<Guardia> guardias,Prision a, Prision p, ArrayList<Bus> buses, Guardia guarCarcel){
+		System.out.println(buses.get(0).llevarReos(reos, guardias, a, p));
+		for (int j = 0; j < reos.size(); j++) {
+			System.out.println(guarCarcel.meterReoCelda(reos.get(j), p.getCeldas().get(j)));
+		}
 	}
-	static void moverReos(ArrayList<Reo> reos,ArrayList<Guardia> guardias,Prision a, Prision p, ArrayList<Bus> buses){
-	
-		System.out.println(buses.get(0).llevarReos(reos, guardias,a , p));
-		
-	}
+
 	static void verHistorial(Prision prision){
 		
 		System.out.println(prision.getHistorialPrision());
@@ -115,7 +132,9 @@ public class Alcaide {
 			float k = reo.getCondena()- a/b;
 			reo.setCondena(k);
 			System.out.println("Ahora la condena del reo "+reo.getNombre()+" será "+reo.getCondena());
-			reo.setComportamiento(0);
+			reo.setHorasTrabajadasTotales(0);
+			Trabajo.renunciarTrabajoReo(reo);
+			
 		}
 		else {
 			System.out.println("El reo "+reo.getNombre()+" no tiene trabajo, asignele uno");
@@ -135,99 +154,3 @@ public class Alcaide {
 		
 		
 	}
-//	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////7	
-//		//___________________________________FUNCIONALIDAD 1: HISTORIAL DE LAS PRISIONES_____________________________________________
-//		
-//		
-//		System.out.println(azkaban.getHistorialPrision()); /// historial de Azkaban
-//		System.out.println(torreOscura.getHistorialPrision()); /// historial de Torre Oscura
-//		
-//		//__________________________________FUNCIONALIDAD 2: MOVILIZACIÓN DE REOS POR EL SISTEMA PENITENCIARIO________________________
-//		prisionerosFA.add(alejandro);
-//		prisionerosFA.add(faidher);
-//		ArrayList<Guardia> guardiasFA = new ArrayList<Guardia>();
-//		guardiasFA.add(julian);
-//		guardiasFA.add(oswaldo);
-//		listaBusesTorreOscura.get(0).llevarReos(prisionerosFA, guardiasFA, azkaban);
-//		//System.out.println(torreOscura.getHistorialPrision());
-//		//System.out.println(azkaban.getHistorialPrision());
-//		if (azkaban.getReos().size() !=0) {
-//			for (int i =0; i < azkaban.getReos().size(); i++) {
-//				System.out.println(azkaban.getReos().get(i).getNombre());
-//			}
-//		}
-//		else {
-//			System.out.println("No hay reos");
-//		}
-//
-//		if (torreOscura.getReos().size() !=0) {
-//			for (int i =0; i < torreOscura.getReos().size(); i++) {
-//				System.out.println(torreOscura.getReos().get(i).getNombre());
-//			}
-//		}
-//		else {
-//			System.out.println("No hay reos");
-//		}
-//		//__________________________________FUNCIONALIDAD 3: REDUCCION DE CONDENAS_________________________
-//		azkaban.getBibliotecas().get(0).ingresarReos(andres);
-//		azkaban.getBibliotecas().get(0).laborarReo(andres, 10);
-//		
-//		
-//		
-//		
-//		
-//		
-//		
-//		
-//		
-//
-//	}
-//}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//Prision cali = new Prision(10,"Tierra media","Barad-dur");
-//Prision manizales = new Prision(7,"Manizales","breee");
-//
-//
-//Reo r1 = new Reo("Andres", 101, true, 12, cali);
-//Reo r2 = new Reo("Genner", 102, true, 20, manizales);
-//Reo r3 = new Reo("Faidher", 103, true, 43);
-//
-//Guardia g1 = new Guardia("Habibi", 2001);
-//Guardia g2 = new Guardia("Alonso", 2002, cali, Rango.oficial);
-//
-//Gimnasio gym = new Gimnasio("European Gym", cali);
-//Biblioteca bib = new Biblioteca("Publica Piloto", cali);
-//
-//Celda celda = new Celda(999, cali);
-//
-//r2.setPrision(cali);
-//r3.setPrision(cali);
-//g1.setPrision(cali);
-//
-//g1.meterReoCelda(r1, celda);
-//g1.promocionarGuardia();
-//g1.meterReoCelda(r1, celda);
-//g2.meterReoCelda(r2, celda);
-//g1.meterReoCelda(r3, celda);
-//
-//g1.meterReoPatio(r1, gym);
-//g1.meterReoPatio(r2, bib);
-//r1.recrear(bib, 2);
-//r1.recrear(gym, 2);
-//
-////g.meterReoCelda(r, celda);
-//
-//for (int i = 0; i < cali.getHistorialGuardias().size(); i++) {
-//	System.out.println(cali.getHistorialGuardias().get(i));
-//}
-//
-//System.out.println("\\\\\\\\\\\\\\\\\\\\\\\\");
-//
-//for (int i = 0; i < cali.getHistorialReos().size(); i++) {
-//	System.out.println(cali.getHistorialReos().get(i));
-//}
-//
-//}
-//}

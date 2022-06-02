@@ -45,13 +45,11 @@ public class Alcaide {
 		//////////////////////////////LISTADO DE BUSES POR DEFECTO/////////////////////////////////
 		ArrayList<Bus> listaBusesAzkaban = new ArrayList<Bus>();
 		for (int i = 0; i < 6; i++) {
-			String k = "A100"+i;
-			listaBusesAzkaban.add(new Bus(k,azkaban));
+			listaBusesAzkaban.add(new Bus(azkaban));
 		}
 		ArrayList<Bus> listaBusesTorreOscura = new ArrayList<Bus>();
 		for (int i = 0; i < 6; i++) {
-			String k = "T100"+i;
-			listaBusesTorreOscura.add(new Bus(k,torreOscura));
+			listaBusesTorreOscura.add(new Bus(torreOscura));
 		}
 		/////////////////////////////ASIGNACION DE REOS A PRISIONES/////////////////////////
 		genner.setPrision(azkaban);
@@ -97,7 +95,7 @@ public class Alcaide {
 			switch(opcion) {
 				case 1: moverReos(prisionerosFA, guardiasFA,torreOscura, azkaban, listaBusesTorreOscura, jaime); break;
 				case 2: verHistorial(azkaban); break;
-				case 3: reducirCondena(andres, azkaban); break;
+				case 3: reducirCondena(andres); break;
 				case 4: recrearReo(genner,azkaban.getBibliotecas().get(0), 10); break;
 				case 5: trabajarReo(andres, OpcionTrabajo.Barrendero); break;
 				case 6: break;
@@ -119,12 +117,12 @@ public class Alcaide {
 		System.out.println(prision.getHistorialPrision());
 		
 	}
-	static void reducirCondena(Reo reo, Prision prision){
+	static void reducirCondena(Reo reo){
 		if (reo.getCondena() <= 0) {
 			if (reo.getPatio() != null) {
 				System.out.println(reo.getPatio().sacarReos(reo));
 			}
-			prision.getReos().remove(prision.getReos().indexOf(reo));
+			reo.getPrision().getReos().remove(reo.getPrision().getReos().indexOf(reo));
 			System.out.println("El reo con nombre: "+ reo.getNombre()+" y cuyo codigo es " + reo.getCodigo()
 			+" ha tenido un buen comportamiento durante su estadía en prision y por tanto queda liberado.");
 		}

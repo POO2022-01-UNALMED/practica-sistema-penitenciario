@@ -80,7 +80,7 @@ public class Alcaide {
 	//}
 //}
 //}
-		//Deserializador.deserializarTodo();
+		Deserializador.deserializarTodo();
 		int opcion;
 		do {
 			System.out.println("Que operación desea realizar?");
@@ -99,7 +99,7 @@ public class Alcaide {
 				case 4: recrearReo(genner,azkaban.getBibliotecas().get(0), 10); break;
 				case 5: trabajarReo(andres, OpcionTrabajo.Barrendero); break;
 				case 6:
-			//		Serializador.serializarTodo();
+					Serializador.serializarTodo();
 					break;
 				
 			} 

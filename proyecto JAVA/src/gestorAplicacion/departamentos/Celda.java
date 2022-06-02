@@ -17,6 +17,8 @@ public class Celda implements Serializable{
 	private ArrayList<String> historialCelda = new ArrayList<String>();
 	private static ArrayList<Celda> celdasTotales = new ArrayList<Celda>();
 	
+	////////////constructores
+	
 	public Celda(int numCelda, Prision prision) {
 		super();
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -28,21 +30,7 @@ public class Celda implements Serializable{
 		
 	}
 	
-	public ArrayList<Reo> getReosPertenecientes() {
-		return reosPertenecientes;
-	}
-	public void setReosPertenecientes(ArrayList<Reo> reosPertenecientes) {
-		this.reosPertenecientes = reosPertenecientes;
-	}
-	public ArrayList<String> getHistorialCelda() {
-		return this.historialCelda;
-	}
-	public void addHistorialCelda(String hist) {
-		historialCelda.add(hist);
-	}
-	public int getNumCelda() {
-		return this.NUMCELDA;
-	}
+	/////////metodos
 	
 	public String asignarReo(Reo reo) {
 		if (this.reosPertenecientes.size()+1 <= 2) {
@@ -83,6 +71,24 @@ public class Celda implements Serializable{
 		}
 		return strfinal;
 	}
+	
+////////////////////////Setters y getters
+
+	public ArrayList<Reo> getReosPertenecientes() {
+		return reosPertenecientes;
+	}
+
+	public void setReosPertenecientes(ArrayList<Reo> reosPertenecientes) {
+		this.reosPertenecientes = reosPertenecientes;
+	}
+
+	public ArrayList<String> getHistorialCelda() {
+		return historialCelda;
+	}
+
+	public void setHistorialCelda(ArrayList<String> historialCelda) {
+		this.historialCelda = historialCelda;
+	}
 
 	public static ArrayList<Celda> getCeldasTotales() {
 		return celdasTotales;
@@ -92,20 +98,20 @@ public class Celda implements Serializable{
 		Celda.celdasTotales = celdasTotales;
 	}
 
-	public int getNUMCELDA() {
-		return NUMCELDA;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public int getNumCelda() {
+		return this.NUMCELDA;
 	}
 
 	public Prision getPrision() {
 		return prision;
 	}
-
-	public void setHistorialCelda(ArrayList<String> historialCelda) {
-		this.historialCelda = historialCelda;
+	
+	public void addHistorialCelda(String hist) {
+		historialCelda.add(hist);
 	}
-	
-	
-	
-	
 	
 }

@@ -10,4 +10,5 @@ public interface Persona {
 	public void setPrision(Prision prision);
 	public Prision getPrision();
 	//
+	
 }

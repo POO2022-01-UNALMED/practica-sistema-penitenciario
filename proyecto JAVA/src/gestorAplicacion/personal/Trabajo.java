@@ -58,6 +58,7 @@ public class Trabajo implements Serializable{
 		reo.getPrision().addHistorialTrabajos("El reo: "+reo.getNombre()+", con c�digo: "+reo.getCodigo()+", ha renunciado a su trabajo como: "+NombreDeTrabajoARenunciar+". "+Tiempo);
 	}
 	
+	///////// Setters y getters
 	
 
 	public void sumarHorasTrabajadas() {
@@ -113,69 +114,18 @@ public class Trabajo implements Serializable{
 		return reo;
 	}
 	
-	
-	
-//	public int getHorasTrabajadas() {
-//		return this.horasTrabajadas;
-//	}
-//
 	public String getNombre() {
 		return this.trabajo.getNombre();
 	}
-//	
-//	public Dificultad getDificultad() {
-//		return this.trabajo.getDificultad();
-//	}
-//	
+	
 	public int getHorasQueLlevaHacerUnTurno() {
 		return this.trabajo.getHorasQueLlevaHacerUnTurno();
 	}
-//	
+	
 	public int getConstanteTrabajo() {
 		return this.trabajo.getConstanteDeDificultad();
 	}
-//
-//	public OpcionTrabajo getTrabajo() {
-//		return trabajo;
-//	}
-//
-//	public void setTrabajo(OpcionTrabajo trabajo) {
-//		this.trabajo = trabajo;
-//	}
-//
-//	public static ArrayList<Reo> getReos() {
-//		return reos;
-//	}
-//
-//	public static void setReos(ArrayList<Reo> reos) {
-//		Trabajo.reos = reos;
-//	}
-//
-//	public static ArrayList<Guardia> getGuardias() {
-//		return guardias;
-//	}
-//
-//	public static void setGuardias(ArrayList<Guardia> guardias) {
-//		Trabajo.guardias = guardias;
-//	}
-//
-//	public static ArrayList<Trabajo> getTrabajosTotales() {
-//		return trabajosTotales;
-//	}
-//
-//	public static void setTrabajosTotales(ArrayList<Trabajo> trabajosTotales) {
-//		Trabajo.trabajosTotales = trabajosTotales;
-//	}
-//
-//	public Reo getReo() {
-//		return reo;
-//	}
-//
-//	public void setHorasTrabajadas(int horasTrabajadas) {
-//		this.horasTrabajadas = horasTrabajadas;
-//	}
 
-	
 	
 
 }

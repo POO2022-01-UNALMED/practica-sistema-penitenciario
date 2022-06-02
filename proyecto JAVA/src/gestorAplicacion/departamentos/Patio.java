@@ -14,6 +14,7 @@ public abstract class Patio implements Serializable{
 	private ArrayList<Guardia> guardias;
 	private ArrayList<String> historialPatio=new ArrayList<String>();
 	
+	/////////Constructor para las clases hijas
 
 	public Patio(int capacidad, String nombre, ArrayList<Reo> reos, ArrayList<Guardia> guardias) {
 		super();
@@ -23,6 +24,30 @@ public abstract class Patio implements Serializable{
 		this.guardias = guardias;
 		
 	}
+	
+	/////////metodos
+	
+public abstract String ingresarReos(Reo reo); //con este metodo se ingresará reos a las clases hijas 
+	
+	public abstract String sacarReos(Reo reo);
+	
+
+	public abstract String ingresarGuardias(Guardia guardia); //con este metodo se ingresará reos a las clases hijas 
+	
+	public abstract String sacarGuardias(Guardia guardia);
+	
+	
+	protected abstract String laborarReo(Reo reo, int horas); // con este metodo se pondrá hacer labores correspondientes a cada reo para que redutca la pena
+	
+	public String historialPATIO() {
+		String strfinal = "";
+		for (int i = 0; i < historialPatio.size(); i++) {
+			strfinal += historialPatio.get(i)+"\n";
+		}
+		return strfinal;
+	}
+	
+	////////Setters y getters
 	
 	public ArrayList<Reo> getReos() {
 		return reos;
@@ -55,26 +80,6 @@ public abstract class Patio implements Serializable{
 	
 	public int getCantidadGuardias() {
 		return 0;
-	}
-	
-	public abstract String ingresarReos(Reo reo); //con este metodo se ingresará reos a las clases hijas 
-	
-	public abstract String sacarReos(Reo reo);
-	
-
-	public abstract String ingresarGuardias(Guardia guardia); //con este metodo se ingresará reos a las clases hijas 
-	
-	public abstract String sacarGuardias(Guardia guardia);
-	
-	
-	protected abstract String laborarReo(Reo reo, int horas); // con este metodo se pondrá hacer labores correspondientes a cada reo para que redutca la pena
-	
-	public String historialPATIO() {
-		String strfinal = "";
-		for (int i = 0; i < historialPatio.size(); i++) {
-			strfinal += historialPatio.get(i)+"\n";
-		}
-		return strfinal;
 	}
 	
 }

@@ -36,10 +36,9 @@ public class Prision implements Serializable{
 	private ArrayList<Bus> buses= new ArrayList<Bus>();
 	private static ArrayList<Prision> prisiones= new ArrayList<Prision>();
 	
-//	public Prision() {
-//		Deserializador.deserializar(this);	
-//	}
-	
+
+	//////////////Constructores
+		
 	public Prision() {
 		this.localizacion="Facultad de Minas";
 		this.numReos = 70;
@@ -71,77 +70,7 @@ public class Prision implements Serializable{
 		prisiones.add(this);
 	}
 	
-	public static ArrayList<Prision> getPrisiones(){
-		return prisiones;
-	}
-	
-	public ArrayList<Bus> getBuses(){
-		return buses;
-	}
-	
-	public ArrayList<Trabajo> getTrabajos() {
-		return trabajos;
-	}
-
-	public static int getPrisionesCreadas() {
-		return prisionesCreadas;
-	}
-
-	public static void setPrisionesCreadas(int prisionesCreadas) {
-		Prision.prisionesCreadas = prisionesCreadas;
-	}
-
-	public ArrayList<Reo> getReos() {
-		return reos;
-	}
-
-	public void addReos(Reo reo) {
-		this.reos.add(reo);
-	}
-
-	public ArrayList<Guardia> getGuardias() {
-		return guardias;
-	}
-
-	public void addGuardias(Guardia guardia) {
-		this.guardias.add(guardia);
-	}
-
-	public int getNumReos() {
-		return numReos;
-	}
-
-	public String getLocalizacion() {
-		return localizacion;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-	public ArrayList<String> getHistorialReos(){
-		return this.historialReos;
-	}
-	
-	public ArrayList<String> getHistorialGuardias(){
-		return this.historialGuardias;
-	}
-
-	public ArrayList<String> getHistorialTrabajos(){
-		return this.historialTrabajos;
-	}
-	public ArrayList<Biblioteca> getBibliotecas(){
-		return this.bibliotecas;
-	}
-	public ArrayList<Gimnasio> getGimnasios(){
-		return this.gimnasios;
-	}
-
-	public ArrayList<Celda> getCeldas(){
-		return this.celdas;
-	}
-
-
-	
+	////////////////////// Metodos
 	
 	public void addHistorialReos(String s) {
 		this.historialReos.add(s);
@@ -211,59 +140,138 @@ public class Prision implements Serializable{
 		
 	}
 	
-	public String getHistorialPrision() {
-		return this.historialPrision;
+	public void addReos(Reo reo) {
+		this.reos.add(reo);
 	}
+	
+	public void addGuardias(Guardia guardia) {
+		this.guardias.add(guardia);
+	}
+	
 	public void addHistoriaPrision(String s) {
 		this.historialPrision+=s;
+	}
+
+	///////////Setters y getters
+	
+	public static int getPrisionesCreadas() {
+		return prisionesCreadas;
+	}
+
+	public static void setPrisionesCreadas(int prisionesCreadas) {
+		Prision.prisionesCreadas = prisionesCreadas;
+	}
+
+	public ArrayList<Reo> getReos() {
+		return reos;
 	}
 
 	public void setReos(ArrayList<Reo> reos) {
 		this.reos = reos;
 	}
 
+	public ArrayList<Guardia> getGuardias() {
+		return guardias;
+	}
+
 	public void setGuardias(ArrayList<Guardia> guardias) {
 		this.guardias = guardias;
+	}
+
+	public ArrayList<String> getHistorialReos() {
+		return historialReos;
 	}
 
 	public void setHistorialReos(ArrayList<String> historialReos) {
 		this.historialReos = historialReos;
 	}
 
+	public ArrayList<String> getHistorialGuardias() {
+		return historialGuardias;
+	}
+
 	public void setHistorialGuardias(ArrayList<String> historialGuardias) {
 		this.historialGuardias = historialGuardias;
+	}
+
+	public ArrayList<String> getHistorialTrabajos() {
+		return historialTrabajos;
 	}
 
 	public void setHistorialTrabajos(ArrayList<String> historialTrabajos) {
 		this.historialTrabajos = historialTrabajos;
 	}
 
+	public String getHistorialPrision() {
+		return historialPrision;
+	}
+
 	public void setHistorialPrision(String historialPrision) {
 		this.historialPrision = historialPrision;
+	}
+
+	public ArrayList<Biblioteca> getBibliotecas() {
+		return bibliotecas;
 	}
 
 	public void setBibliotecas(ArrayList<Biblioteca> bibliotecas) {
 		this.bibliotecas = bibliotecas;
 	}
 
+	public ArrayList<Gimnasio> getGimnasios() {
+		return gimnasios;
+	}
+
 	public void setGimnasios(ArrayList<Gimnasio> gimnasios) {
 		this.gimnasios = gimnasios;
+	}
+
+	public ArrayList<Celda> getCeldas() {
+		return celdas;
 	}
 
 	public void setCeldas(ArrayList<Celda> celdas) {
 		this.celdas = celdas;
 	}
 
+	public ArrayList<Trabajo> getTrabajos() {
+		return trabajos;
+	}
+
 	public void setTrabajos(ArrayList<Trabajo> trabajos) {
 		this.trabajos = trabajos;
+	}
+
+	public ArrayList<Bus> getBuses() {
+		return buses;
 	}
 
 	public void setBuses(ArrayList<Bus> buses) {
 		this.buses = buses;
 	}
 
+	public static ArrayList<Prision> getPrisiones() {
+		return prisiones;
+	}
+
 	public static void setPrisiones(ArrayList<Prision> prisiones) {
 		Prision.prisiones = prisiones;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public int getNumReos() {
+		return numReos;
+	}
+
+	public String getLocalizacion() {
+		return localizacion;
+	}
+
+	public String getNombre() {
+		return nombre;
 	}
 	
 }

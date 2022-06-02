@@ -54,7 +54,7 @@ public class Bus implements Serializable{
 					stgua += "nombre: "+ guardias.get(j).getNombre() + " cuyo código es: "+guardias.get(j).getCodigo()+ ", ";
 				}
 				
-				return "Has enviado a los reos "+streo+" con destino a la prisión "+prisionDestino.getNombre()+" cuyos guardias son: "+stgua+"."+ dtf.format(LocalDateTime.now());
+				return "Has enviado a los reos "+streo+" con destino a la prisión "+prisionDestino.getNombre()+"\n cuyos guardias son: "+stgua+"."+ dtf.format(LocalDateTime.now());
 			}
 			else {
 				return "Error, numero de reos y guardias superior a la capacidad del bus";

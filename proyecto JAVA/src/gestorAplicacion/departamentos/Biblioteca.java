@@ -14,6 +14,8 @@ public class Biblioteca extends Patio implements Serializable{
 	private Prision prision;
 	private static ArrayList<Biblioteca> bibliotecasTotales = new ArrayList<Biblioteca>();
 	
+	//////////Constructores
+	
 	public Biblioteca(String nombre, Prision prision) {
 		super(100, nombre, new ArrayList<Reo>(), new ArrayList<Guardia>());
 		this.prision = prision;
@@ -22,6 +24,8 @@ public class Biblioteca extends Patio implements Serializable{
 		bibliotecasTotales.add(this);
 
 	}
+	
+	/////////metodos
 	
 	public String ingresarReos(Reo reo) {
 		if (getReos().size()+getGuardias().size()+1 <= getCapacidad()) {
@@ -78,7 +82,9 @@ public class Biblioteca extends Patio implements Serializable{
 				" horas, por tanto esta pobre alma será recompensada con una reduccion de condena.");
 		
 	}
-
+	
+	/////////setters y getters
+	
 	public int getCantidadReos() {
 		return getReos().size();
 	}
@@ -101,9 +107,9 @@ public class Biblioteca extends Patio implements Serializable{
 	public static void setBibliotecasTotales(ArrayList<Biblioteca> bibliotecasTotales) {
 		Biblioteca.bibliotecasTotales = bibliotecasTotales;
 	}
-		
-	
-	
-	
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 }

@@ -19,12 +19,23 @@ public class Guardia implements Persona, Serializable{
 	//private static ArrayList<String> historialGuardias = new ArrayList<String>();
 	private static ArrayList<Guardia> guardiasTotales = new ArrayList<Guardia>();
 	
+	//////////Constructores
+	
 	public Guardia(String nombre, int codigo) {
 		
 		this.nombre = nombre;
 		this.codigo = codigo;
 		guardiasTotales.add(this);
 		
+	}
+	
+	public Guardia(String nombre, int codigo, Rango rango) {
+		
+		this(nombre, codigo);
+		this.rango = rango;
+
+		prision.getGuardias().add(this);
+
 	}
 
 	public Guardia(String nombre, int codigo, Prision prision) {
@@ -53,13 +64,9 @@ public class Guardia implements Persona, Serializable{
 		
 	}
 
+
+	//////////Metodos
 	
-	public Guardia(String nombre, int codigo, Rango rango) {
-		
-		this(nombre, codigo);
-		this.rango = rango;
-		
-	}
 	public void promocionarGuardia() {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
@@ -181,10 +188,11 @@ public class Guardia implements Persona, Serializable{
 		}
 	}
 	
+	////////Setters y getters
+
 	public Prision getPrision() {
 		return prision;
 	}
-	
 
 	public void setPrision(Prision prision) {
 		//A�ade al historial
@@ -203,28 +211,14 @@ public class Guardia implements Persona, Serializable{
 			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+" con c�digo "+this.codigo+", ha ingresado a la prision: "+prision.getNombre()+Tiempo);
 		}
 	}
-	
 
 	public Rango getRango() {
 		return rango;
 	}
-	
 
 	public void setRango(Rango rango) {
 		this.rango = rango;
 	}
-	
-
-
-	public String getNombre() {
-		return nombre;
-	}
-	
-
-	public int getCodigo() {
-		return codigo;
-	}
-	
 
 	public static ArrayList<Guardia> getGuardiasTotales() {
 		return guardiasTotales;
@@ -234,14 +228,16 @@ public class Guardia implements Persona, Serializable{
 		Guardia.guardiasTotales = guardiasTotales;
 	}
 
-	
-	//public void setHistorialGuardia(ArrayList<String> historialGuardia) {
-	//	this.historialGuardia = historialGuardia;
-	//}
-	
-	
-	
-	
-	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
 	
 }

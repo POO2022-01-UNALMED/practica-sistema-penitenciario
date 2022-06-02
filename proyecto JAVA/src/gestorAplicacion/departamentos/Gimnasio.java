@@ -14,6 +14,8 @@ public class Gimnasio extends Patio implements Serializable{
 	private Prision prision;
 	private static ArrayList<Gimnasio> gimnasiosTotales = new ArrayList<Gimnasio>();
 	
+	////////////Constructores
+	
 	public Gimnasio(String nombre, Prision prision) {
 		super(20, nombre, new ArrayList<Reo>(), new ArrayList<Guardia>());
 		this.prision = prision;
@@ -22,6 +24,8 @@ public class Gimnasio extends Patio implements Serializable{
 		gimnasiosTotales.add(this);
 	}
 
+	/////////Metodos
+	
 	public String ingresarReos(Reo reo) {
 		if (getReos().size()+getGuardias().size()+1 <= getCapacidad()) {
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -76,6 +80,8 @@ public class Gimnasio extends Patio implements Serializable{
 		
 	}
 	
+	/////////setters y getters
+	
 	public int getCantidadReos() {
 		return getReos().size();
 	}
@@ -98,7 +104,5 @@ public class Gimnasio extends Patio implements Serializable{
 	public static void setGimnasiosTotales(ArrayList<Gimnasio> gimnasiosTotales) {
 		Gimnasio.gimnasiosTotales = gimnasiosTotales;
 	}
-	
-	
 
 }

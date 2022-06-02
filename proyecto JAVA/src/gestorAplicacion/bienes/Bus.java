@@ -18,8 +18,10 @@ public class Bus implements Serializable{
 	private static ArrayList<Bus> busesTotales = new ArrayList<Bus>();  
 	private static int numPlaca; 
 	
+	/////////Constructores
+	
 	public Bus() {
-		this.placa= "KQ"+numPlaca;
+		this.placa= "QHK"+numPlaca;
 		numPlaca++;
 	}
 	
@@ -29,36 +31,8 @@ public class Bus implements Serializable{
 		this.historialBus = new ArrayList<String>();
 		prision.getBuses().add(this);
 	}
-
-	public Prision getPrision() {
-		return prision;
-	}
-
-	public void setPrision(Prision prision) {
-		this.prision.getBuses().remove(this);
-		this.prision = prision;
-		prision.getBuses().add(this);
-	}
-
-	public List<String> getHistorialBus() {
-		return historialBus;
-	}
-
-	public void addHistorialBus(String s) {
-		this.historialBus.add(s);
-	}
-
-	public static int getBusesCreados() {
-		return busesCreados;
-	}
-
-	public static void setBusesCreados(int busesCreados) {
-		Bus.busesCreados = busesCreados;
-	}
-
-	public String getPlaca() {
-		return placa;
-	}
+	
+	//////////Metodos
 	
 	//////////// se asume que los reos seleccionados pertenecen todos a una misma instancia de prision
 	public String llevarReos(ArrayList<Reo> reos, ArrayList<Guardia> guardias,Prision prisionOriginal, Prision prisionDestino ) {
@@ -87,6 +61,38 @@ public class Bus implements Serializable{
 			}
 		}
 	}
+	
+	///////// Setters y getters
+	
+	public void addHistorialBus(String s) {
+		this.historialBus.add(s);
+	}
+
+	public Prision getPrision() {
+		return prision;
+	}
+
+	public void setPrision(Prision prision) {
+		this.prision.getBuses().remove(this);
+		this.prision = prision;
+		prision.getBuses().add(this);
+	}
+
+	public ArrayList<String> getHistorialBus() {
+		return historialBus;
+	}
+
+	public void setHistorialBus(ArrayList<String> historialBus) {
+		this.historialBus = historialBus;
+	}
+
+	public static int getBusesCreados() {
+		return busesCreados;
+	}
+
+	public static void setBusesCreados(int busesCreados) {
+		Bus.busesCreados = busesCreados;
+	}
 
 	public static ArrayList<Bus> getBusesTotales() {
 		return busesTotales;
@@ -96,12 +102,20 @@ public class Bus implements Serializable{
 		Bus.busesTotales = busesTotales;
 	}
 
-	public void setHistorialBus(ArrayList<String> historialBus) {
-		this.historialBus = historialBus;
-	}
-	
-	
+	public static int getNumPlaca() {
+		return numPlaca;
+	} 
 
-	
+	public static void setNumPlaca(int numPlaca) {
+		Bus.numPlaca = numPlaca;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public String getPlaca() {
+		return placa;
+	}	
 	
 }

@@ -3,7 +3,7 @@ package gestorAplicacion.bienes;
 import java.io.Serializable;
 import gestorAplicacion.personal.*;
 import gestorAplicacion.departamentos.*;
-import java.util.List;
+//import java.util.List;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ public class Bus implements Serializable{
 	
 	//////////// se asume que los reos seleccionados pertenecen todos a una misma instancia de prision
 	public String llevarReos(ArrayList<Reo> reos, ArrayList<Guardia> guardias,Prision prisionOriginal, Prision prisionDestino ) {
-		if (prisionOriginal.getReos().size() == 0 || reos.get(0).getPrision()!= prisionOriginal) {
+		if (prisionOriginal.getReos().size() == 0 || !(reos.get(0).getPrision().getNombre().equals(prisionOriginal.getNombre()))) {
 			return "No hay reos en la prisión original o los reos que seleccionó NO pertenecen a la prision original";
 		}
 		else {

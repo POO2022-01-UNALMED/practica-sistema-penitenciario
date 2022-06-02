@@ -1,12 +1,12 @@
 package gestorAplicacion.personal;
 
 import java.io.Serializable;
-import gestorAplicacion.personal.*;
-import java.util.List;
+//import gestorAplicacion.personal.*;
+//import java.util.List;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import gestorAplicacion.bienes.*;
+//import gestorAplicacion.bienes.*;
 import gestorAplicacion.departamentos.*;
 
 public class Guardia implements Persona, Serializable{

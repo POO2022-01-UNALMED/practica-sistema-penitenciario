@@ -10,8 +10,8 @@ import static java.lang.Math. *;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import baseDatos.Deserializador;
-import baseDatos.Serializador;
+//import baseDatos.Deserializador;
+//import baseDatos.Serializador;
 
 public class Prision implements Serializable{
 	

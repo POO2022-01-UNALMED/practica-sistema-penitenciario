@@ -23,6 +23,47 @@ public class Alcaide {
 
 	public static void main(String[] args) {
 		
+//		Deserializador.deserializarTodo();
+//		Prision azkaban = Prision.getPrisiones().get(0);
+//		Prision torreOscura = Prision.getPrisiones().get(1);
+//		
+////		Reo genner = azkaban.getReos().get(0);
+////		Reo andres = azkaban.getReos().get(1);
+////		Reo faidher = torreOscura.getReos().get(0);
+////		Reo alejandro = torreOscura.getReos().get(1);
+//		
+//		Reo genner = Reo.getReosTotales().get(0);
+//		Reo andres = Reo.getReosTotales().get(1);
+//		Reo faidher = Reo.getReosTotales().get(2);
+//		Reo alejandro = Reo.getReosTotales().get(3);
+//		
+//		System.out.println(azkaban.getGuardias().size());
+//		
+////		Guardia jaime = azkaban.getGuardias().get(0);
+////		Guardia david = Prision.getPrisiones().get(0).getGuardias().get(1);
+////		Guardia julian = Prision.getPrisiones().get(1).getGuardias().get(0);
+////		Guardia oswaldo = Prision.getPrisiones().get(1).getGuardias().get(1);
+//		
+//		Guardia jaime = Guardia.getGuardiasTotales().get(0);
+//		Guardia david = Guardia.getGuardiasTotales().get(1);
+//		Guardia julian = Guardia.getGuardiasTotales().get(2);
+//		Guardia oswaldo = Guardia.getGuardiasTotales().get(3);
+//		
+//		ArrayList<Bus> listaBusesAzkaban = azkaban.getBuses();
+//		ArrayList<Bus> listaBusesTorreOscura = torreOscura.getBuses();
+//		ArrayList<Reo> prisionerosFA = new ArrayList<Reo>(); 
+//		
+//		prisionerosFA.add(alejandro);
+//		prisionerosFA.add(faidher);
+//		
+//		System.out.println(prisionerosFA.get(0).getPrision().getNombre());
+//		System.out.println(torreOscura.getNombre());
+//		
+//		System.out.println(torreOscura.getReos().size());
+//		System.out.println(!(prisionerosFA.get(0).getPrision().getNombre().equals(torreOscura.getNombre())));
+//		ArrayList<Guardia> guardiasFA = new ArrayList<Guardia>();
+//		guardiasFA.add(julian);
+//		guardiasFA.add(oswaldo);
 		
 		
 		/////////////////////////////PRISIONES POR DEFECTO//////////////////////////////////////
@@ -71,15 +112,17 @@ public class Alcaide {
 		guardiasFA.add(oswaldo);
 		guardiasFA.add(julian);
 		
-//		System.out.println(Prision.getPrisiones().get(0).getNombre());
-//		System.out.println(Prision.getPrisiones().get(1).getNombre());
-//		System.out.println(Prision.getPrisionesCreadas());
-		//Serializador.serializarTodo();
+		System.out.println(prisionerosFA.size());
+		System.out.println(!(prisionerosFA.get(0).getPrision().getNombre().equals(azkaban.getNombre())));
+		System.out.println(Prision.getPrisionesCreadas());
+		Serializador.serializarTodo();
 		
-	//}
-	//}
-//}
-//}
+	
+	
+
+
+
+
 		//Deserializador.deserializarTodo();
 		int opcion;
 		do {
@@ -135,7 +178,7 @@ public class Alcaide {
 			float b = 200;
 			float k = reo.getCondena()- a/b;
 			reo.setCondena(k);
-			System.out.println("Ahora la condena del reo "+reo.getNombre()+" será "+reo.getCondena());
+			System.out.println("Ahora la condena del reo "+reo.getNombre()+" será de "+reo.getCondena()+" años.");
 			reo.setComportamiento(0);
 			//reo.setHorasTrabajadasTotales(0);
 			//Trabajo.renunciarTrabajoReo(reo);

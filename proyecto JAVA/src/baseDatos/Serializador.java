@@ -1,11 +1,11 @@
 package baseDatos;
 
-import java.io.File;
+//import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
+//import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import gestorAplicacion.bienes.Bus;
@@ -16,7 +16,7 @@ import gestorAplicacion.departamentos.Prision;
 import gestorAplicacion.personal.Reo;
 import gestorAplicacion.personal.Guardia;
 import gestorAplicacion.personal.Trabajo;
-import uiMain.Alcaide;
+//import uiMain.Alcaide;
 
 public class Serializador {
 	/**

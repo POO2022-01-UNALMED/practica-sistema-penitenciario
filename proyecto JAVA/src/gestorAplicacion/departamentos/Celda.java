@@ -1,11 +1,11 @@
 package gestorAplicacion.departamentos;
 
 import java.io.Serializable;
-import java.util.List;
+//import java.util.List;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import gestorAplicacion.personal.*;
-import gestorAplicacion.bienes.*;
+//import gestorAplicacion.bienes.*;
 import java.time.LocalDateTime;
 
 public class Celda implements Serializable{

@@ -1,12 +1,12 @@
 package gestorAplicacion.personal;
 
 import java.io.Serializable;
-import java.util.List;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import gestorAplicacion.bienes.*;
-import gestorAplicacion.departamentos.*;
+//import gestorAplicacion.bienes.*;
+//import gestorAplicacion.departamentos.*;
 
 public class Trabajo implements Serializable{
 	

@@ -3,9 +3,9 @@ package gestorAplicacion.personal;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
+//import java.util.List;
 import java.util.ArrayList;
-import gestorAplicacion.bienes.*;
+//import gestorAplicacion.bienes.*;
 import gestorAplicacion.departamentos.*;
 
 public class Reo implements Persona, Serializable{

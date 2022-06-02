@@ -49,8 +49,6 @@ public class Prision implements Serializable{
 	
 	public Prision(String nombre ) {
 		this(100, "Antioquia", nombre);
-		prisiones.add(this);
-		prisionesCreadas++;
 	} 
 	
 	public Prision(int numReos, String localizacion, String nombre) {

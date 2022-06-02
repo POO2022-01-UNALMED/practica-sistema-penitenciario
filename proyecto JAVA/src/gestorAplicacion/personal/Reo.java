@@ -85,20 +85,21 @@ public class Reo implements Persona, Serializable{
 			int ConstTrab = this.getTrabajo().getConstanteTrabajo();
 			int HorasDelTurno = this.getTrabajo().getHorasQueLlevaHacerUnTurno();
 			
-			this.getTrabajo().sumarHorasTrabajadas();
+			this.trabajo.sumarHorasTrabajadas(this.trabajo.getHorasQueLlevaHacerUnTurno());
 			this.sumarComportamiento(ConstTrab*HorasDelTurno); 
 			
 			//A�ade al historial
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
+			
 			prision.addHistorialTrabajos("El reo: "+this.nombre+", con codigo: "+this.codigo+", "
-					+ "ha ido a trabajar de "+this.getTrabajo().getNombre()+". "
-					+ "Sumando un total de: "+this.trabajo.getHorasTrabajadas()+" horas trabajadas en este oficio, "
-					+ "y un total de: "+this.horasTrabajadasTotales+" horas trabajadas en total"+Tiempo);
+					+ "ha ido a trabajar de "+this.trabajo.getNombre()+". "
+					+ "Se fue a hacer un turno de "+ this.trabajo.getHorasQueLlevaHacerUnTurno() +" horas y lleva un total de"
+							+ ": "+this.horasTrabajadasTotales+" horas trabajadas en total"+Tiempo);
 			return "El reo: "+this.nombre+", con codigo: "+this.codigo+", "
-			+ "ha ido a trabajar de "+this.getTrabajo().getNombre()+". "
-			+ "Sumando un total de: "+this.trabajo.getHorasTrabajadas()+" horas trabajadas en este oficio, "
-			+ "y un total de: "+this.horasTrabajadasTotales+" horas trabajadas en total"+Tiempo;
+			+ "ha ido a trabajar de "+this.trabajo.getNombre()+". "
+			+ "Se fue a hacer un turno de "+ this.trabajo.getHorasQueLlevaHacerUnTurno() +" horas y lleva un total de"
+					+ ": "+this.horasTrabajadasTotales+" horas trabajadas en total"+Tiempo;
 		}
 		
 	}

@@ -61,10 +61,16 @@ public class Trabajo implements Serializable{
 	///////// Setters y getters
 	
 
-	public void sumarHorasTrabajadas() {
-		this.horasTrabajadas += this.getHorasQueLlevaHacerUnTurno();
+	public void sumarHorasTrabajadas(int x) {
+		
+		horasTrabajadas += x;
+		
 		this.reo.sumarHorasTrabajadasTotales(this.getHorasQueLlevaHacerUnTurno());
 	}
+	
+//	private void sumarHorasTrabajadasDelTurno(int x) {
+//		this.horasTrabajadas += x;
+//	}
 
 	public OpcionTrabajo getTrabajo() {
 		return trabajo;

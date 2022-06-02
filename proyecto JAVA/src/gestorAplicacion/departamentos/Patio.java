@@ -16,6 +16,8 @@ public abstract class Patio implements Serializable{
 	private ArrayList<String> historialPatio=new ArrayList<String>();
 	
 	/////////Constructor para las clases hijas
+	
+	
 
 	public Patio(int capacidad, String nombre, ArrayList<Reo> reos, ArrayList<Guardia> guardias) {
 		super();

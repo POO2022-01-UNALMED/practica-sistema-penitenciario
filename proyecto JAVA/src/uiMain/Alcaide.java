@@ -23,99 +23,104 @@ public class Alcaide {
 
 	public static void main(String[] args) {
 		
-//		Deserializador.deserializarTodo();
-//		Prision azkaban = Prision.getPrisiones().get(0);
-//		Prision torreOscura = Prision.getPrisiones().get(1);
-//		
-////		Reo genner = azkaban.getReos().get(0);
-////		Reo andres = azkaban.getReos().get(1);
-////		Reo faidher = torreOscura.getReos().get(0);
-////		Reo alejandro = torreOscura.getReos().get(1);
-//		
+		Deserializador.deserializarTodo();
+		Prision azkaban = Prision.getPrisiones().get(0);
+		Prision orthanac = Prision.getPrisiones().get(1);
+		
+		Reo genner = azkaban.getReos().get(0);
+		Reo andres = azkaban.getReos().get(1);
+		Reo faidher = orthanac.getReos().get(0);
+		Reo alejandro = orthanac.getReos().get(1);
+		
 //		Reo genner = Reo.getReosTotales().get(0);
 //		Reo andres = Reo.getReosTotales().get(1);
 //		Reo faidher = Reo.getReosTotales().get(2);
 //		Reo alejandro = Reo.getReosTotales().get(3);
-//		
-//		System.out.println(azkaban.getGuardias().size());
-//		
-////		Guardia jaime = azkaban.getGuardias().get(0);
-////		Guardia david = Prision.getPrisiones().get(0).getGuardias().get(1);
-////		Guardia julian = Prision.getPrisiones().get(1).getGuardias().get(0);
-////		Guardia oswaldo = Prision.getPrisiones().get(1).getGuardias().get(1);
-//		
+		
+		System.out.println(azkaban.getGuardias().size());
+		
+		Guardia jaime = azkaban.getGuardias().get(0);
+		Guardia david = azkaban.getGuardias().get(1);
+		Guardia julian = orthanac.getGuardias().get(0);
+		Guardia oswaldo = orthanac.getGuardias().get(1);
+		
 //		Guardia jaime = Guardia.getGuardiasTotales().get(0);
 //		Guardia david = Guardia.getGuardiasTotales().get(1);
 //		Guardia julian = Guardia.getGuardiasTotales().get(2);
 //		Guardia oswaldo = Guardia.getGuardiasTotales().get(3);
-//		
-//		ArrayList<Bus> listaBusesAzkaban = azkaban.getBuses();
-//		ArrayList<Bus> listaBusesTorreOscura = torreOscura.getBuses();
-//		ArrayList<Reo> prisionerosFA = new ArrayList<Reo>(); 
-//		
-//		prisionerosFA.add(alejandro);
-//		prisionerosFA.add(faidher);
-//		
-//		System.out.println(prisionerosFA.get(0).getPrision().getNombre());
-//		System.out.println(torreOscura.getNombre());
-//		
-//		System.out.println(torreOscura.getReos().size());
-//		System.out.println(!(prisionerosFA.get(0).getPrision().getNombre().equals(torreOscura.getNombre())));
-//		ArrayList<Guardia> guardiasFA = new ArrayList<Guardia>();
-//		guardiasFA.add(julian);
-//		guardiasFA.add(oswaldo);
 		
-		
-		/////////////////////////////PRISIONES POR DEFECTO//////////////////////////////////////
-		Prision azkaban = new Prision("Azkaban");
-		Prision torreOscura = new Prision("Torre Oscura");
-		
-		///////////////////////////////REOS POR DEFECTO//////////////////////////////////////////////
-		Reo genner = new Reo("Genner",1001, true, 10);
-		Reo andres = new Reo("Andres",1002, true, 10);
-		Reo faidher= new Reo("Faidher",1003, true, 10);
-		Reo alejandro = new Reo("Alejandro",1001, true, 10);
-		
-		//////////////////////////////GUARDIAS POR DEFECTO//////////////////////////////////////////
-		Guardia jaime = new Guardia("Jaime", 2001, azkaban, Rango.oficial);
-		Guardia david = new Guardia("David", 2003, azkaban, Rango.carcelero);
-		Guardia julian = new Guardia("Julian", 2002, torreOscura, Rango.oficial);
-		Guardia oswaldo = new Guardia("Oswaldo", 2004, torreOscura, Rango.carcelero);
-		//Guardia aprendiz = new Guardia("Aprendiz", 2005, torreOscura, Rango.bachiller);
-		
-		//////////////////////////////LISTADO DE BUSES POR DEFECTO/////////////////////////////////
-		ArrayList<Bus> listaBusesAzkaban = new ArrayList<Bus>();
-		for (int i = 0; i < 6; i++) {
-			listaBusesAzkaban.add(new Bus(azkaban));
-		}
-		ArrayList<Bus> listaBusesTorreOscura = new ArrayList<Bus>();
-		for (int i = 0; i < 6; i++) {
-			listaBusesTorreOscura.add(new Bus(torreOscura));
-		}
-		/////////////////////////////ASIGNACION DE REOS A PRISIONES/////////////////////////
-		genner.setPrision(azkaban);
-		andres.setPrision(azkaban);
-		faidher.setPrision(torreOscura);
-		alejandro.setPrision(torreOscura);
-		
-		//azkaban.getBibliotecas().get(0).ingresarReos(genner);
-		//azkaban.getGimnasios().get(0).ingresarReos(andres);
-		jaime.meterReoPatio(andres, azkaban.getGimnasios().get(0));
-		jaime.meterReoPatio(genner, azkaban.getBibliotecas().get(0));
+		ArrayList<Bus> listaBusesAzkaban = azkaban.getBuses();
+		ArrayList<Bus> listaBusesOrthanac = orthanac.getBuses();
 		
 		ArrayList<Reo> prisionerosFA = new ArrayList<Reo>(); 
+	
 		prisionerosFA.add(alejandro);
 		prisionerosFA.add(faidher);
 		
-		ArrayList<Guardia> guardiasFA = new ArrayList<Guardia>();
-		//guardiasFA.add(aprendiz);
-		guardiasFA.add(oswaldo);
-		guardiasFA.add(julian);
+		System.out.println(prisionerosFA.get(0).getPrision().getNombre());
+		System.out.println(orthanac.getNombre());
 		
-		System.out.println(prisionerosFA.size());
-		System.out.println(!(prisionerosFA.get(0).getPrision().getNombre().equals(azkaban.getNombre())));
-		System.out.println(Prision.getPrisionesCreadas());
-		Serializador.serializarTodo();
+		System.out.println(orthanac.getReos().size());
+		System.out.println(!(prisionerosFA.get(0).getPrision().getNombre().equals(orthanac.getNombre())));
+		
+		ArrayList<Guardia> guardiasFA = new ArrayList<Guardia>();
+		guardiasFA.add(julian);
+		guardiasFA.add(oswaldo);
+		
+		
+		/////////////////////////////PRISIONES POR DEFECTO//////////////////////////////////////
+//		Prision azkaban = new Prision(100, "Inglaterra", "Azkaban");
+//		Prision orthanac = new Prision(50, "Tierra Media", "Orthanc");
+//		
+//		///////////////////////////////REOS POR DEFECTO//////////////////////////////////////////////
+//		Reo genner = new Reo("Genner",1001, true, 10);
+//		Reo andres = new Reo("Andres",1002, true, 10);
+//		Reo faidher= new Reo("Faidher",1003, true, 10);
+//		Reo alejandro = new Reo("Alejandro",1001, true, 10);
+//		
+//		//////////////////////////////GUARDIAS POR DEFECTO//////////////////////////////////////////
+//		Guardia jaime = new Guardia("Jaime", 2001, azkaban, Rango.oficial);
+//		Guardia david = new Guardia("David", 2003, azkaban, Rango.carcelero);
+//		Guardia julian = new Guardia("Julian", 2002, orthanac, Rango.oficial);
+//		Guardia oswaldo = new Guardia("Oswaldo", 2004, orthanac, Rango.carcelero);
+//		//Guardia aprendiz = new Guardia("Aprendiz", 2005, orthanac, Rango.bachiller);
+//		
+//		System.out.println(azkaban.getGuardias().size());
+//		
+//		//////////////////////////////LISTADO DE BUSES POR DEFECTO/////////////////////////////////
+//		ArrayList<Bus> listaBusesAzkaban = new ArrayList<Bus>();
+//		for (int i = 0; i < 6; i++) {
+//			listaBusesAzkaban.add(new Bus(azkaban));
+//		}
+//		ArrayList<Bus> listaBusesOrthanac = new ArrayList<Bus>();
+//		for (int i = 0; i < 6; i++) {
+//			listaBusesOrthanac.add(new Bus(orthanac));
+//		}
+//		/////////////////////////////ASIGNACION DE REOS A PRISIONES/////////////////////////
+//		genner.setPrision(azkaban);
+//		andres.setPrision(azkaban);
+//		faidher.setPrision(orthanac);
+//		alejandro.setPrision(orthanac);
+//		
+//		
+//		//azkaban.getBibliotecas().get(0).ingresarReos(genner);
+//		//azkaban.getGimnasios().get(0).ingresarReos(andres);
+//		jaime.meterReoPatio(andres, azkaban.getGimnasios().get(0));
+//		jaime.meterReoPatio(genner, azkaban.getBibliotecas().get(0));
+//		
+//		ArrayList<Reo> prisionerosFA = new ArrayList<Reo>(); 
+//		prisionerosFA.add(alejandro);
+//		prisionerosFA.add(faidher);
+//		
+//		ArrayList<Guardia> guardiasFA = new ArrayList<Guardia>();
+//		//guardiasFA.add(aprendiz);
+//		guardiasFA.add(oswaldo);
+//		guardiasFA.add(julian);
+//		
+////		System.out.println(prisionerosFA.size());
+////		System.out.println(!(prisionerosFA.get(0).getPrision().getNombre().equals(azkaban.getNombre())));
+////		System.out.println(Prision.getPrisionesCreadas());
+//		Serializador.serializarTodo();
 		
 	
 	
@@ -136,7 +141,7 @@ public class Alcaide {
 			opcion = (int) readLong();
 			
 			switch(opcion) {
-				case 1: moverReos(prisionerosFA, guardiasFA,torreOscura, azkaban, listaBusesTorreOscura, jaime); break;
+				case 1: moverReos(prisionerosFA, guardiasFA,orthanac, azkaban, listaBusesOrthanac, jaime); break;
 				case 2: verHistorial(azkaban); break;
 				case 3: reducirCondena(andres); break;
 				case 4: recrearReo(genner,jaime, 10); break;
@@ -205,16 +210,22 @@ public class Alcaide {
 			//Trabajo.asignarTrabajoReo(reo, op);
 			//System.out.println(reo.trabajar());
 		if (reo.getPatio() instanceof Biblioteca) {
-			Trabajo.asignarTrabajoReo(reo, OpcionTrabajo.Bibliotecario);
-			System.out.println(reo.trabajar());
+			if(reo.getTrabajo() == null || reo.getTrabajo().getTrabajo()!=OpcionTrabajo.Bibliotecario ) {
+				Trabajo.asignarTrabajoReo(reo, OpcionTrabajo.Bibliotecario);
+			}
+				System.out.println(reo.trabajar());
 			}
 		else if (reo.getPatio() instanceof Gimnasio) {
-			Trabajo.asignarTrabajoReo(reo, OpcionTrabajo.Profesor);
+			if(reo.getTrabajo() == null || reo.getTrabajo().getTrabajo()!=OpcionTrabajo.Profesor ) {
+				Trabajo.asignarTrabajoReo(reo, OpcionTrabajo.Profesor);
+			}
 			System.out.println(reo.trabajar());
 			
 		}
 		else {
-			Trabajo.asignarTrabajoReo(reo, OpcionTrabajo.Barrendero);
+			if(reo.getTrabajo() == null || reo.getTrabajo().getTrabajo()!=OpcionTrabajo.Barrendero ) {
+				Trabajo.asignarTrabajoReo(reo, OpcionTrabajo.Barrendero);
+			}
 			System.out.println(reo.trabajar());
 		}
 			

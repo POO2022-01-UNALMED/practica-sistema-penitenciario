@@ -24,7 +24,7 @@ public class Reo implements Persona, Serializable{
 	private static ArrayList<Reo> reosTotales = new ArrayList<Reo>();
 	private static ArrayList<String> historialReos = new ArrayList<String>();
 	
-	// a�adir un enum?
+	
 	
 	/////////////Constructores
 	
@@ -47,7 +47,7 @@ public class Reo implements Persona, Serializable{
 		//A�ade al historial
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
-		prision.addHistorialReos("El reo: "+nombre+", con c�digo: "+codigo+", ha ingreado con "+condena+" a�os de condena a la prisi�n: "+prision.getNombre()+Tiempo);
+		prision.addHistorialReos("El reo: "+nombre+", con codigo: "+codigo+", ha ingreado con "+condena+" a�os de condena a la prision: "+prision.getNombre()+Tiempo);
 		
 	}
 
@@ -59,7 +59,7 @@ public class Reo implements Persona, Serializable{
 			//A�ade al historial
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
-			prision.addHistorialReos("El reo: "+nombre+", con c�digo: "+codigo+" no se le pudo asignar celda porque est� llena"+Tiempo);
+			prision.addHistorialReos("El reo: "+nombre+", con codigo: "+codigo+" no se le pudo asignar celda porque esta llena"+Tiempo);
 	
 		}
 		else {
@@ -69,7 +69,7 @@ public class Reo implements Persona, Serializable{
 			//A�ade al historial
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
-			prision.addHistorialReos("El reo: "+nombre+", con c�digo: "+codigo+", ha ingreado a la celda n�mero: "+celda.getNumCelda()+Tiempo);
+			prision.addHistorialReos("El reo: "+nombre+", con codigo: "+codigo+", ha ingreado a la celda numero: "+celda.getNumCelda()+Tiempo);
 		}
 		
 		
@@ -155,15 +155,15 @@ public class Reo implements Persona, Serializable{
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
 		
 		if(this.getPrision() != null) {
-			this.prision.addHistorialReos("El reo: "+this.nombre+", con c�digo: "+this.codigo+" ha salido de la prisi�n: "+this.prision.getNombre()+", y ser� trasladado a: "+prision.getNombre()+Tiempo);
-			prision.addHistorialReos("El reo: "+this.nombre+", con c�digo: "+this.codigo+" ha salido de la prisi�n: "+this.prision.getNombre()+", y ser� trasladado a: "+prision.getNombre()+Tiempo);
+			this.prision.addHistorialReos("El reo: "+this.nombre+", con codigo: "+this.codigo+" ha salido de la prision: "+this.prision.getNombre()+", y sera trasladado a: "+prision.getNombre()+Tiempo);
+			prision.addHistorialReos("El reo: "+this.nombre+", con codigo: "+this.codigo+" ha salido de la prision: "+this.prision.getNombre()+", y sera trasladado a: "+prision.getNombre()+Tiempo);
 			this.prision.getReos().remove(this);
 			this.prision = prision;
 			prision.addReos(this);			
 		}else {
 			this.prision=prision;
 			prision.addReos(this);
-			prision.addHistorialReos("El reo: "+this.nombre+", con c�digo: "+this.codigo+" ha ingresado a la prision: "+prision.getNombre()+Tiempo);
+			prision.addHistorialReos("El reo: "+this.nombre+", con codigo: "+this.codigo+" ha ingresado a la prision: "+prision.getNombre()+Tiempo);
 		}
 		
 		
@@ -178,7 +178,7 @@ public class Reo implements Persona, Serializable{
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
 		if	(celda == null) {
-			this.prision.addHistorialReos("El reo: "+this.nombre+", con c�digo: "+this.codigo+" ha sido sacado de la celda n�mero: "+this.celda.getNumCelda()+Tiempo);
+			this.prision.addHistorialReos("El reo: "+this.nombre+", con codigo: "+this.codigo+" ha sido sacado de la celda numero: "+this.celda.getNumCelda()+Tiempo);
 			this.celda=null;
 			return;
 		}
@@ -187,17 +187,17 @@ public class Reo implements Persona, Serializable{
 					this.getCelda().sacarReo(this);
 					celda.asignarReo(this);
 					this.celda=celda;
-					this.prision.addHistorialReos("El reo: "+this.nombre+", con c�digo: "+this.codigo+" ha sido trasladado a la celda n�mero: "+this.celda.getNumCelda()+Tiempo);
+					this.prision.addHistorialReos("El reo: "+this.nombre+", con codigo: "+this.codigo+" ha sido trasladado a la celda numero: "+this.celda.getNumCelda()+Tiempo);
 			}
 				
 			else {
 				celda.asignarReo(this);
 				this.celda=celda;
-				this.prision.addHistorialReos("El reo: "+this.nombre+", con c�digo: "+this.codigo+" ha sido trasladado a la celda n�mero: "+this.celda.getNumCelda()+Tiempo);
+				this.prision.addHistorialReos("El reo: "+this.nombre+", con codigo: "+this.codigo+" ha sido trasladado a la celda numero: "+this.celda.getNumCelda()+Tiempo);
 			}
 		}
 		else {
-			this.prision.addHistorialReos("El reo: "+this.nombre+", con c�digo: "+this.codigo+" no se puede trasladas a esta celda porque est� llena"+Tiempo);
+			this.prision.addHistorialReos("El reo: "+this.nombre+", con codigo: "+this.codigo+" no se puede trasladas a esta celda porque esta llena"+Tiempo);
 		}
 	}
 
@@ -213,16 +213,16 @@ public class Reo implements Persona, Serializable{
 		if (trabajo == null) {
 			this.trabajo=trabajo;
 			//ya se removio de la lista de prision en la clase Trabajo
-			this.prision.addHistorialReos("El reo: "+this.nombre+", con c�digo: "+this.codigo+"ha renunciado a su trabajo"+Tiempo);
+			this.prision.addHistorialReos("El reo: "+this.nombre+", con codigo: "+this.codigo+", ha renunciado a su trabajo"+Tiempo);
 			return	;
 		}
 		if (this.getPrision() != null) {
 			this.trabajo = trabajo;
 			this.getPrision().getTrabajos().add(trabajo);
-			this.prision.addHistorialReos("El reo: "+this.nombre+", con c�digo: "+this.codigo+"ha ingresado al trabajo de "+this.trabajo.getNombre()+Tiempo);
+			this.prision.addHistorialReos("El reo: "+this.nombre+", con codigo: "+this.codigo+", ha ingresado al trabajo de "+this.trabajo.getNombre()+Tiempo);
 		}
 		else {
-			this.prision.addHistorialReos("El reo: "+this.nombre+", con c�digo: "+this.codigo+"no puedo ingresar al trabajo de "+this.trabajo.getNombre()+" porque no tiene asignada una prisi�n"+Tiempo);
+			this.prision.addHistorialReos("El reo: "+this.nombre+", con codigo: "+this.codigo+", no puedo ingresar al trabajo de "+this.trabajo.getNombre()+" porque no tiene asignada una prision"+Tiempo);
 		}
 		
 		

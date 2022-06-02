@@ -38,8 +38,8 @@ public class Trabajo implements Serializable{
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = dtf.format(LocalDateTime.now())+".";
 		
-		reo.getPrision().addHistorialTrabajos("El reo: "+reo.getNombre()+", con c�digo: "+reo.getCodigo()+", se ha inscrito al trabajo: "+trabajo.getNombre()+". "+Tiempo);
-		return "El reo: "+reo.getNombre()+", con c�digo: "+reo.getCodigo()+", se ha inscrito al trabajo: "+trabajo.getNombre()+". "+Tiempo;
+		reo.getPrision().addHistorialTrabajos("El reo: "+reo.getNombre()+", con codigo: "+reo.getCodigo()+", se ha inscrito al trabajo: "+trabajo.getNombre()+". "+Tiempo);
+		return "El reo: "+reo.getNombre()+", con codigo: "+reo.getCodigo()+", se ha inscrito al trabajo: "+trabajo.getNombre()+". "+Tiempo;
 		
 	}
 	
@@ -55,7 +55,7 @@ public class Trabajo implements Serializable{
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = dtf.format(LocalDateTime.now())+".";
 		
-		reo.getPrision().addHistorialTrabajos("El reo: "+reo.getNombre()+", con c�digo: "+reo.getCodigo()+", ha renunciado a su trabajo como: "+NombreDeTrabajoARenunciar+". "+Tiempo);
+		reo.getPrision().addHistorialTrabajos("El reo: "+reo.getNombre()+", con codigo: "+reo.getCodigo()+", ha renunciado a su trabajo como: "+NombreDeTrabajoARenunciar+". "+Tiempo);
 	}
 	
 	///////// Setters y getters

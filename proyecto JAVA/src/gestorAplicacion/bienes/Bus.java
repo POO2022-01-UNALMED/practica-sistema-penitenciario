@@ -30,14 +30,16 @@ public class Bus implements Serializable{
 		this.prision = prision;
 		this.historialBus = new ArrayList<String>();
 		prision.getBuses().add(this);
+		busesTotales.add(this);
 	}
 	
 	//////////Metodos
 	
 	//////////// se asume que los reos seleccionados pertenecen todos a una misma instancia de prision
 	public String llevarReos(ArrayList<Reo> reos, ArrayList<Guardia> guardias,Prision prisionOriginal, Prision prisionDestino ) {
-		if (prisionOriginal.getReos().size() == 0 || !(reos.get(0).getPrision().getNombre().equals(prisionOriginal.getNombre()))) {
-			return "No hay reos en la prisión original o los reos que seleccionó NO pertenecen a la prision original";
+//		if (prisionOriginal.getReos().size() == 0 || !(reos.get(0).getPrision().getNombre().equals(prisionOriginal.getNombre()))) {
+		if (prisionOriginal.getReos().size() == 0 || reos.get(0).getPrision() != prisionOriginal) {
+			return "No hay reos que trasladar en la prisión original o los reos que seleccionó NO pertenecen a la prision original";
 		}
 		else {
 			if (reos.size()+guardias.size() <= 30){

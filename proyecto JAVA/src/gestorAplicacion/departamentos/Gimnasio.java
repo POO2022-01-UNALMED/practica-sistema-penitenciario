@@ -31,12 +31,12 @@ public class Gimnasio extends Patio implements Serializable{
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			getReos().add(reo);
 			String str1 = reo.getNombre();
-			super.addHistorialPatio("Has ingresado al reo: "+ str1 +" a ejercitarsen, ojala no se vuelvan mas fuertes que los guardias y hagan un motin. El número actual de reos en el gimnasio "+this.getNombre()+" es de "+this.getCantidadReos() +" "+ dtf.format(LocalDateTime.now())+"\n");
+			super.addHistorialPatio("Has ingresado al reo: "+ str1 +", de código: "+reo.getCodigo()+", a ejercitarse, ojala no se vuelvan mas fuertes que los guardias y hagan un motin. El número actual de reos en el gimnasio "+this.getNombre()+" es de "+this.getCantidadReos() +" "+ dtf.format(LocalDateTime.now())+"\n");
 			this.prision.addHistoriaPrision(getHistorialPatio().get(getHistorialPatio().size()-1));
-			return ("Has ingresado al reo: "+ str1 +" a ejercitarsen, ojala no se vuelvan mas fuertes que los guardias y hagan un motin");	
+			return ("Has ingresado al reo: "+ str1 +", de código: "+reo.getCodigo()+", a ejercitarse, ojala no se vuelvan mas fuertes que los guardias y hagan un motin");	
 		}
 		else{
-			return("Has colocado una cantidad de Reos que excede la capacidad de la biblioteca");
+			return("Has colocado una cantidad de Reos que excede la capacidad del gimnasio");
 		}
 	}
 	public String sacarReos(Reo reo) {

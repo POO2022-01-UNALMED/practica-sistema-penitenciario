@@ -43,6 +43,7 @@ public class Prision implements Serializable{
 		this.localizacion="Facultad de Minas";
 		this.numReos = 70;
 		this.nombre = "Clase de POO";
+		//jejejeje.
 		prisiones.add(this);
 		prisionesCreadas++;
 	}
@@ -88,6 +89,9 @@ public class Prision implements Serializable{
 	
 	public void addHistorialTrabajos(String s) {
 		this.historialTrabajos.add(s);
+		int ult = historialTrabajos.size()-1;
+		String stringTrabajos = this.historialTrabajos.get(ult)+"\n";
+		this.historialPrision+=stringTrabajos;
 		
 	}
 	private ArrayList<Biblioteca> generarBibliotecas() {
@@ -276,10 +280,4 @@ public class Prision implements Serializable{
 	}
 	
 }
-	
-	
-	
-	
-	
-	
 	

@@ -75,7 +75,7 @@ public class Gimnasio extends Patio implements Serializable{
 		String aviso = "Reducción de "+k+" a "+reo.getCondena()+"para el reo con código "+reo.getCodigo()+" "+ dtf2.format(LocalDateTime.now())+"\n";
 		super.addHistorialPatio(aviso);
 		this.prision.addHistoriaPrision(getHistorialPatio().get(getHistorialPatio().size()-1));
-		return ("El reo con codigo "+reo.getCodigo()+"cuyo nombre es"+reo.getNombre()+" ha levantado pesas durante "+horas+
+		return ("El reo con codigo "+reo.getCodigo()+" cuyo nombre es "+reo.getNombre()+" ha levantado pesas durante "+horas+
 				" horas, por tanto se le rebaja por cada dos horas de ejercicio una hora de condena.");
 		
 	}

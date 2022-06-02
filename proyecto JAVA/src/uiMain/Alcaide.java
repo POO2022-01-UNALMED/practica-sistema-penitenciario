@@ -80,7 +80,7 @@ public class Alcaide {
 	//}
 //}
 //}
-		Deserializador.deserializarTodo();
+		//Deserializador.deserializarTodo();
 		int opcion;
 		do {
 			System.out.println("Que operación desea realizar?");
@@ -96,8 +96,8 @@ public class Alcaide {
 				case 1: moverReos(prisionerosFA, guardiasFA,torreOscura, azkaban, listaBusesTorreOscura, jaime); break;
 				case 2: verHistorial(azkaban); break;
 				case 3: reducirCondena(andres); break;
-				case 4: recrearReo(genner,azkaban.getBibliotecas().get(0), 10); break;
-				case 5: trabajarReo(andres, OpcionTrabajo.Barrendero); break;
+				case 4: recrearReo(genner,jaime, 10); break;
+				case 5: trabajarReo(andres); break;
 				case 6:
 					Serializador.serializarTodo();
 					break;
@@ -127,33 +127,55 @@ public class Alcaide {
 			reo.getPrision().getReos().remove(reo.getPrision().getReos().indexOf(reo));
 			System.out.println("El reo con nombre: "+ reo.getNombre()+" y cuyo codigo es " + reo.getCodigo()
 			+" ha tenido un buen comportamiento durante su estadía en prision y por tanto queda liberado.");
+			reo = null;
 		}
 		else if (reo.getTrabajo() != null) {
-			System.out.println(reo.getComportamiento());
+			//System.out.println(reo.getComportamiento());
 			float a = reo.getComportamiento();
 			float b = 200;
 			float k = reo.getCondena()- a/b;
 			reo.setCondena(k);
 			System.out.println("Ahora la condena del reo "+reo.getNombre()+" será "+reo.getCondena());
-			reo.setHorasTrabajadasTotales(0);
-			Trabajo.renunciarTrabajoReo(reo);
+			reo.setComportamiento(0);
+			//reo.setHorasTrabajadasTotales(0);
+			//Trabajo.renunciarTrabajoReo(reo);
 			
 		}
 		else {
 			System.out.println("El reo "+reo.getNombre()+" no tiene trabajo, asignele uno");
 		}
 	}
-	static void recrearReo(Reo reo,Biblioteca biblioteca, int horas){
-		System.out.println(reo.recrear(biblioteca, 10));
+	static void recrearReo(Reo reo,Guardia guardia, int horas){
+		if (reo.getPatio() instanceof Biblioteca) {
+			System.out.println(reo.recrear((Biblioteca)reo.getPatio(), horas));
+		}
+		else if (reo.getPatio() instanceof Gimnasio) {
+			System.out.println(reo.recrear((Gimnasio)reo.getPatio(), horas));
+		}
+		else {
+			System.out.println(guardia.meterReoPatio(reo, reo.getPrision().getBibliotecas().get(0)));
+			System.out.println(reo.recrear((Biblioteca)reo.getPatio(), horas));
+		}
+		
 	}
-	static void recrearReo(Reo reo,Gimnasio gimnasio, int horas){
-		System.out.println(reo.recrear(gimnasio, 10));
-	}
-	static void trabajarReo(Reo reo, OpcionTrabajo op){
-			Trabajo.asignarTrabajoReo(reo, op);
+	static void trabajarReo(Reo reo){
+			//Trabajo.asignarTrabajoReo(reo, op);
+			//System.out.println(reo.trabajar());
+		if (reo.getPatio() instanceof Biblioteca) {
+			Trabajo.asignarTrabajoReo(reo, OpcionTrabajo.Bibliotecario);
+			System.out.println(reo.trabajar());
+			}
+		else if (reo.getPatio() instanceof Gimnasio) {
+			Trabajo.asignarTrabajoReo(reo, OpcionTrabajo.Profesor);
 			System.out.println(reo.trabajar());
 			
 		}
-		
-		
+		else {
+			Trabajo.asignarTrabajoReo(reo, OpcionTrabajo.Barrendero);
+			System.out.println(reo.trabajar());
+		}
+			
 	}
+		
+		
+}

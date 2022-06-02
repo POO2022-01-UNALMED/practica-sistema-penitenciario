@@ -44,9 +44,9 @@ public class Guardia implements Persona, Serializable{
 		prision.getGuardias().add(this);
 		
 		//A�ade al historial
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
-		prision.addHistorialGuardias("El bachiller "+nombre+", con codigo: "+codigo+", ha sido trasladado a la prision: "+prision.getNombre()+Tiempo);
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+			String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
+			prision.addHistorialGuardias("El bachiller "+nombre+", con codigo: "+codigo+", ha sido trasladado a la prision: "+prision.getNombre()+Tiempo);
 		
 	}
 	
@@ -58,14 +58,17 @@ public class Guardia implements Persona, Serializable{
 		this.rango = rango;
 		prision.getGuardias().add(this);
 		
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
-		prision.addHistorialGuardias("El "+rango.getRango()+" "+nombre+", con codigo: "+codigo+", ha sido trasladado a la prision: "+prision.getNombre()+Tiempo);
+		//Añade al historial
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");	
+			String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
+			prision.addHistorialGuardias("El "+rango.getRango()+" "+nombre+", con codigo: "+codigo+", ha sido trasladado a la prision: "+prision.getNombre()+Tiempo);
 		
 	}
 
 
 	//////////Metodos
+	
+	//El siguiente método es sencillo, simplemente sube el rango de guardia, si ya es oficial no pasa nada
 	
 	public void promocionarGuardia() {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -88,19 +91,29 @@ public class Guardia implements Persona, Serializable{
 		
 	}
 	
+	//El guardia intenta llevar el reo a una celda que se seleccione.
+	
+	
 	public String meterReoCelda(Reo reo, Celda celda) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
 		
+		//Si es un bachiller se niega el acceso a este método diciendo que no tiene los privilegios para ejecutarlo 
 		if (this.rango == Rango.bachiller) {
 			
 			prision.addHistorialGuardias("El bachiller "+this.nombre+", de c�digo: "+this.codigo+", ha intentado meter el reo de codigo: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero no tiene los permisos para realizar esta accion"+Tiempo);
 			return "El bachiller "+this.nombre+", de codigo: "+this.codigo+", ha intentado meter el reo de codigo: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero no tiene los permisos para realizar esta accion"+Tiempo;
 		}
+		
+		//despues de confirmar que el guardia sí puede ejecutar la accion procedemos a revisar si se puede ingresar a la celda
+		//si no es null es porque este ya está en una celda 
 		else if(reo.getCelda() != null) {
 			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de codigo: "+this.codigo+", ha intentado meter al reo de codigo: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero este ya esta en una celda"+Tiempo);
 			return "El "+this.rango.getRango()+" "+this.nombre+", de codigo: "+this.codigo+", ha intentado meter al reo de codigo: "+reo.getCodigo()+" a la celda: "+celda.getNumCelda()+", pero este ya esta en una celda"+Tiempo;
 		}
+		
+		//en caso de ser null revisamos que la celda deseada tenga espacio disponible, cada celda tiene un máximo de 2 reos para albergar
+		
 		else if(celda.getReosPertenecientes().size()+1 <= 2){
 			//celda.asignarReo(reo);
 			reo.setCelda(celda);
@@ -114,6 +127,10 @@ public class Guardia implements Persona, Serializable{
 		}
 				
 	}
+	
+	//En contraposicion de meterReoCelda también está sacarlo de la celda, siguiendo los mismos parametros, revisamos que no sea un bachiller el que este intentando ejecutar la acción.
+	//luego vemos si está o no en una celda el reo
+	//y por último ejecutamos sacarlo o no dependiendo si está en una celda o no
 
 	public void sacarReoCelda(Reo reo) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -131,6 +148,10 @@ public class Guardia implements Persona, Serializable{
 			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de codigo: "+this.codigo+" ha sacado al reo de c�digo: "+reo.getCodigo()+" de su celda"+Tiempo);
 		}
 	}
+	
+	//para meter un reo ana biblioteca miramos si ya está en un patio, se pedirá sacarlo primero de su patio previo de ser así.
+	//si no tiene patio revisamos que la biblioteca que se selecciono de entrada tenga espacio disponible
+	//y lo metemos de ser así, o sacamos un error si no
 	
 	public String meterReoPatio(Reo reo, Biblioteca patio) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -155,6 +176,8 @@ public class Guardia implements Persona, Serializable{
 		}
 	}
 	
+	//es una versión sobre cargada del anterior, este es para gimnasios
+	
 	public String meterReoPatio(Reo reo, Gimnasio patio) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
@@ -178,6 +201,9 @@ public class Guardia implements Persona, Serializable{
 		}
 	}
 	
+	//sacar al reo del patio es la función que tenemos que ejecutar para que un reo se saque de manera adecuada de un patio, siempre tiene que ser vigilado por un guardia
+	
+	
 	public void sacarReoPatio(Reo reo) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
@@ -199,7 +225,11 @@ public class Guardia implements Persona, Serializable{
 	public Prision getPrision() {
 		return prision;
 	}
-
+	
+	//Al igual que con reo, setPrision de guardia meter a un guardia de forma adecuada a una prision, revisando que no tenga ya prisión, o si la tiene
+	//entonces sacarlo de esta de froma adecuada, esto es, removiendolo de la lista de guardias su previa prisión, añadirlo a la lista de la nueva, y asignarle como atributo
+	//la nueva prision que le pasamos de parametro.
+	
 	public void setPrision(Prision prision) {
 		//A�ade al historial
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");

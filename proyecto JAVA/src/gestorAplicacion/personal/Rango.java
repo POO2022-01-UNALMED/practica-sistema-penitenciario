@@ -2,6 +2,8 @@ package gestorAplicacion.personal;
 
 public enum Rango {bachiller("bachiller", 1), carcelero("carcelero", 2), oficial("oficial", 3);	
 	
+	//este enum tiene 2 paramentros, el rango por nombre y el rango por número.
+	
 	private final String rango;
 	private final int rangoNumero;
 	private Rango(String rang, int num) {

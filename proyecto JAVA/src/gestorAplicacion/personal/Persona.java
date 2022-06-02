@@ -1,8 +1,9 @@
-package gestorAplicacion.personal;
+ package gestorAplicacion.personal;
 
 
 import gestorAplicacion.departamentos.Prision;
 
+//Ayuda a extender a Guardia y Reo 
 
 public interface Persona {
 	public String getNombre();

@@ -37,8 +37,8 @@ public class Bus implements Serializable{
 	
 	//////////// se asume que los reos seleccionados pertenecen todos a una misma instancia de prision
 	public String llevarReos(ArrayList<Reo> reos, ArrayList<Guardia> guardias,Prision prisionOriginal, Prision prisionDestino ) {
-//		if (prisionOriginal.getReos().size() == 0 || !(reos.get(0).getPrision().getNombre().equals(prisionOriginal.getNombre()))) {
-		if (prisionOriginal.getReos().size() == 0 || reos.get(0).getPrision() != prisionOriginal) {
+		if (prisionOriginal.getReos().size() == 0 || !(reos.get(0).getPrision().getNombre().equals(prisionOriginal.getNombre()))) {
+//		if (prisionOriginal.getReos().size() == 0 || reos.get(0).getPrision() != prisionOriginal) {
 			return "No hay reos que trasladar en la prisión original o los reos que seleccionó NO pertenecen a la prision original";
 		}
 		else {

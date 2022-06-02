@@ -27,27 +27,27 @@ public class Alcaide {
 		Prision azkaban = Prision.getPrisiones().get(0);
 		Prision orthanac = Prision.getPrisiones().get(1);
 		
-		Reo genner = azkaban.getReos().get(0);
-		Reo andres = azkaban.getReos().get(1);
-		Reo faidher = orthanac.getReos().get(0);
-		Reo alejandro = orthanac.getReos().get(1);
+//		Reo genner = azkaban.getReos().get(0);
+//		Reo andres = azkaban.getReos().get(1);
+//		Reo faidher = orthanac.getReos().get(0);
+//		Reo alejandro = orthanac.getReos().get(1);
 		
-//		Reo genner = Reo.getReosTotales().get(0);
-//		Reo andres = Reo.getReosTotales().get(1);
-//		Reo faidher = Reo.getReosTotales().get(2);
-//		Reo alejandro = Reo.getReosTotales().get(3);
+		Reo genner = Reo.getReosTotales().get(0);
+		Reo andres = Reo.getReosTotales().get(1);
+		Reo faidher = Reo.getReosTotales().get(2);
+		Reo alejandro = Reo.getReosTotales().get(3);
 		
 		System.out.println(azkaban.getGuardias().size());
 		
-		Guardia jaime = azkaban.getGuardias().get(0);
-		Guardia david = azkaban.getGuardias().get(1);
-		Guardia julian = orthanac.getGuardias().get(0);
-		Guardia oswaldo = orthanac.getGuardias().get(1);
+//		Guardia jaime = azkaban.getGuardias().get(0);
+//		Guardia david = azkaban.getGuardias().get(1);
+//		Guardia julian = orthanac.getGuardias().get(0);
+//		Guardia oswaldo = orthanac.getGuardias().get(1);
 		
-//		Guardia jaime = Guardia.getGuardiasTotales().get(0);
-//		Guardia david = Guardia.getGuardiasTotales().get(1);
-//		Guardia julian = Guardia.getGuardiasTotales().get(2);
-//		Guardia oswaldo = Guardia.getGuardiasTotales().get(3);
+		Guardia jaime = Guardia.getGuardiasTotales().get(0);
+		Guardia david = Guardia.getGuardiasTotales().get(1);
+		Guardia julian = Guardia.getGuardiasTotales().get(2);
+		Guardia oswaldo = Guardia.getGuardiasTotales().get(3);
 		
 		ArrayList<Bus> listaBusesAzkaban = azkaban.getBuses();
 		ArrayList<Bus> listaBusesOrthanac = orthanac.getBuses();
@@ -66,7 +66,7 @@ public class Alcaide {
 		ArrayList<Guardia> guardiasFA = new ArrayList<Guardia>();
 		guardiasFA.add(julian);
 		guardiasFA.add(oswaldo);
-		
+		Serializador.serializarTodo();
 		
 		/////////////////////////////PRISIONES POR DEFECTO//////////////////////////////////////
 //		Prision azkaban = new Prision(100, "Inglaterra", "Azkaban");

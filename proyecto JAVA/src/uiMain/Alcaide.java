@@ -59,8 +59,10 @@ public class Alcaide {
 		faidher.setPrision(torreOscura);
 		alejandro.setPrision(torreOscura);
 		
-		azkaban.getBibliotecas().get(0).ingresarReos(genner);
-		azkaban.getGimnasios().get(0).ingresarReos(andres);
+		//azkaban.getBibliotecas().get(0).ingresarReos(genner);
+		//azkaban.getGimnasios().get(0).ingresarReos(andres);
+		jaime.meterReoPatio(andres, azkaban.getGimnasios().get(0));
+		jaime.meterReoPatio(genner, azkaban.getBibliotecas().get(0));
 		
 		ArrayList<Reo> prisionerosFA = new ArrayList<Reo>(); 
 		prisionerosFA.add(alejandro);

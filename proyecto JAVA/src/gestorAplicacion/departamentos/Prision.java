@@ -48,7 +48,7 @@ public class Prision implements Serializable{
 	}
 	
 	public Prision(String nombre ) {
-		this(1000, "Antioquia", nombre);
+		this(100, "Antioquia", nombre);
 		prisiones.add(this);
 		prisionesCreadas++;
 	} 
@@ -93,7 +93,8 @@ public class Prision implements Serializable{
 		
 	}
 	private ArrayList<Biblioteca> generarBibliotecas() {
-		double numbiblio = ceil(this.numReos/1000);
+		float k2 = this.numReos;
+		double numbiblio = ceil(k2/1000);
 		ArrayList<Biblioteca> b = new ArrayList<Biblioteca>();
 		for (int i = 0; i <numbiblio; i++) {
 			int k = i+1;
@@ -109,7 +110,8 @@ public class Prision implements Serializable{
 	}
 	
 	private ArrayList<Gimnasio> generarGims() {
-		double numgim = ceil(this.numReos/200);
+		float k2 = this.numReos;
+		double numgim = ceil(k2/200);
 		ArrayList<Gimnasio> b = new ArrayList<Gimnasio>();
 		for (int i = 0; i <numgim; i++) {
 			int k = i+1;
@@ -126,7 +128,8 @@ public class Prision implements Serializable{
 	}
 	
 	private ArrayList<Celda> generarCeldas() {
-		double numceldas = ceil(this.numReos/2);
+		float k2 = this.numReos;
+		double numceldas = ceil(k2/2);
 		ArrayList<Celda> b = new ArrayList<Celda>();
 		for (int i = 0; i <numceldas; i++) {
 			Celda cel = new Celda(i, this);

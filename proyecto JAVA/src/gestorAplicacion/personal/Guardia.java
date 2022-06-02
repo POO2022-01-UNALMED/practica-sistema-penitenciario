@@ -138,17 +138,17 @@ public class Guardia implements Persona, Serializable{
 		
 		if(reo.getPatio() !=null) {
 			prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de c�digo: "+this.codigo+" ha intentado meter al reo de c�digo: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+", pero este ya est� en un patio"+Tiempo);
-			prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de c�digo: "+this.codigo+" ha intentado meter al reo de c�digo: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+", pero este ya est� en un patio"+Tiempo);
+			prision.addHistorialReos("El reo de codigo: "+reo.getCodigo()+" lo han intentado meter a la biblioteca "+reo.getPatio().getNombre()+" por el "+this.rango.getRango()+" "+this.nombre+" de codigo "+this.codigo+" pero esta está llena"+Tiempo);
 		}
 		else if(patio.getReos().size()+1 <= patio.getCapacidad()){
 				patio.ingresarReos(reo);
 				reo.setPatio(patio);
 				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de c�digo: "+this.codigo+" ha movido al reo de c�digo: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+Tiempo);
-				prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de c�digo: "+this.codigo+" ha movido al reo de c�digo: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+Tiempo);
+				prision.addHistorialReos("El reo de codigo: "+reo.getCodigo()+" lo ha movido a la biblioteca "+reo.getPatio().getNombre()+" por el "+this.rango.getRango()+" "+this.nombre+" de codigo "+this.codigo+Tiempo);
 		}
 		else {
-				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de c�digo: "+this.codigo+" ha intentado mover al reo de c�digo: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+" pero este patio est� lleno"+Tiempo);
-				prision.addHistorialReos("El "+this.rango.getRango()+" "+this.nombre+", de c�digo: "+this.codigo+" ha intentado mover al reo de c�digo: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+" pero este patio est� lleno"+Tiempo);
+				prision.addHistorialGuardias("El "+this.rango.getRango()+" "+this.nombre+", de c�digo: "+this.codigo+" ha intentado mover al reo de codigo: "+reo.getCodigo()+" a la biblioteca: "+reo.getPatio().getNombre()+" pero este patio est� lleno"+Tiempo);
+				prision.addHistorialReos("El reo de codigo: "+reo.getCodigo()+" lo han intentado meter a la biblioteca "+reo.getPatio().getNombre()+" por el "+this.rango.getRango()+" "+this.nombre+" de codigo "+this.codigo+" pero este patio est� lleno"+Tiempo);
 		}
 	}
 	

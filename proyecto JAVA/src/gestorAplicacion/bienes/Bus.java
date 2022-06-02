@@ -11,15 +11,20 @@ import java.util.ArrayList;
 public class Bus implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	public final String placa;
+	private final String placa;
 	private Prision prision;
 	private ArrayList<String> historialBus;
 	private static int busesCreados=0;
 	private static ArrayList<Bus> busesTotales = new ArrayList<Bus>();  
+	private static int numPlaca; 
 	
-	public Bus(String placa, Prision prision) {
-		super();
-		this.placa = placa;
+	public Bus() {
+		this.placa= "KQ"+numPlaca;
+		numPlaca++;
+	}
+	
+	public Bus(Prision prision) {
+		this();
 		this.prision = prision;
 		this.historialBus = new ArrayList<String>();
 		prision.getBuses().add(this);

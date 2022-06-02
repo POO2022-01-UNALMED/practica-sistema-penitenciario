@@ -40,7 +40,15 @@ public class Prision implements Serializable{
 //		Deserializador.deserializar(this);	
 //	}
 	
-	public Prision(String nombre) {
+	public Prision() {
+		this.localizacion="Facultad de Minas";
+		this.numReos = 70;
+		this.nombre = "Clase de POO";
+		prisiones.add(this);
+		prisionesCreadas++;
+	}
+	
+	public Prision(String nombre ) {
 		this(1000, "Antioquia", nombre);
 		prisiones.add(this);
 		prisionesCreadas++;

@@ -1,11 +1,12 @@
 package gestorAplicacion.departamentos;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
 import gestorAplicacion.personal.*;
 import gestorAplicacion.bienes.*;
 
-public abstract class Patio {
+public abstract class Patio implements Serializable{
 
 	private final int CAPACIDAD;
 	private final String nombre;

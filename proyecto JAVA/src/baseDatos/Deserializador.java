@@ -66,6 +66,7 @@ public class Deserializador {
 		Deserializador.deserializador(Bus.getBusesTotales(), "buses");
 		Deserializador.deserializador(Biblioteca.getBibliotecasTotales(), "bibliotecas");
 		Deserializador.deserializador(Gimnasio.getGimnasiosTotales(), "gimnasios");
+		Deserializador.deserializador(Celda.getCeldasTotales(), "celdas");
 	}
 }
 

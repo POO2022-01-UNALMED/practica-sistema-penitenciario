@@ -19,7 +19,7 @@ public class Bus implements Serializable{
 	private static int numPlaca; 
 	
 	/////////Constructores
-	
+	//
 	public Bus() {
 		this.placa= "QHK"+numPlaca;
 		numPlaca++;

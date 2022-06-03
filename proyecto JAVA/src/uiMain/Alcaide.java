@@ -23,26 +23,17 @@ public class Alcaide {
 
 	public static void main(String[] args) {
 		
+		//////////////Deserialización
+		
 		Deserializador.deserializarTodo();
+	
 		Prision azkaban = Prision.getPrisiones().get(0);
 		Prision orthanac = Prision.getPrisiones().get(1);
-		
-//		Reo genner = azkaban.getReos().get(0);
-//		Reo andres = azkaban.getReos().get(1);
-//		Reo faidher = orthanac.getReos().get(0);
-//		Reo alejandro = orthanac.getReos().get(1);
 		
 		Reo genner = Reo.getReosTotales().get(0);
 		Reo andres = Reo.getReosTotales().get(1);
 		Reo faidher = Reo.getReosTotales().get(2);
 		Reo alejandro = Reo.getReosTotales().get(3);
-		
-		System.out.println(azkaban.getGuardias().size());
-		
-//		Guardia jaime = azkaban.getGuardias().get(0);
-//		Guardia david = azkaban.getGuardias().get(1);
-//		Guardia julian = orthanac.getGuardias().get(0);
-//		Guardia oswaldo = orthanac.getGuardias().get(1);
 		
 		Guardia jaime = Guardia.getGuardiasTotales().get(0);
 		Guardia david = Guardia.getGuardiasTotales().get(1);
@@ -53,22 +44,18 @@ public class Alcaide {
 		ArrayList<Bus> listaBusesOrthanac = orthanac.getBuses();
 		
 		ArrayList<Reo> prisionerosFA = new ArrayList<Reo>(); 
-	
 		prisionerosFA.add(alejandro);
 		prisionerosFA.add(faidher);
-		
-		System.out.println(prisionerosFA.get(0).getPrision().getNombre());
-		System.out.println(orthanac.getNombre());
-		
-		System.out.println(orthanac.getReos().size());
-		System.out.println(!(prisionerosFA.get(0).getPrision().getNombre().equals(orthanac.getNombre())));
 		
 		ArrayList<Guardia> guardiasFA = new ArrayList<Guardia>();
 		guardiasFA.add(julian);
 		guardiasFA.add(oswaldo);
-		Serializador.serializarTodo();
 		
-		/////////////////////////////PRISIONES POR DEFECTO//////////////////////////////////////
+		Serializador.serializarTodo(); //// En caso de que el sistema crashee, se guarda la penultima sesión iniciada, ¿ingenioso, no?
+		
+		//////////Como se definieron las instancias originalmente
+		
+//		///////////////////////////PRISIONES POR DEFECTO//////////////////////////////////////
 //		Prision azkaban = new Prision(100, "Inglaterra", "Azkaban");
 //		Prision orthanac = new Prision(50, "Tierra Media", "Orthanc");
 //		
@@ -85,7 +72,7 @@ public class Alcaide {
 //		Guardia oswaldo = new Guardia("Oswaldo", 2004, orthanac, Rango.carcelero);
 //		//Guardia aprendiz = new Guardia("Aprendiz", 2005, orthanac, Rango.bachiller);
 //		
-//		System.out.println(azkaban.getGuardias().size());
+//		//System.out.println(azkaban.getGuardias().size());
 //		
 //		//////////////////////////////LISTADO DE BUSES POR DEFECTO/////////////////////////////////
 //		ArrayList<Bus> listaBusesAzkaban = new ArrayList<Bus>();
@@ -117,27 +104,19 @@ public class Alcaide {
 //		guardiasFA.add(oswaldo);
 //		guardiasFA.add(julian);
 //		
-////		System.out.println(prisionerosFA.size());
-////		System.out.println(!(prisionerosFA.get(0).getPrision().getNombre().equals(azkaban.getNombre())));
-////		System.out.println(Prision.getPrisionesCreadas());
+
 //		Serializador.serializarTodo();
 		
-	
-	
 
-
-
-
-		//Deserializador.deserializarTodo();
 		int opcion;
 		do {
-			System.out.println("Que operación desea realizar?");
+			System.out.println("\nQue operación desea realizar?");
 			System.out.println("1. Movilización reos");
 			System.out.println("2. Ver historial de prision");
 			System.out.println("3. Reducir condena a reo");
 			System.out.println("4. Recrear a reo");
 			System.out.println("5. Poner a trabajar a reo");
-			System.out.println("6. Terminar");
+			System.out.println("6. Salir y guardar\n");
 			opcion = (int) readLong();
 			
 			switch(opcion) {

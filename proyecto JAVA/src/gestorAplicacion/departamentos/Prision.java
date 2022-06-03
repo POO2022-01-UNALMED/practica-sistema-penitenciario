@@ -138,6 +138,7 @@ public class Prision implements Serializable{
 		
 	}
 	
+	//// este metodo privado nos permitira generar las celdas respectivas para la instanca de prision en funcion de numReos
 	private ArrayList<Celda> generarCeldas() {
 		float k2 = this.numReos;
 		double numceldas = ceil(k2/2);
@@ -153,15 +154,17 @@ public class Prision implements Serializable{
 		return b;
 		
 	}
-	
+	/// este metodo nos permite ingresar nuevas instancias de reo en el arraylist reos
 	public void addReos(Reo reo) {
 		this.reos.add(reo);
 	}
 	
+	/// este metodo nos permite ingresar nuevas instancias de guardia en el arraylist guardias
 	public void addGuardias(Guardia guardia) {
 		this.guardias.add(guardia);
 	}
 	
+	/// este metodo nos permite ingresar un nuevo string en el harraylist de historial prision
 	public void addHistoriaPrision(String s) {
 		this.historialPrision+=s;
 	}

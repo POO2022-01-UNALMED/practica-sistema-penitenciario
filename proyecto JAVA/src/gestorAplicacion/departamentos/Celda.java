@@ -32,14 +32,16 @@ public class Celda implements Serializable{
 	
 	/////////metodos
 	
+	
+	/// en este método nosotros ingresamos un reo a una instancia particular de celda existente en la intancia prision, en caso de que se exceda la capacidad maxima de la celda obtendríamos solamente el respectivo aviso
 	public String asignarReo(Reo reo) {
 		if (this.reosPertenecientes.size()+1 <= 2) {
-			DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			this.reosPertenecientes.add(reo);
-			//reo.setCelda(this);
-			String str1 = "Haz anadido al reo con codigo: "+reo.getCodigo()+" cuyo nombre es "+reo.getNombre()+" a la celda numero: "+ this.NUMCELDA;
-			addHistorialCelda(str1+" "+dtf2.format(LocalDateTime.now())+"\n");
-			this.prision.addHistoriaPrision(historialCelda.get(historialCelda.size()-1));
+			//// ingresamos este movimiento al historial de las celdas 
+				DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+				String str1 = "Haz anadido al reo con codigo: "+reo.getCodigo()+" cuyo nombre es "+reo.getNombre()+" a la celda numero: "+ this.NUMCELDA;
+				addHistorialCelda(str1+" "+dtf2.format(LocalDateTime.now())+"\n");
+				this.prision.addHistoriaPrision(historialCelda.get(historialCelda.size()-1));
 			return str1;
 		}
 		else {
@@ -47,23 +49,25 @@ public class Celda implements Serializable{
 			
 		}
 	}
+	
+	//// en este método sacamos a un reo de la celda, en el caso d que el reo pertenezca a la celda, en caso contrario nos retornará un null
 	public Reo sacarReo(Reo reo) {
 		if (this.reosPertenecientes.contains(reo)) {
 			this.reosPertenecientes.remove(this.reosPertenecientes.indexOf(reo));
-			//reo.setCelda(null);
+			
+			/// aca ingresamos este movimiento en el historial de celdas
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			String Tiempo = ". "+dtf.format(LocalDateTime.now())+".";
 			addHistorialCelda("Se ha quitado al reo con c�digo: "+reo.getCodigo()+" de la celda n�mero: "+this.NUMCELDA+Tiempo+"\n");
 			this.prision.addHistoriaPrision(historialCelda.get(historialCelda.size()-1));
 			return reo;
-			
-			
-			
 		}
 		else {
 			return null;
 		}
 	}
+	
+	/// en este metodo conseguimos concatenar todos los estrings ingresados en el array de strings llamado historialcelda, obtenendo asi el historial  
 	public String historialCELDA() {
 		String strfinal = "";
 		for (int i = 0 ; i< this.historialCelda.size(); i++) {

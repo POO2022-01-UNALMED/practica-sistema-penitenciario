@@ -28,20 +28,21 @@ public abstract class Patio implements Serializable{
 		
 	}
 	
-	/////////metodos
+	/////////metodos abstractos (por definicion estos los instanseara las clases hijas)
 	
-public abstract String ingresarReos(Reo reo); //con este metodo se ingresará reos a las clases hijas 
-	
-	public abstract String sacarReos(Reo reo);
+public abstract String ingresarReos(Reo reo); 
+	public abstract String sacarReos(Reo reo); 
 	
 
-	public abstract String ingresarGuardias(Guardia guardia); //con este metodo se ingresará reos a las clases hijas 
+	public abstract String ingresarGuardias(Guardia guardia); 
 	
 	public abstract String sacarGuardias(Guardia guardia);
 	
+	protected abstract String laborarReo(Reo reo, int horas); 
 	
-	protected abstract String laborarReo(Reo reo, int horas); // con este metodo se pondrá hacer labores correspondientes a cada reo para que redutca la pena
+	//// metodo no abstracto 
 	
+	//// este metodo se sobrecargará y permitirá que las instancias de esta clase abstracta puedan registrar sus movimientos
 	public String historialPATIO() {
 		String strfinal = "";
 		for (int i = 0; i < historialPatio.size(); i++) {

@@ -71,6 +71,9 @@ public class Prision implements Serializable{
 	
 	////////////////////// Metodos
 	
+	
+	
+	/////Este metodo nos permitira ingrresar un nuevo string en el arraylist historialReos
 	public void addHistorialReos(String s) {
 		this.historialReos.add(s);
 		int ult = historialReos.size()-1;
@@ -80,6 +83,7 @@ public class Prision implements Serializable{
 		
 	}
 	
+	/////Este metodo nos permitira ingrresar un nuevo string en el arraylist historialGuardias
 	public void addHistorialGuardias(String s) {
 		this.historialGuardias.add(s);
 		int ult = historialGuardias.size()-1;
@@ -87,6 +91,7 @@ public class Prision implements Serializable{
 		this.historialPrision+=stringGuardias;
 	}
 	
+	/////Este metodo nos permitira ingrresar un nuevo string en el arraylist historialTrabajos
 	public void addHistorialTrabajos(String s) {
 		this.historialTrabajos.add(s);
 		int ult = historialTrabajos.size()-1;
@@ -94,6 +99,8 @@ public class Prision implements Serializable{
 		this.historialPrision+=stringTrabajos;
 		
 	}
+	
+	/// en este metodo privado inicializamos todas las bibliotecas posibles en la prision en funcion de numreos
 	private ArrayList<Biblioteca> generarBibliotecas() {
 		float k2 = this.numReos;
 		double numbiblio = ceil(k2/1000);
@@ -111,6 +118,8 @@ public class Prision implements Serializable{
 		
 	}
 	
+	
+	///// este metodo permite inicializar a todos los gimnasios posibles en la prision en funcion del numero de reos
 	private ArrayList<Gimnasio> generarGims() {
 		float k2 = this.numReos;
 		double numgim = ceil(k2/200);

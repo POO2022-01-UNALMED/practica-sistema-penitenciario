@@ -52,7 +52,7 @@ public class Alcaide {
 		guardiasFA.add(oswaldo);
 		
 		Serializador.serializarTodo(); //// En caso de que el sistema crashee, se guarda la penultima sesión iniciada, ¿ingenioso, no?
-		
+//		
 		//////////Como se definieron las instancias originalmente
 		
 //		///////////////////////////PRISIONES POR DEFECTO//////////////////////////////////////
@@ -103,7 +103,7 @@ public class Alcaide {
 //		//guardiasFA.add(aprendiz);
 //		guardiasFA.add(oswaldo);
 //		guardiasFA.add(julian);
-//		
+		
 
 //		Serializador.serializarTodo();
 		

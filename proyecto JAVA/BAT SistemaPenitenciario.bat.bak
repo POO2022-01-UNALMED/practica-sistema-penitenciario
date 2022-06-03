@@ -1,0 +1,3 @@
+java -jar JAR SistemaPenitenciario.jar
+@echo off
+pause
